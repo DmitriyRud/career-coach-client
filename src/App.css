@@ -62,5 +62,13 @@ body {
 
 .content {
   height: 80vh;
+  weight: 100vw;
     background: url('../public/img/job_effect_1522699664.jpg') no-repeat;
+    margin-top: 1em;
+}
+
+footer {
+  margin-top: 1em;
+  background-color: #001529 !important;
+  color: #fff !important;
 }
