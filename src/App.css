@@ -1,5 +1,5 @@
 body {
-  background: url('../public/img/job_effect_1522699664.jpg') no-repeat;
+
   background-size: 100vw;
   
 }
@@ -41,4 +41,26 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+#components-layout-demo-top .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+.ant-row-rtl #components-layout-demo-top .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.content {
+  height: 80vh;
+    background: url('../public/img/job_effect_1522699664.jpg') no-repeat;
 }
