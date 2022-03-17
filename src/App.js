@@ -1,6 +1,9 @@
 import './App.css';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import 'antd/dist/antd.css'; 
+import { Routes, Route, Link } from 'react-router-dom';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 const { Header, Content, Footer } = Layout;
 // import { Routes, Route } from 'react-router-dom';
@@ -10,18 +13,22 @@ function App() {
   return (
     <div className="App">
       <Layout className="layout">
-        <Header>
-          <div className="logo" />
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            {new Array(15).fill(null).map((_, index) => {
-              const key = index + 1;
-              return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
-            })}
+        <Header className="header">
+          <div className="logo"></div>
+          <Menu theme="dark" mode="horizontal">
+            <Menu.Item key='1'><Link to='/'>Главная</Link></Menu.Item>
+            <Menu.Item key='2'><Link to='/login'>Войти</Link></Menu.Item>
+            <Menu.Item key='3'><Link to='/register'>Зарегистрироваться</Link></Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
-    
-          <div className="site-layout-content content">Content</div>
+          <div className="site-layout-content content">
+          <Routes>
+            {/* <Route path="/" element={<Main />} />             */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+          </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
       </Layout>

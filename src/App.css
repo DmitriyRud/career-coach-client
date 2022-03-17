@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 body {
 
   background-size: 100vw;
@@ -8,10 +10,6 @@ body {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -55,10 +53,12 @@ body {
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.3);
 }
+
 .ant-row-rtl #components-layout-demo-top .logo {
   float: right;
   margin: 16px 0 16px 24px;
 }
+
 
 .content {
   height: 80vh;
