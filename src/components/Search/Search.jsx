@@ -11,6 +11,7 @@ import {
   InputNumber,
   TreeSelect,
   Switch,
+  Slider,
 } from 'antd';
 import { useSelector } from 'react-redux';
 
@@ -35,13 +36,27 @@ const Search = () => {
       <Form.Item label="Профессия">
         <Input />
       </Form.Item>
-
-      <Form.Item label="Анализировать">
-        <Form.Item name="input-number" noStyle>
+      <div className="search-line">
+      <Form.Item label="Проверить" className='fullwidth flex-row'>
+        <Form.Item name="input-number" noStyle >
           <InputNumber min={1} max={10000} />
         </Form.Item>
         <span className="ant-form-text"> вакансий</span>
       </Form.Item>
+
+      <Form.Item name="slider" label="Период">
+        <Slider
+          marks={{
+            1: 'День',
+            2: 'Месяц',
+            3: '3 мес.',
+            4: '6 мес.',
+            5: 'Год',
+          }}
+        />
+      </Form.Item>
+      
+      </div>
 
       <Form.Item label="Select">
         <Select>
