@@ -7,7 +7,8 @@ import Register from './components/Register/Register';
 import Search from './components/Search/Search';
 import Main from './components/Main';
 import { useSelector } from "react-redux";
-import UserSkills from './components/UserSkills/';
+// import UserSkills from './components/UserSkills/';
+import UserSkills from './components/UserSkills/UserSkills';
 
 const { Header, Content, Footer } = Layout;
 // import { Routes, Route } from 'react-router-dom';
@@ -38,6 +39,7 @@ function App() {
             <Route path="/" element={<Main />} />            
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
+            <Route path="/profile" element={<UserSkills />} />
             <Route path="/search" element={<Search />} />
           </Routes>
           </div>

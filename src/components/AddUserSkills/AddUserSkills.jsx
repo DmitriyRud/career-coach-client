@@ -20,6 +20,8 @@ const AddUserSkills = () => {
   };
   
   return (
+    <>
+    <h1>Введите навыки:</h1>
     <Form
       name="basic"
       labelCol={{ span: 8 }}
@@ -27,15 +29,16 @@ const AddUserSkills = () => {
       initialValues={{ remember: true }}
       autoComplete="off"
     >
-      <Form.Item label="Skills" name="skills">
+      <Form.Item wrapperCol={{ offset: 5, span: 15 }} name="skills">
         <Input value={input} onChange={inputHandler} />
       </Form.Item>
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+      <Form.Item wrapperCol={{ offset: 5, span: 15 }}>
         <Button onClick={submitHandler} type="primary" htmlType="submit">
           Submit
         </Button>
       </Form.Item>
     </Form>
+      </>
   );
 };
 
