@@ -1,4 +1,4 @@
-import { loginUser } from '../actions/usersAction';
+import { editProfile, loginUser } from '../actions/usersAction';
 import { useNavigate } from "react-router-dom";
 
 const axios = require('axios');
@@ -40,3 +40,21 @@ export const registerUserAC = (data) => {
     }
   };
 };
+
+export const editProfileAC = (data) => {
+  return async (dispatch) => {
+    const response = await fetch(`http://localhost:3001/users/profile`, { 
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      const result = await response.json();
+      console.log(result);
+      dispatch(editProfile(result));
+    }
+  };
+};
+

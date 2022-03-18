@@ -8,6 +8,9 @@ import Search from './components/Search/Search';
 import Main from './components/Main';
 import Profile from './components/profile/Profile';
 import { useSelector } from "react-redux";
+import EditName from './components/profile/EditName';
+import EditEmail from './components/profile/EditEmail';
+import EditPassword from './components/profile/EditPassword';
 const { Content, Header, Footer } = Layout;
 
 
@@ -39,6 +42,9 @@ function App() {
             <Route path="/signup" element={<Register />} />
             <Route path="/search" element={<Search />} />
             <Route path='/profile' element={<Profile/>} />
+            <Route path='/profile/edit/:name' element={<EditName/>} />
+            <Route path='/profile/edit/email' element={<EditEmail/>} />
+            <Route path='/profile/edit/password' element={<EditPassword/>} /> 
           </Routes>
           </div>
         </Content>
