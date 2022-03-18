@@ -2,6 +2,9 @@ import './Register.css';
 import React from 'react';
 import { Form, Input, Button } from 'antd';
 import sha256 from 'sha256';
+import {registerUserAC} from '../../redux/thunk/usersAC'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 const layout = {
   labelCol: {
@@ -20,11 +23,15 @@ const validateMessages = {
 };
 
 const Register = () => {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
 
     const onFinish = (values) => {
     values.password = sha256(values.password);
     values.confirm = values.password;
-    console.log('Success:', values);
+    //console.log('Success:', values);
+    dispatch(registerUserAC(values));
+    navigate("/");
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -38,7 +45,7 @@ const Register = () => {
       <div className="register-display">
          <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
       <Form.Item
-        name={['user', 'name']}
+        name="name"
         label="Username"
         rules={[
           {
@@ -49,7 +56,7 @@ const Register = () => {
         <Input />
       </Form.Item>
       <Form.Item
-        name={['user', 'email']}
+        name="email"
         label="Email"
         rules={[
           {

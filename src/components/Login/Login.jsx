@@ -1,12 +1,19 @@
 import './Login.css';
 import { Form, Input, Button } from 'antd';
 import sha256 from 'sha256';
+import { useDispatch } from 'react-redux';
+import { loginUserAC } from '../../redux/thunk/usersAC';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const onFinish = (values) => {
     values.password = sha256(values.password);
-    console.log('Success:', values);
+    //console.log('Success:', values);
+    dispatch(loginUserAC(values));
+    navigate("/");
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -16,6 +23,7 @@ const Login = () => {
   return ( 
     <div className="login-window">
       <div className="login-display">
+        <div className="message"><p>&nbsp;</p></div>
         <Form
           name="basic"
           labelCol={{
@@ -33,7 +41,7 @@ const Login = () => {
         >
           <Form.Item
             label="Username"
-            name="username"
+            name="name"
             rules={[
               {
                 required: true,
