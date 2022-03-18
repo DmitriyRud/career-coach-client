@@ -5,10 +5,12 @@ import AddUserSkills from "../AddUserSkills/";
 
 const MySkillsList = () => {
   const skills = useSelector((store) => store.userSkills);
-  console.log(skills);
+  const users = useSelector((store) => store.users)
+  console.log(users);
 
   return (
     <div>
+       <h1>Ваши навыки:</h1>
       {skills?.map((skill, i) => (
         <Skills key={i + 1} skill={skill} />
       ))}
