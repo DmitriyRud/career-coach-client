@@ -24,4 +24,25 @@
   border: 1px solid red;
 }
 
+.search-line {
+  display: flex;
+  width: 100%;
+}
 
+.search-line>div {
+  width: 50%;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.flex-col{
+  display:flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+}
