@@ -1,0 +1,12 @@
+.register-window {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.register-display {
+  background-color: white;
+  border: 1px solid grey;
+  padding: 3em 2em 1em;
+  width: 60%;
+}
