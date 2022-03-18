@@ -1,1 +1,5 @@
 @import '~antd/dist/antd.css';
+
+.result-column-left {
+  width: 100%;
+}

@@ -12,6 +12,7 @@ import { checkUserAC } from './redux/thunk/usersAC';
 import Logout from './components/Logout';
 // import UserSkills from './components/UserSkills/';
 import UserSkills from './components/UserSkills/UserSkills';
+import Result from './components/Result/Result';
 
 const { Header, Content, Footer } = Layout;
 // import { Routes, Route } from 'react-router-dom';
@@ -48,6 +49,9 @@ function App() {
             <Route path="/profile" element={<UserSkills />} />
             <Route path="/search" element={<Search />} />
             <Route path="/logout" element={<Logout />} />
+            {/* тестовый рут для result */}
+            <Route path="/result" element={<Result />} />
+            {/* конец тестового рута */}
           </Routes>
           </div>
         </Content>
