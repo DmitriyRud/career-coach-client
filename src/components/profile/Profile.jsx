@@ -26,7 +26,7 @@ const Profile = () => {
   return (
     <>
     <Button type="primary" danger size='large'>
-      <Link to="/skills">Добавь навыки</Link>
+      <Link to="/profile/skills">Добавь навыки</Link>
     </Button>
     <Title level={3} style={{margin: "3%"}}>Мой профиль</Title>
      <div className='profile-container'>

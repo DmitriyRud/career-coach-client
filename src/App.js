@@ -11,16 +11,22 @@ import { useSelector } from "react-redux";
 import EditName from './components/profile/EditName';
 import EditEmail from './components/profile/EditEmail';
 import EditPassword from './components/profile/EditPassword';
+import { useDispatch } from 'react-redux';
+import { checkUserAC } from './redux/thunk/usersAC';
+import Logout from './components/Logout';
+// import UserSkills from './components/UserSkills/';
+import UserSkills from './components/UserSkills/UserSkills';
+
 const { Content, Header, Footer } = Layout;
-
-
 
 function App() {
     const store = useSelector((store) => store.users);
+    const dispatch = useDispatch();
+
     //console.log('store = ', store);
-    // if (store.name){
-    //   console.log('User: ', store.name);
-    // }
+    if (!store.name){
+      dispatch(checkUserAC());
+    }
 
   return (
     <div className="App">
@@ -32,6 +38,7 @@ function App() {
             {!store.name && <Menu.Item key='2'><Link to='/signin'>Войти</Link></Menu.Item>}
             {!store.name && <Menu.Item key='3'><Link to='/signup'>Зарегистрироваться</Link></Menu.Item>}
             {store.name && <Menu.Item key='4'><Link to='/profile'>{store.name}</Link></Menu.Item>}
+            {store.name && <Menu.Item key='5'><Link to='/logout'>Выйти</Link></Menu.Item>}
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
@@ -40,11 +47,13 @@ function App() {
             <Route path="/" element={<Main />} />            
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
+            <Route path="/profile/skills" element={<UserSkills />} />
             <Route path="/search" element={<Search />} />
             <Route path='/profile' element={<Profile/>} />
             <Route path='/profile/edit/:name' element={<EditName/>} />
             <Route path='/profile/edit/email' element={<EditEmail/>} />
             <Route path='/profile/edit/password' element={<EditPassword/>} /> 
+            <Route path="/logout" element={<Logout />} />
           </Routes>
           </div>
         </Content>
