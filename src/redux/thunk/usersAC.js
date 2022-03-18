@@ -52,9 +52,20 @@ export const editProfileAC = (data) => {
     });
     if (response.ok) {
       const result = await response.json();
-      console.log(result);
       dispatch(editProfile(result));
     }
+  };
+};
+
+export const uploadAvatarAC = (file, id) => {
+  return async (dispatch) => {
+    const data = new FormData();
+    data.append('file', file);
+    data.append('id', id)
+   const response = await axios.put('http://localhost:3001/users/profile', data)
+   console.log('response', response)
+      dispatch(editProfile(response.data));
+    
   };
 };
 

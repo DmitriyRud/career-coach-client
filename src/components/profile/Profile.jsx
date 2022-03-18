@@ -1,19 +1,14 @@
-import { List, Typography, Divider, Button, Tooltip} from 'antd';
+import { Typography, Button, Tooltip} from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 import './profile.css'
 import Avatarka from './Avatar';
 import { useDispatch, useSelector } from 'react-redux'; 
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const { Title } = Typography;
 
 const Profile = () => {
-
-  //const user = useSelector(store => store.reducer1);
-  // const dispatch = useDispatch();
-
-  // const [user, setUser] = useState(null);
 
   const navigate = useNavigate();
 
@@ -28,12 +23,11 @@ const Profile = () => {
     else navigate(`/profile/edit/password`)
   }
  
-
-
-
-
   return (
     <>
+    <Button type="primary" danger size='large'>
+      <Link to="/skills">Добавь навыки</Link>
+    </Button>
     <Title level={3} style={{margin: "3%"}}>Мой профиль</Title>
      <div className='profile-container'>
     <Avatarka/>
@@ -49,7 +43,7 @@ const Profile = () => {
       <Button onClick={editHandler} type="primary" shape="circle" icon={<EditOutlined />} />
     </Tooltip></span></li>
     </ul>
-    </div>
+    </div>    
   </>
   );
 }
