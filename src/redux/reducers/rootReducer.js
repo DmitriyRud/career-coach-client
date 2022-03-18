@@ -1,5 +1,8 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
+import userSkillsReducer from "./userSkillsReducer";
 
-const rootReducer = combineReducers({ /*reducers slice*/ });
+const rootReducer = combineReducers({
+  userSkills: userSkillsReducer,
+});
 
 export default rootReducer;

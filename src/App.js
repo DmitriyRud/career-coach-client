@@ -1,6 +1,7 @@
 import './App.css';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import 'antd/dist/antd.css'; 
+import UserSkills from './components/UserSkills/';
 
 const { Header, Content, Footer } = Layout;
 // import { Routes, Route } from 'react-router-dom';
@@ -20,8 +21,8 @@ function App() {
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
-    
           <div className="site-layout-content content">Content</div>
+          <UserSkills/>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
       </Layout>
