@@ -50,7 +50,7 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/logout" element={<Logout />} />
             {/* тестовый рут для result */}
-            <Route path="/result" element={<Result />} />
+            <Route path="/result" element={<Result result_id={1}/>} />
             {/* конец тестового рута */}
           </Routes>
           </div>
