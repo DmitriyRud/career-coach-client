@@ -5,6 +5,7 @@ import AddUserSkills from "../AddUserSkills/";
 
 const MySkillsList = () => {
   const skills = useSelector((store) => store.userSkills);
+  console.log(skills);
 
   return (
     <div>

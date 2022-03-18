@@ -9,7 +9,7 @@ const Skills = ({skill}) => {
   // console.log(skill);
   return (
     <div>
-      <Card style={{  width: 300 }}>
+      <Card style={{ background:'#5cdbd3' , width: 300 }}>
       <span>{skill}</span>
     </Card>
     </div>
