@@ -1,0 +1,17 @@
+.login-window {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.login-display {
+  background-color: white;
+  border: 1px solid grey;
+  padding: 3em 2em 1em;
+  width: 60%;
+}
+
+.message {
+  color: red;
+  margin-bottom: 10px;
+}
