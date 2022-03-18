@@ -12,8 +12,13 @@ import {
   TreeSelect,
   Switch,
 } from 'antd';
+import { useSelector } from 'react-redux';
 
 const Search = () => {
+  const store = useSelector((store) => store.users);
+  
+
+  if (store.name) {
   return ( 
     <div className="search-page">
       <div className="filters-page">
@@ -96,6 +101,8 @@ const Search = () => {
       
     </div>
    );
-}
+} else {
+  return (<></>);
+}}
  
 export default Search;

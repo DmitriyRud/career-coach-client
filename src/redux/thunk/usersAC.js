@@ -33,10 +33,30 @@ export const loginUserAC = (data) => {
 export const registerUserAC = (data) => {
   return async (dispatch) => {
     const response = await fetch('/auth/signup', { method:'POST', headers:{'Content-type': 'application/json'}, body: JSON.stringify(data)});
-    if (response) {
+    if (response.ok) {
       const result = await response.json();
       //console.log(result);
       dispatch(loginUser(result));
     }
   };
 };
+
+export const checkUserAC = () => {
+  return async (dispatch) => {
+    const response = await fetch('/auth/checkiflogged', { method:'GET'});
+    if (response.ok) {
+      const result = await response.json();
+      console.log('Already logged: ',result);
+      dispatch(loginUser(result));
+    }    
+  }
+}
+
+export const logoutUserAC = () => {
+  return async (dispatch) => {
+    const response = await fetch('/auth/signout', { method:'GET'});
+    if (response.ok) {
+      dispatch(loginUser({}));
+    }    
+  }
+}

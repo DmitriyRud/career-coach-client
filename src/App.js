@@ -7,6 +7,9 @@ import Register from './components/Register/Register';
 import Search from './components/Search/Search';
 import Main from './components/Main';
 import { useSelector } from "react-redux";
+import { useDispatch } from 'react-redux';
+import { checkUserAC } from './redux/thunk/usersAC';
+import Logout from './components/Logout';
 
 const { Header, Content, Footer } = Layout;
 // import { Routes, Route } from 'react-router-dom';
@@ -14,10 +17,12 @@ const { Header, Content, Footer } = Layout;
 
 function App() {
     const store = useSelector((store) => store.users);
+    const dispatch = useDispatch();
+
     //console.log('store = ', store);
-    // if (store.name){
-    //   console.log('User: ', store.name);
-    // }
+    if (!store.name){
+      dispatch(checkUserAC());
+    }
 
   return (
     <div className="App">
@@ -29,6 +34,7 @@ function App() {
             {!store.name && <Menu.Item key='2'><Link to='/signin'>Войти</Link></Menu.Item>}
             {!store.name && <Menu.Item key='3'><Link to='/signup'>Зарегистрироваться</Link></Menu.Item>}
             {store.name && <Menu.Item key='4'><Link to='/profile'>{store.name}</Link></Menu.Item>}
+            {store.name && <Menu.Item key='5'><Link to='/logout'>Выйти</Link></Menu.Item>}
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
@@ -38,6 +44,7 @@ function App() {
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/logout" element={<Logout />} />
           </Routes>
           </div>
         </Content>
