@@ -6,23 +6,12 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import './Result.css'
+import { Button, Tooltip } from 'antd';
+import { FormOutlined, CarryOutOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons';
 
 const { Text } = Typography; // Link для ссылки добавить
-// заглушка ответа от БД по конткретному результату
-const response = {
-  search_string: 'Junior JavaScript',
-  count_vacancy: 400,
-  period: 86400, // в секундах, Дима знает как положить их правильно
-  city: 'Москва',
-  salary: null,
-  createdAt: '2022-03-17 19:09:36.420 +0300',
-}
-
-// заглушка ответа БД для отчета
-// const report = [['React', 132], ['JavaScript', 456], ['Redux', 97], ['GIT', 247]]
 
 const Result = ({ result_id }) => {
-  // console.log(result_id);
   const dispatch = useDispatch();
   const result = useSelector((state) => state.result.result)
   const report = useSelector((state) => state.result.report)
@@ -49,7 +38,6 @@ const Result = ({ result_id }) => {
               {result.search_string}
             </Text>
             </div>
-            {/* <hr style={{borderColor: 'black'}}/> */}
             <div style={{padding: '10px'}}>
             <Text >
               <Text strong>Вакансий:</Text> {result.count_vacancy} <br />
@@ -72,7 +60,50 @@ const Result = ({ result_id }) => {
           </Text>
           </div>
           <div style={{padding: '10px'}}>
-          {report.map((el) => <Text key={el[0]}><Text strong>{`${el[0]}`}</Text> {el[1]} <br /></Text>)}
+          {report.map((el) => {
+            return (<Text key={el[0]}>
+                      <Text strong>
+                        {`${el[0]} `}
+                      </Text>
+                      {el[1]}
+                      &nbsp; &nbsp; 
+                      <Tooltip title="add WhiteList">
+                        <Button 
+                          // type="ghost" 
+                          type="text" 
+                          shape="circle" 
+                          icon={<PlusOutlined />} 
+                          size='small' />
+                      </Tooltip>
+                      &nbsp; 
+                      <Tooltip title="add BlackList">
+                        <Button 
+                          // type="ghost" 
+                          type="text" 
+                          shape="circle" 
+                          icon={<MinusOutlined />} 
+                          size='small' />
+                      </Tooltip>
+                      &nbsp; 
+                      <Tooltip title="add MySkills">
+                        <Button 
+                          // type="ghost" 
+                          type="text"
+                          shape="circle" 
+                          icon={<FormOutlined />} 
+                          size='small' />
+                      </Tooltip>
+                      &nbsp; 
+                      <Tooltip title="add MyPlans">
+                        <Button 
+                          // type="ghost" 
+                          type="text" 
+                          shape="circle" 
+                          icon={<CarryOutOutlined />} 
+                          size='small' />
+                      </Tooltip>
+                      <br />
+                    </Text>)})}
           </div>
         </div>
       </Col>
