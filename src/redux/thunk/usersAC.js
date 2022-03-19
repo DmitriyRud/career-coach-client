@@ -1,7 +1,5 @@
 import { loginUser } from "../actions/usersAction";
-import { useNavigate } from "react-router-dom";
 
-const axios = require("axios");
 
 export const loginUserAC = (data) => {
   return async (dispatch) => {
