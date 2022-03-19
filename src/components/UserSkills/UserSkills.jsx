@@ -9,13 +9,13 @@ const UserSkills = () => {
   return (
     <div>
       <Row >
-        <Col span={8}>
+        <Col className="col" span={8}>
           <AddUserSkills />
         </Col>
-        <Col span={8}>
+        <Col className="col" span={8}>
           <MySkillsList/>
         </Col>
-        <Col span={8}>
+        <Col className="col" span={8}>
           <SkillsStudy/>
         </Col>
       </Row>
