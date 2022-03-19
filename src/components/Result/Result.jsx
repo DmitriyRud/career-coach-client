@@ -5,7 +5,8 @@ import { Typography, Space } from 'antd';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import './Result.css'
+import './Result.css';
+import { Link } from "react-router-dom";
 import { Button, Tooltip } from 'antd';
 import { FormOutlined, CarryOutOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons';
 import { addSkillWhiteList, addSkillBlackList, addUserSkill, addMyPlans } from "../../redux/thunk/resultAT";
@@ -55,7 +56,7 @@ const Result = ({ result_id }) => {
               {result.search_string}
             </Text>
             </div>
-            <div style={{padding: '10px'}}>
+            <div className="column-middle">
             <Text >
               <Text strong>Вакансий:</Text> {result.count_vacancy} <br />
               <Text strong>Период дней:</Text> {result.period / 86400} <br />
@@ -64,7 +65,11 @@ const Result = ({ result_id }) => {
               <Text strong>Зарплата:</Text> {result.salary || '---'} <br />
               <Text strong>Дата запроса:</Text> {result.createdAt?.slice(0, 10)} <br />
             </Text>
-
+            <Link to={`/recomendation/${result_id}`}>
+              <Button type="primary">
+                Рекомендации
+              </Button>
+            </Link>
             </div>
           </Space>
         </div>
