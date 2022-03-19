@@ -1,6 +1,5 @@
 import { editProfile, loginUser } from '../actions/usersAction';
-import { useNavigate } from "react-router-dom";
-
+import axios from 'axios';
 
 export const loginUserAC = (data) => {
   return async (dispatch) => {
@@ -45,7 +44,7 @@ export const registerUserAC = (data) => {
 
 export const editProfileAC = (data) => {
   return async (dispatch) => {
-    const response = await fetch(`http://localhost:3001/users/profile`, { 
+    const response = await fetch(`/users/profile`, { 
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +63,7 @@ export const uploadAvatarAC = (file, id) => {
     const data = new FormData();
     data.append('file', file);
     data.append('id', id)
-   const response = await axios.put('http://localhost:3001/users/profile', data)
+   const response = await axios.put('/users/profile', data)
    console.log('response', response)
       dispatch(editProfile(response.data));
     

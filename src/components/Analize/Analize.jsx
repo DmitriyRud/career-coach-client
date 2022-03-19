@@ -6,11 +6,11 @@ import { analizeAC } from '../../redux/thunk/apiAC';
 const Analize = () => {
   const dispatch = useDispatch();
   const data = {
-    title: 'testVacancy',
-    amount: 10,
-    days: 30,
+    title: 'JavaScript',
+    amount: 2,
+    days: 10,
     city: 'Москва',
-    salary: '100000',
+    salary: 100000,
   };
 
   useEffect(()=>{
