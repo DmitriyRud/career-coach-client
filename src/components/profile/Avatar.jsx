@@ -25,13 +25,13 @@ const Avatarka = () => {
   }
 
   return ( 
-    <div class="card-avatar">
+    <div className="card-avatar">
      {
        user.avatar 
        ? <img src={`${user.avatar}`} alt="avatar"/>
        : <img src="img/avatar.png" alt="avatar"/>
      }
-  <div class="avatar-container">
+  <div className="avatar-container">
     <input type="file" onChange={(e => setImage(e.target.files[0]))}/>
   <Button onClick={uploadHandler}type="primary" shape="round" icon={<DownloadOutlined />} size='middle'>
           Download
