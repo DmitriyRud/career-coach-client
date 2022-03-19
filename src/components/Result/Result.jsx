@@ -41,12 +41,12 @@ const Result = ({ result_id }) => {
   }
 
   return ( 
-    <div className="result-container">
-      <Row>
-      <Col span={6} style={{borderRight: '2px solid black'}}>
-        <div style={{backgroundColor: 'green'}}>
+    <div >
+      <Row className="result-container">
+      <Col span={6} className='col col-left'>
+        <div>
           <Space className="result-column-left" direction="vertical">
-            <div style={{padding: '10px', borderBottom: '2px solid black', height: '5em'}}>
+            <div className="column" >
             <Text strong>
               Запрос: 
             </Text>
@@ -69,9 +69,9 @@ const Result = ({ result_id }) => {
           </Space>
         </div>
       </Col>
-      <Col span={10}>
-        <div style={{backgroundColor: 'red'}}>
-        <div style={{padding: '10px', borderBottom: '2px solid black', height: '5em'}}>
+      <Col span={10} className='col'>
+        <div>
+        <div  className="column">
           <Text strong>
             Рейтинг навыков: 
           </Text>
