@@ -5,3 +5,11 @@ export const loginUser = (data) => {
   };
 };
 
+export const editProfile = (data) => {
+  return {
+    type: 'EDIT_PROFILE',
+    payload: data,
+  };
+};
+
+

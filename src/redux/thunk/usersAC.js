@@ -1,4 +1,5 @@
-import { loginUser } from "../actions/usersAction";
+import { editProfile, loginUser } from '../actions/usersAction';
+import { useNavigate } from "react-router-dom";
 
 
 export const loginUserAC = (data) => {
@@ -39,6 +40,34 @@ export const registerUserAC = (data) => {
       //console.log(result);
       dispatch(loginUser(result));
     }
+  };
+};
+
+export const editProfileAC = (data) => {
+  return async (dispatch) => {
+    const response = await fetch(`http://localhost:3001/users/profile`, { 
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      const result = await response.json();
+      dispatch(editProfile(result));
+    }
+  };
+};
+
+export const uploadAvatarAC = (file, id) => {
+  return async (dispatch) => {
+    const data = new FormData();
+    data.append('file', file);
+    data.append('id', id)
+   const response = await axios.put('http://localhost:3001/users/profile', data)
+   console.log('response', response)
+      dispatch(editProfile(response.data));
+    
   };
 };
 
