@@ -29,7 +29,6 @@ const Register = () => {
     const onFinish = (values) => {
     values.password = sha256(values.password);
     values.confirm = values.password;
-    //console.log('Success:', values);
     dispatch(registerUserAC(values));
     navigate("/");
   };

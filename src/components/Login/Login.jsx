@@ -11,7 +11,6 @@ const Login = () => {
 
   const onFinish = (values) => {
     values.password = sha256(values.password);
-    //console.log('Success:', values);
     dispatch(loginUserAC(values));
     navigate("/");
   };
