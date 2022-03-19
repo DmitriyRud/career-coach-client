@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import './Result.css'
 import { Button, Tooltip } from 'antd';
 import { FormOutlined, CarryOutOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons';
+import { addSkillWhiteList, addSkillBlackList, addUserSkill, addMyPlans } from "../../redux/thunk/resultAT";
 
 const { Text } = Typography; // Link для ссылки добавить
 
@@ -22,6 +23,22 @@ const Result = ({ result_id }) => {
     dispatch(getReportAT(result_id));
   }, [])
 
+  const onClickWhite = (skill) => {
+    // console.log(skill);
+    dispatch(addSkillWhiteList(skill))
+  }
+  const onClickBlack = (skill) => {
+    // console.log(skill);
+    dispatch(addSkillBlackList(skill))
+  }
+  const onClickUserSkill = (skill) => {
+    // console.log(skill);
+    dispatch(addUserSkill(skill))
+  }
+  const onClickMyPlans = (skill) => {
+    // console.log(skill);
+    dispatch(addMyPlans(skill))
+  }
 
   return ( 
     <div>
@@ -73,7 +90,8 @@ const Result = ({ result_id }) => {
                           type="text" 
                           shape="circle" 
                           icon={<PlusOutlined />} 
-                          size='small' />
+                          size='small'
+                          onClick={() => onClickWhite(el[0])} />
                       </Tooltip>
                       &nbsp; 
                       <Tooltip title="add BlackList">
@@ -82,7 +100,8 @@ const Result = ({ result_id }) => {
                           type="text" 
                           shape="circle" 
                           icon={<MinusOutlined />} 
-                          size='small' />
+                          size='small'
+                          onClick={() => onClickBlack(el[0])} />
                       </Tooltip>
                       &nbsp; 
                       <Tooltip title="add MySkills">
@@ -91,7 +110,8 @@ const Result = ({ result_id }) => {
                           type="text"
                           shape="circle" 
                           icon={<FormOutlined />} 
-                          size='small' />
+                          size='small'
+                          onClick={() => onClickUserSkill(el[0])} />
                       </Tooltip>
                       &nbsp; 
                       <Tooltip title="add MyPlans">
@@ -100,7 +120,8 @@ const Result = ({ result_id }) => {
                           type="text" 
                           shape="circle" 
                           icon={<CarryOutOutlined />} 
-                          size='small' />
+                          size='small'
+                          onClick={() => onClickMyPlans(el[0])} />
                       </Tooltip>
                       <br />
                     </Text>)})}

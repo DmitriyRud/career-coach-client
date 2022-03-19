@@ -26,3 +26,56 @@ export const getReportAT = (data) => {
     }
   }
 }
+
+
+export const addSkillWhiteList = (skill) => {
+  return async (dispatch) => {
+    console.log('SKILL WhList >>', skill);
+    const response = await fetch(`/helper/whitelist`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({skill}),
+    })
+  }
+}
+
+export const addSkillBlackList = (skill) => {
+  return async (dispatch) => {
+    console.log('SKILL BlList >>', skill);
+    const response = await fetch(`/helper/blacklist`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({skill}),
+    })
+  }
+}
+
+export const addUserSkill = (skill) => {
+  return async (dispatch) => {
+    console.log('SKILL addUserSkill >>', skill);
+    const response = await fetch(`/helper/userskill`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({skill}),
+    })
+  }
+}
+
+export const addMyPlans = (skill) => {
+  return async (dispatch) => {
+    console.log('SKILL addMyPlans >>', skill);
+    const response = await fetch(`/helper/userplans`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({skill}),
+    })
+  }
+}
