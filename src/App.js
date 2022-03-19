@@ -6,16 +6,19 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Search from './components/Search/Search';
 import Main from './components/Main';
+import Profile from './components/profile/Profile';
 import { useSelector } from "react-redux";
+import EditName from './components/profile/EditName';
+import EditEmail from './components/profile/EditEmail';
+import EditPassword from './components/profile/EditPassword';
 import { useDispatch } from 'react-redux';
 import { checkUserAC } from './redux/thunk/usersAC';
 import Logout from './components/Logout';
 // import UserSkills from './components/UserSkills/';
 import UserSkills from './components/UserSkills/UserSkills';
+import Analize from './components/Analize/Analize';
 
-const { Header, Content, Footer } = Layout;
-// import { Routes, Route } from 'react-router-dom';
-
+const { Content, Header, Footer } = Layout;
 
 function App() {
     const store = useSelector((store) => store.users);
@@ -45,9 +48,16 @@ function App() {
             <Route path="/" element={<Main />} />            
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
+
             <Route path="/users/profile/skills" element={<UserSkills />} />
+
             <Route path="/search" element={<Search />} />
+            <Route path='/profile' element={<Profile/>} />
+            <Route path='/profile/edit/:name' element={<EditName/>} />
+            <Route path='/profile/edit/email' element={<EditEmail/>} />
+            <Route path='/profile/edit/password' element={<EditPassword/>} /> 
             <Route path="/logout" element={<Logout />} />
+            <Route path="/api" element={<Analize />} />
           </Routes>
           </div>
         </Content>

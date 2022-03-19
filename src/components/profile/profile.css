@@ -1,0 +1,49 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 3%;
+}
+
+.list-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 70%
+}
+
+.card-avatar {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 0.3em; 
+  width: 30%;
+  height: 30%;
+}
+
+.card-avatar:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.avatar-container {
+  padding: 10%;
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+  width: 95%;
+}
+
+.profile-settings {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+}
+
+.profile-settings li {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+}

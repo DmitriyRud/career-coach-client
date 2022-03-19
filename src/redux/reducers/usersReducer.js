@@ -6,6 +6,8 @@ const usersReducer = (state = [], action) => {
   switch (type) {
     case 'LOGIN USER':
       return payload;
+    case 'EDIT_PROFILE':
+      return payload;      
     default:
       return state;
   }
