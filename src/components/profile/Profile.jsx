@@ -25,6 +25,9 @@ const Profile = () => {
  
   return (
     <>
+    <Button type="primary" danger size='large'>
+      <Link to="/users/profile/skills">Добавь навыки</Link>
+    </Button>
     <Title level={3} style={{margin: "1em"}}>Мой профиль</Title>
      <div className='profile-container'>
     <Avatarka/>
