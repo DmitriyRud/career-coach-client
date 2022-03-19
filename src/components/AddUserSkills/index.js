@@ -1,3 +1,3 @@
-import AddUserSkills from "./AddUserSkills";
+import userSkills from "./AddUserSkills";
 
-export default AddUserSkills;
+export default userSkills;
