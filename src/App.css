@@ -63,7 +63,7 @@ body {
 .content {
   height: 100%;
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   background: url('../public/img/job_effect_1522699664.jpg') no-repeat;
   margin-top: 1em;
   padding: 0;

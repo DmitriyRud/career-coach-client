@@ -42,7 +42,7 @@ const Profile = () => {
     </ul>
     </div>    
     <Button type="primary" danger size='large'>
-      <Link to="/profile/skills">Добавь навыки</Link>
+      <Link to="/users/profile/skills">Добавь навыки</Link>
     </Button>
   </div>
   );
