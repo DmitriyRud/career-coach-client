@@ -41,7 +41,7 @@ const Result = ({ result_id }) => {
   }
 
   return ( 
-    <div>
+    <div className="result-container">
       <Row>
       <Col span={6} style={{borderRight: '2px solid black'}}>
         <div style={{backgroundColor: 'green'}}>

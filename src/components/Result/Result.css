@@ -3,3 +3,9 @@
 .result-column-left {
   width: 100%;
 }
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  background-color: brown;
+}
