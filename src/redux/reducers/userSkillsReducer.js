@@ -1,9 +1,14 @@
-import { ADD_SKILL } from "../types/userSkills";
+import { ADD_SKILL_IN_SKILL,ADD_SKILL_IN_LEARN, ALL_SKILL_FROM_SKILL } from "../types/userSkills";
 
 const userSkillsReducer = (state = [], { type, payload }) => {
   switch (type) {
-    case ADD_SKILL:
-      return [ ...state, ...payload ];
+    case ALL_SKILL_FROM_SKILL:
+      return payload;
+
+    case ADD_SKILL_IN_SKILL:
+      return [payload, ...state];
+
+    
 
     default:
       return state;
