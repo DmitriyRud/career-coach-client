@@ -24,10 +24,7 @@ const Profile = () => {
   }
  
   return (
-    <>
-    <Button type="primary" danger size='large'>
-      <Link to="/users/profile/skills">Добавь навыки</Link>
-    </Button>
+    <div className="content-profile">
     <Title level={3} style={{margin: "1em"}}>Мой профиль</Title>
      <div className='profile-container'>
     <Avatarka/>
@@ -47,7 +44,7 @@ const Profile = () => {
     <Button type="primary" danger size='large'>
       <Link to="/profile/skills">Добавь навыки</Link>
     </Button>
-  </>
+  </div>
   );
 }
  
