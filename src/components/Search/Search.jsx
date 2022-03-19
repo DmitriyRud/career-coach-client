@@ -11,17 +11,25 @@ import {
   InputNumber,
   TreeSelect,
   Switch,
-  Slider,
+  Slider,Row,
+  Col,
 } from 'antd';
+
+
 import { useSelector } from 'react-redux';
+
+
 
 const Search = () => {
   const store = useSelector((store) => store.users);
   
 
+
+  
   if (store.name) {
-  return ( 
-    <div className="search-page">
+
+    return ( 
+      <div className="search-page">
       <div className="filters-page">
       <Form
       labelCol={{
@@ -36,26 +44,27 @@ const Search = () => {
       <Form.Item label="Профессия">
         <Input />
       </Form.Item>
-      <div className="search-line">
-      <Form.Item label="Проверить" className='fullwidth flex-row'>
-        <Form.Item name="input-number" noStyle >
+      {/* <div className="search-line"> */}
+      {/* style={{border: "1px solid red"}} */}
+      <Form.Item label="Проверить" >
+        <Form.Item name="input-number" >
           <InputNumber min={1} max={10000} />
-        </Form.Item>
         <span className="ant-form-text"> вакансий</span>
+        </Form.Item>
       </Form.Item>
 
       <Form.Item name="slider" label="Период">
-        <Slider
+        <Slider min={1} max={30} 
           marks={{
             1: '1',
+            7: '7',
+            14: '14',
             30: '30',
-            60: '60',
-            100: '100',
           }}
         />
       </Form.Item>
       
-      </div>
+      {/* </div> */}
 
       <Form.Item label="Select">
         <Select>
