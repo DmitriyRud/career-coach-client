@@ -38,7 +38,7 @@ function App() {
             <Menu.Item key='1'><Link to='/'>Главная</Link></Menu.Item>
             {!store.name && <Menu.Item key='2'><Link to='/signin'>Войти</Link></Menu.Item>}
             {!store.name && <Menu.Item key='3'><Link to='/signup'>Зарегистрироваться</Link></Menu.Item>}
-            {store.name && <Menu.Item key='4'><Link to='/users/profile/skills'>{store.name}</Link></Menu.Item>}
+            {store.name && <Menu.Item key='4'><Link to='/users/profile/'>{store.name}</Link></Menu.Item>}
             {store.name && <Menu.Item key='5'><Link to='/logout'>Выйти</Link></Menu.Item>}
           </Menu>
         </Header>
@@ -52,7 +52,7 @@ function App() {
             <Route path="/users/profile/skills" element={<UserSkills />} />
 
             <Route path="/search" element={<Search />} />
-            <Route path='/profile' element={<Profile/>} />
+            <Route path='/users/profile' element={<Profile/>} />
             <Route path='/profile/edit/:name' element={<EditName/>} />
             <Route path='/profile/edit/email' element={<EditEmail/>} />
             <Route path='/profile/edit/password' element={<EditPassword/>} /> 
