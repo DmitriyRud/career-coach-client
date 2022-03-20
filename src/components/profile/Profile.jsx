@@ -24,7 +24,7 @@ const Profile = () => {
   }
  
   return (
-    <div className="content-profile">
+    <div className="main-page">
     <Title level={3} style={{margin: "1em"}}>Мой профиль</Title>
      <div className='profile-container'>
     <Avatarka/>
