@@ -14,16 +14,26 @@ import { FundTwoTone } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { analizeAC } from '../../redux/thunk/apiAC';
+import { useEffect } from 'react';
+import { getAllResultUserAT } from '../../redux/thunk/resultAT';
+import { Link } from 'react-router-dom';
 
 const { Option } = Select;
 
 const Search = () => {
   const store = useSelector((store) => store.users);
-   const dispatch = useDispatch();
+  const allResults = useSelector((store) => store.result.resultAll);
+  console.log(allResults);
+  const user = useSelector((store) => store.users);
+  const dispatch = useDispatch();
 
   const cities = ['Москва', 'Санкт-Петербург', 'Краснодар', 'Самара', 'Казань', 'Саратов'];
 
   const [websites, setWebsites] = useState('hh');
+
+  useEffect(() => {
+    dispatch(getAllResultUserAT(user.id));
+  }, [])
 
   function handleChange(value) {
     //console.log(`selected ${value}`);
@@ -33,7 +43,7 @@ const Search = () => {
   const onFinish = (values) => {
     values.city = cities[values.city];
     console.log('Success:', values);
-    dispatch(analizeAC(values)); 
+    dispatch(analizeAC(values));
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -152,7 +162,25 @@ const Search = () => {
           </div>
 
           <div className="history-page">
+            <div className='profile-container'>
+              <ul className='profile-settings'>
+                {allResults.length !== 0 ?
+                  allResults.map((el) => {
+                    return (
 
+                      <li key={el.createdAt}>
+                        <Link to={`/result/${el.id}`}>
+                          {`${el.search_string} - ${el.createdAt.slice(0, 10)}`}
+                        </Link>
+                      </li>
+
+                    )
+                  })
+                  :
+                  <h2>Что бы получить рекомендацию сделайте свой первый запрос</h2>
+                }
+              </ul>
+            </div>
           </div>
 
         </div>
