@@ -5,7 +5,6 @@ import { Row, Col } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getRecomendationAT } from '../../redux/thunk/recomendationAT';
-import { List, Typography, Divider } from 'antd';
 
 
 const Recomendation = () => {
@@ -18,20 +17,17 @@ const Recomendation = () => {
     dispatch(getRecomendationAT(result_id))
   }, [])
   return ( 
-    <div>
-      <Row className="recomendation-container">
-        <Col span={11} className='col-recom col-recom-left'>
+    <div className="main-page">
+      <Row className="recomendation-container" >
+        <Col span={10} className='col-recom col-recom-left'>
           <h1>Изучить/Подтянуть:</h1>
-          <div>
-           
-            <List
-              bordered
-              dataSource={recomData}
-              renderItem={item =>  <div className="skill-div"><span>{item}</span></div>}
-            />
-          </div>
+          {recomData.map((el) => {
+            return (
+              <div className="skill-div li" ><span>{el}</span></div>
+            )
+          })}
         </Col>
-        <Col span={11} className='col-recom'>
+        <Col span={10} className='col-recom'>
           <h1>Портфолио:</h1>
         </Col>
       </Row>

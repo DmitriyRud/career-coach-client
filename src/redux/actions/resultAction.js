@@ -11,3 +11,10 @@ export const getReport = (data) => {
     payload: data
   }
 }
+
+export const getAllResultUser = (data) => {
+  return {
+    type: 'GET_ALL_RESULT',
+    payload: data,
+  }
+}

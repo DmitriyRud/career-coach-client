@@ -3,6 +3,7 @@
 .recomendation-container {
   display: flex;
   justify-content: center;
+  /* align-items: center; */
   /* background-color: brown; */
   padding-top: 2em;
   font-size: 1.5em;
@@ -10,6 +11,7 @@
 
 .col-recom {
   background-color: aliceblue;
+  min-width: 20em;
 }
 
 .col-recom-left {
@@ -27,9 +29,14 @@
   border: 1px solid #fff ;
   border-radius: 2px;
   margin: 5px;
+  padding: 0 0.5em;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   margin-bottom: 5px;
+}
+
+h1 {
+  text-align: center;
 }
