@@ -1,4 +1,8 @@
-import { ADD_SKILL_IN_SKILL,ADD_SKILL_IN_LEARN, ALL_SKILL_FROM_SKILL } from "../types/userSkills";
+import {
+  ADD_SKILL_IN_SKILL,
+  DELETE_USER_SKILL,
+  ALL_SKILL_FROM_SKILL,
+} from "../types/userSkills";
 
 const userSkillsReducer = (state = [], { type, payload }) => {
   switch (type) {
@@ -8,7 +12,8 @@ const userSkillsReducer = (state = [], { type, payload }) => {
     case ADD_SKILL_IN_SKILL:
       return [payload, ...state];
 
-    
+    case DELETE_USER_SKILL:
+      return state.filter((el) => el.skill_id !== payload);
 
     default:
       return state;
