@@ -5,9 +5,9 @@ import Skills from "../Skills/Skills";
 
 const SkillsStudy = () => {
 
-  const skillsLearn = useSelector((store) => store.userSkillsLearn);
+  const skillsLearn = useSelector((store) => store?.userSkillsLearn);
   // console.log('skillsLearn',skillsLearn);
-  const id = useSelector((store) => store.users.id)
+  const id = useSelector((store) => store?.users.id)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(allSkillsFromLearn(id))

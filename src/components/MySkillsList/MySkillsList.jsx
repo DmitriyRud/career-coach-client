@@ -5,10 +5,10 @@ import AddUserSkills from "../AddUserSkills/";
 import { allSkillsFromSkills } from "../../redux/actions/userSkills";
 
 const MySkillsList = () => {
-  const skills = useSelector((store) => store.userSkills);
-  // console.log('<<<<>>>',skills);
-  const users = useSelector((store) => store.users);
-  const id = useSelector((store) => store.users.id);
+  const skills = useSelector((store) => store?.userSkills);
+  console.log('<<<<>>>',skills);
+  const users = useSelector((store) => store?.users);
+  const id = useSelector((store) => store?.users.id);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(allSkillsFromSkills(id));
@@ -17,7 +17,7 @@ const MySkillsList = () => {
   return (
     <div>
       <h1>Ваши навыки:</h1>
-      {skills?.map((el, i) => (
+      {skills && skills.map((el, i) => (
         <Skills
           key={i + 1}
           skill_id={el.skill_id}

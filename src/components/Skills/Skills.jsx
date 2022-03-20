@@ -14,9 +14,12 @@ const Skills = ({ skill, category, user_id, skill_id }) => {
   const deleteHandler = async (user_id, skill_id, category) => {
     if (category === "skills") {
       dispatch(deleteUserSkill(user_id, skill_id));
-    } else if (category === "learn") {
+    }
+
+    if (category === "learn") {
       dispatch(deleteUserLearn(user_id, skill_id));
     }
+    // console.log('error');
   };
 
   return (
