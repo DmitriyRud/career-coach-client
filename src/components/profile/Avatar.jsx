@@ -23,19 +23,25 @@ const Avatarka = () => {
     // dispatch(editProfileAC({ id:user.id, img: e.target.fio.value }));
     dispatch(uploadAvatarAC(image, user.id))
   }
-
   return ( 
     <div className="card-avatar">
-     {
-       user.avatar 
-       ? <img src={`${user.avatar}`} alt="avatar"/>
-       : <img src="img/avatar.png" alt="avatar"/>
-     }
-  <div className="avatar-container">
+      {
+        user.avatar 
+        ? <img src={`${user.avatar}`} alt="avatar"/>
+        : <img src="/images/avatar.png" alt="avatar"/>
+      }
+    <div className="avatar-container">
     <input type="file" onChange={(e => setImage(e.target.files[0]))}/>
-  <Button onClick={uploadHandler}type="primary" shape="round" icon={<DownloadOutlined />} size='middle'>
-          Download
-        </Button>
+    {/* <Button onClick={uploadHandler}type="primary" shape="round" icon={<DownloadOutlined />} size='middle'>
+      Download
+    </Button> */}
+    <Button
+      onClick={uploadHandler}
+      style={{marginTop: '0.5em'}}
+      type="primary"
+      size='middle'>
+      Применить
+    </Button>
   </div>
 </div>
 
