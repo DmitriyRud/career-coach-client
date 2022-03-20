@@ -1,4 +1,4 @@
-import { getResult, getReport } from "../actions/resultAction";
+import { getResult, getReport, getAllResultUser } from "../actions/resultAction";
 
 // data это id из Results
 export const getResultAT = (data) => {
@@ -77,5 +77,17 @@ export const addMyPlans = (skill) => {
       },
       body: JSON.stringify({skill}),
     })
+  }
+}
+
+export const getAllResultUserAT = (user_id) => {
+  return async (dispatch) => {
+    // console.log('getAllResultUserAT user_id >>', user_id);
+    const response = await fetch(`/helper/result/user/${user_id}`)
+    if(response.ok) {
+      const data = await response.json();
+      // console.log('getAllResultUserAT response>>>', data);
+      dispatch(getAllResultUser(data))
+    }
   }
 }
