@@ -15,7 +15,8 @@
 .column {
   padding: 10px;
   border-bottom: 2px solid black;
-  height: 5em;
+  height: 4em;
+  text-align: center;
 }
 .column-middle {
   padding: 10px;
@@ -24,8 +25,14 @@
 
 .col {
   background-color: aliceblue;
+  min-width: 20em;
 }
 
 .col-left {
-  border-right: 2px solid black;
+  margin-right: 1em;
+}
+
+.line-style {
+  display: flex;
+  justify-content: space-between;
 }
