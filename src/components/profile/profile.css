@@ -71,4 +71,11 @@ img {
 
 .column-container {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* justify-content: space-around; */
+}
+
+.one-column-params {
+  max-width: 40vw;
 }

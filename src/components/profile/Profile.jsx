@@ -33,7 +33,7 @@ const Profile = () => {
  
   return (
     <div className="main-page column-container">
-      <div>
+      <div className='one-column-params'>
         <Title level={3} style={{margin: "1em"}}>Мой профиль</Title>
         <div className='profile-container'>
         <Avatarka/>
@@ -58,7 +58,7 @@ const Profile = () => {
           <Link to="/users/profile/skills">Добавь навыки</Link>
         </Button>
       </div>
-      <div>
+      <div className='one-column-params'>
       <Title level={3} style={{margin: "1em"}}>Рекомендации</Title>
         <div className='profile-container'>
         <ul className='profile-settings'>
