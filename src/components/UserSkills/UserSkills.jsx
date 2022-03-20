@@ -7,7 +7,7 @@ import AddUserSkills from '../AddUserSkills/AddUserSkills';
 
 const UserSkills = () => {
   return (
-    <div>
+    <div className="main-page">
       <Row >
         <Col className="col" span={8}>
           <AddUserSkills />

@@ -18,6 +18,7 @@ import Logout from './components/Logout';
 import UserSkills from './components/UserSkills/UserSkills';
 import Result from './components/Result/Result';
 import Analize from './components/Analize/Analize';
+import Recomendation from './components/Recomendation/Recomendation';
 
 const { Content, Header, Footer } = Layout;
 
@@ -46,7 +47,7 @@ function App() {
         <Content style={{ padding: '0 50px' }}>
           <div className="site-layout-content content">
           <Routes>
-            <Route path="/" element={<Main />} />            
+            {store.name && <Route path="/" element={<Main />} />}
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
 
@@ -59,7 +60,10 @@ function App() {
             <Route path='/profile/edit/password' element={<EditPassword/>} /> 
             <Route path="/logout" element={<Logout />} />
             {/* тестовый рут для result */}
-            <Route path="/result" element={<Result result_id={1}/>} />
+            <Route path="/result/:result_id" element={<Result />} />
+            {/* конец тестового рута */}
+            {/* тестовый рут для recomendation */}
+            <Route path="/recomendation/:result_id" element={<Recomendation/>} />
             {/* конец тестового рута */}
             <Route path="/api" element={<Analize />} />
           </Routes>
