@@ -17,6 +17,10 @@
   border-bottom: 2px solid black;
   height: 5em;
 }
+.column-middle {
+  padding: 10px;
+  /* border-bottom: 2px solid black; */
+}
 
 .col {
   background-color: aliceblue;
