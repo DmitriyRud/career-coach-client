@@ -16,6 +16,7 @@ import { checkUserAC } from './redux/thunk/usersAC';
 import Logout from './components/Logout';
 // import UserSkills from './components/UserSkills/';
 import UserSkills from './components/UserSkills/UserSkills';
+import Result from './components/Result/Result';
 import Analize from './components/Analize/Analize';
 
 const { Content, Header, Footer } = Layout;
@@ -57,6 +58,9 @@ function App() {
             <Route path='/profile/edit/email' element={<EditEmail/>} />
             <Route path='/profile/edit/password' element={<EditPassword/>} /> 
             <Route path="/logout" element={<Logout />} />
+            {/* тестовый рут для result */}
+            <Route path="/result" element={<Result result_id={1}/>} />
+            {/* конец тестового рута */}
             <Route path="/api" element={<Analize />} />
           </Routes>
           </div>
