@@ -11,13 +11,15 @@ import {
 } from 'antd';
 import { FundTwoTone } from '@ant-design/icons';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { analizeAC } from '../../redux/thunk/apiAC';
 
 const { Option } = Select;
 
 const Search = () => {
   const store = useSelector((store) => store.users);
+   const dispatch = useDispatch();
 
   const cities = ['Москва', 'Санкт-Петербург', 'Краснодар', 'Самара', 'Казань', 'Саратов'];
 
@@ -29,7 +31,9 @@ const Search = () => {
   }
 
   const onFinish = (values) => {
+    values.city = cities[values.city];
     console.log('Success:', values);
+    dispatch(analizeAC(values)); 
   };
 
   const onFinishFailed = (errorInfo) => {
