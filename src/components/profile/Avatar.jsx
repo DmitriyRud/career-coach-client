@@ -28,11 +28,11 @@ const Avatarka = () => {
     <div class="card-avatar">
      {
        user.avatar 
-       ? <img src={`${user.avatar}`} alt="avatar"/>
-       : <img src="img/avatar.png" alt="avatar"/>
+       ? <img className="img-avatar" src={`${user.avatar}`} alt="avatar"/>
+       : <img className="img-avatar" src="img/avatar.png" alt="avatar"/>
      }
   <div class="avatar-container">
-    <input type="file" onChange={(e => setImage(e.target.files[0]))}/>
+    <input type="file" onChange={(e => setImage(e.target.files[0]))} style={{margin:"5%", width: "100%"}}/>
   <Button onClick={uploadHandler}type="primary" shape="round" icon={<DownloadOutlined />} size='middle'>
           Download
         </Button>

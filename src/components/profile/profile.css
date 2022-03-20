@@ -12,11 +12,16 @@
 }
 
 .card-avatar {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #f6f6f6;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 0.3em; 
-  width: 30%;
-  height: 30%;
+  width: 20rem;
+  height: 20rem;
 }
 
 .card-avatar:hover {
@@ -27,9 +32,12 @@
   padding: 10%;
 }
 
-img {
-  border-radius: 5px 5px 0 0;
-  width: 95%;
+.img-avatar {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  border: 2px solid #222745;
+  margin-top: 20px;
 }
 
 .profile-settings {
