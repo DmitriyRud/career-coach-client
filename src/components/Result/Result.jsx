@@ -8,13 +8,15 @@ import { useEffect } from "react";
 import './Result.css';
 import { Link } from "react-router-dom";
 import { Button, Tooltip } from 'antd';
-import { FormOutlined, CarryOutOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons';
+import { DatabaseTwoTone, CalendarTwoTone, EyeTwoTone, EyeInvisibleTwoTone } from '@ant-design/icons';
 import { addSkillWhiteList, addSkillBlackList, addUserSkill, addMyPlans } from "../../redux/thunk/resultAT";
+import { useParams } from "react-router-dom";
 
 const { Text } = Typography; // Link для ссылки добавить
 
-const Result = ({ result_id }) => {
+const Result = () => {
   const dispatch = useDispatch();
+  const {result_id} = useParams();
   const result = useSelector((state) => state.result.result)
   const report = useSelector((state) => state.result.report)
   console.log('DATA to STATE RESULT>>>>>  ', result);
@@ -42,7 +44,7 @@ const Result = ({ result_id }) => {
   }
 
   return ( 
-    <div >
+    <div className="main-page">
       <Row className="result-container">
       <Col span={6} className='col col-left'>
         <div>
@@ -59,7 +61,7 @@ const Result = ({ result_id }) => {
             <div className="column-middle">
             <Text >
               <Text strong>Вакансий:</Text> {result.count_vacancy} <br />
-              <Text strong>Период дней:</Text> {result.period / 86400} <br />
+              <Text strong>Период дней:</Text> {result.period} <br />
               <Text strong>Сайт:</Text> {result.web_site} <br />
               <Text strong>Город:</Text> {result.city || '---'} <br />
               <Text strong>Зарплата:</Text> {result.salary || '---'} <br />
@@ -91,40 +93,40 @@ const Result = ({ result_id }) => {
                       &nbsp; &nbsp; 
                       <Tooltip title="add WhiteList">
                         <Button 
-                          // type="ghost" 
-                          type="text" 
+                          type="ghost" 
+                          // type="text" 
                           shape="circle" 
-                          icon={<PlusOutlined />} 
+                          icon={<EyeTwoTone />} 
                           size='small'
                           onClick={() => onClickWhite(el[0])} />
                       </Tooltip>
                       &nbsp; 
                       <Tooltip title="add BlackList">
                         <Button 
-                          // type="ghost" 
-                          type="text" 
+                          type="ghost" 
+                          // type="text" 
                           shape="circle" 
-                          icon={<MinusOutlined />} 
+                          icon={<EyeInvisibleTwoTone />} 
                           size='small'
                           onClick={() => onClickBlack(el[0])} />
                       </Tooltip>
                       &nbsp; 
                       <Tooltip title="add MySkills">
                         <Button 
-                          // type="ghost" 
-                          type="text"
+                          type="ghost" 
+                          // type="text"
                           shape="circle" 
-                          icon={<FormOutlined />} 
+                          icon={<DatabaseTwoTone />} 
                           size='small'
                           onClick={() => onClickUserSkill(el[0])} />
                       </Tooltip>
                       &nbsp; 
                       <Tooltip title="add MyPlans">
                         <Button 
-                          // type="ghost" 
-                          type="text" 
+                          type="ghost" 
+                          // type="text" 
                           shape="circle" 
-                          icon={<CarryOutOutlined />} 
+                          icon={<CalendarTwoTone />} 
                           size='small'
                           onClick={() => onClickMyPlans(el[0])} />
                       </Tooltip>

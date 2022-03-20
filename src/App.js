@@ -60,7 +60,7 @@ function App() {
             <Route path='/profile/edit/password' element={<EditPassword/>} /> 
             <Route path="/logout" element={<Logout />} />
             {/* тестовый рут для result */}
-            <Route path="/result" element={<Result result_id={1}/>} />
+            <Route path="/result/:result_id" element={<Result />} />
             {/* конец тестового рута */}
             {/* тестовый рут для recomendation */}
             <Route path="/recomendation/:result_id" element={<Recomendation/>} />
