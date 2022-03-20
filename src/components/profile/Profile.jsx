@@ -1,10 +1,10 @@
 import { Typography, Button, Tooltip} from 'antd';
 import { EditOutlined } from '@ant-design/icons';
-import './profile.css'
+import './profile.css';
 import Avatarka from './Avatar';
-import { useDispatch, useSelector } from 'react-redux'; 
+import { useSelector } from 'react-redux'; 
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const { Title } = Typography;
 
@@ -14,7 +14,7 @@ const Profile = () => {
 
   const user = useSelector((store) => store.users);
 
-  console.log('user', user)
+  //console.log('user', user)
 
   const editHandler = (data) => {
     if (user.name === data) {

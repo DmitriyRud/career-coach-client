@@ -8,6 +8,9 @@ const AddUserSkills = () => {
   const [input, setInput] = useState();
   const [radio, setRadio] = useState("skills");
   const store = useSelector((store) => store.users);
+  const checkSkill = useSelector((store) => store.userSkills.map(el => el.toLowerCase()))
+  const checkSkillLearn = useSelector((store) => store.userSkillsLearn.map(el => el.toLowerCase()))
+  // console.log(skill, skillLearn);
   const { id } = store;
   const [form] = Form.useForm();
   const dispatch = useDispatch();
@@ -23,8 +26,8 @@ const AddUserSkills = () => {
 
   const submitHandler = (e) => {
     if (radio === "skills") {
-      if (input === undefined || input === "") {
-        return alert("Введите навык");
+      if (input === undefined || input === "" || checkSkill.includes(input.toLowerCase())) {
+        return alert("Вы не ввели навык или такой навык уже добавлен");
       } else {
         e.preventDefault();
         dispatch(addSkillinSkill({ input, id }));
@@ -32,8 +35,8 @@ const AddUserSkills = () => {
         form.resetFields();
       }
     } else if (radio === "learn") {
-      if (input === undefined || input === "") {
-        return alert("Введите навык");
+      if (input === undefined || input === "" || checkSkillLearn.includes(input.toLowerCase())) {
+        return alert("Вы не ввели навык или такой навык уже добавлен");
       } else {
         e.preventDefault();
         dispatch(addSkillinLearn({input, id}));
