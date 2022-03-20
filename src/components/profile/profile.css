@@ -1,8 +1,10 @@
 .profile-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   gap: 3%;
+  min-width: 25em;
 
 }
 
@@ -13,11 +15,15 @@
 }
 
 .card-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 0.3em; 
   width: 30%;
   height: 30%;
+  min-width: 20em;
   padding: 20px 0 0;
 }
 
@@ -39,8 +45,10 @@ img {
 .profile-settings {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  width: 90%;
+  margin-top: 1em;
+  /* width: 90%; */
+  width: 30%;
+  min-width: 20em;
 }
 
 .profile-settings li {
@@ -59,4 +67,15 @@ img {
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   padding: 2em;
+}
+
+.column-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* justify-content: space-around; */
+}
+
+.one-column-params {
+  max-width: 40vw;
 }
