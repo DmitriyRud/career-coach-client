@@ -4,15 +4,13 @@ import {
   Form,
   Input,
   Button,
-  Radio,
   Select,
   Cascader,
   DatePicker,
   InputNumber,
   TreeSelect,
   Switch,
-  Slider,Row,
-  Col,
+  Slider,
 } from 'antd';
 
 

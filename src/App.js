@@ -45,7 +45,7 @@ function App() {
         <Content style={{ padding: '0 50px' }}>
           <div className="site-layout-content content">
           <Routes>
-            <Route path="/" element={<Main />} />            
+            {store.name && <Route path="/" element={<Main />} />}
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
 
