@@ -1,19 +1,15 @@
 .search-page {
   display: flex;
-  background-color: white;
-  width: 100%;
-  height: 100%;
 }
 
 .filters-page {
   width: 50%;
-  height: 100%;
+  min-height: 100%;
   padding: 1em;
-  border: 1px solid black;
 }
 
 .filters-page form {
-  border: 1px solid green;
+  border-right: 1px solid #919191;
   width: 100%;
   height: 100%;
   padding-top: 1em;
@@ -21,8 +17,8 @@
 
 .history-page {
   width: 50%;
-  height: 100%;
-  border: 1px solid red;
+  min-height: 100%;
+  /* border: 1px solid red; */
 }
 
 .search-line {
@@ -68,4 +64,37 @@
 
 .certain-category-search-dropdown .ant-select-dropdown-menu {
   max-height: 300px;
+}
+
+.site-logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.switch-line {
+  text-align: center;
+}
+
+.switch-line span {
+  margin: 0 1em;
+}
+
+.search-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3em;
+}
+
+.ant-form-item-label > label::after {
+    content: '';    
+}
+.explain {
+  margin: -1.5em 0 2em 11em;
+  font-size: small;
+}
+
+.headers {
+  display: flex;
+  justify-content: space-around;
 }

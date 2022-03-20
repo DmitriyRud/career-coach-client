@@ -15,7 +15,7 @@ const Main = () => {
 
   const analizeClickHandler = () => {
     navigate("/search");
-  }
+  };
 
   return ( 
     <div className="main-page">
