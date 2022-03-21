@@ -4,7 +4,7 @@ import './profile.css';
 import Avatarka from './Avatar';
 import { useSelector } from 'react-redux'; 
 // import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllResultUserAT } from '../../redux/thunk/resultAT';
