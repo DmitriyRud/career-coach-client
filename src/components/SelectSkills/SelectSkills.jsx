@@ -26,9 +26,8 @@ const SelectSkills = ({ input }) => {
   };
 
   const addInLearn = async (skills) => {
-   await dispatch(addSkillinLearn(skills));
-   await dispatch(allSkillsFromLearn(id));
-
+    await dispatch(addSkillinLearn(skills));
+    await dispatch(allSkillsFromLearn(id));
   };
   // useEffect(() => {
   //   dispatch(allSkillsFromSkills(id))
@@ -38,29 +37,31 @@ const SelectSkills = ({ input }) => {
     <div className="select-skills">
       <Text style={{ display: "flex", justifyContent: "space-between" }}>
         <Text strong>{input}</Text>
-        <Tooltip title="Добавить в 'навыки'">
-          <Button
-            onClick={() => addInSkill({ input, id })}
-            type="ghost"
-            // type="text"
-            shape="circle"
-            icon={<DatabaseTwoTone />}
-            size="small"
-            /* onClick={() => onClickUserSkill(el[0])}*/
-          />
-        </Tooltip>
 
-        <Tooltip title="Добавить в 'выучить'">
-          <Button
-            onClick={() => addInLearn({ input, id })}
-            className="select-btn"
-            type="ghost"
-            // type="text"
-            shape="circle"
-            icon={<CalendarTwoTone />}
-            size="small"
-          />
-        </Tooltip>
+        <div>
+          <Tooltip title="Добавить в 'навыки'">
+            <Button
+              onClick={() => addInSkill({ input, id })}
+              type="ghost"
+              // type="text"
+              shape="circle"
+              icon={<DatabaseTwoTone />}
+              size="small"
+            />
+          </Tooltip>
+
+          <Tooltip title="Добавить в 'выучить'">
+            <Button
+              onClick={() => addInLearn({ input, id })}
+              className="select-btn"
+              type="ghost"
+              // type="text"
+              shape="circle"
+              icon={<CalendarTwoTone />}
+              size="small"
+            />
+          </Tooltip>
+        </div>
       </Text>
     </div>
   );
