@@ -13,6 +13,7 @@ export const getReport = (data) => {
 }
 
 export const getAllResultUser = (data) => {
+  //console.log('data ======> ', data);
   return {
     type: 'GET_ALL_RESULT',
     payload: data,
