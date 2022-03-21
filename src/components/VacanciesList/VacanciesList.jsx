@@ -25,7 +25,7 @@ const VacanciesList = () => {
           return (
             <VacanciesItem
               key={vacancy.url}
-              title={vacancy.title}
+              title={vacancy.job_title}
               company={vacancy.company}
               url={vacancy.url} />
           )

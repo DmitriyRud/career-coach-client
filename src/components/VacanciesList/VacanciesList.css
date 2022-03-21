@@ -12,6 +12,8 @@
   max-width: 40em;
   padding: 20px 0 0;
   background-color: aliceblue;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .vacancies-list-container:hover {
