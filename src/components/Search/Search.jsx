@@ -45,7 +45,7 @@ const Search = () => {
 
   const onFinish = async (values) => {
     values.city = cities[values.city];
-    console.log('Success:', values);
+    //console.log('Success:', values);
     await dispatch(analizeAC(values));
     setNewSearch((prev)=>prev + 1);
     
