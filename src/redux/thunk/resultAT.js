@@ -86,6 +86,7 @@ export const getAllResultUserAT = (user_id) => {
     const response = await fetch(`/helper/result/user/${user_id}`)
     if(response.ok) {
       const data = await response.json();
+      data.sort((a, b) => b.id -a.id)
       // console.log('getAllResultUserAT response>>>', data);
       dispatch(getAllResultUser(data));
     }

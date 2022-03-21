@@ -67,24 +67,27 @@ const Profile = () => {
           <Link to="/users/profile/skills">Добавь навыки</Link>
         </Button>
       </div>
-      <div className='one-column-params'>
+      <div className='one-column-params history-page'>
       <Title level={3} style={{margin: "1em"}}>Рекомендации</Title>
-        <div className='profile-container'>
-        <ul className='profile-settings'>
-          {allResults.length !== 0 ?
-            allResults.map((el) => { return (
-              
-              <li key={el.createdAt}>
-                <Link to={`/recomendation/${el.id}`}>
-                  {`${el.search_string} - ${el.createdAt.slice(0, 10)} : ${el.createdAt.slice(11, 19)}`}
-                </Link>
-              </li>
-              
-            )})
-            :
-            <h2>Что бы получить рекомендацию сделайте свой первый запрос</h2>
-          }
-        </ul>
+        <div className='history-container'>
+          <div className='profile-container'>
+          <ul className='profile-settings'>
+            {allResults.length !== 0 ?
+              allResults.map((el) => { return (
+                
+                <li key={el.createdAt}>
+                  <Link to={`/recomendation/${el.id}`}>
+                    {`${el.search_string} - ${el.createdAt.slice(0, 10)} / ${el.createdAt.slice(11, 19)}`}
+                  </Link>
+                </li>
+                
+              )})
+              :
+              <h2>Что бы получить рекомендацию сделайте свой первый запрос</h2>
+            }
+          </ul>
+          </div>
+
         </div>
       </div>
       <div>
