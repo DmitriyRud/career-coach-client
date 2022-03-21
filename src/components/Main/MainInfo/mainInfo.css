@@ -3,9 +3,39 @@
   position: relative;
   justify-content: center;
   width: 100%;
+  background: url(../../../../public/img/searchJob.jpeg) no-repeat;
+  background-position: center;
+  min-width: 100%;
+  /* background-size: 70vw; */
+  background-position-y: -5vw;
+  min-height: 80vh;
+
 }
 
-.thought {
+.speech-bubble {
+	position: absolute;
+  display:flex;
+  background-color:#fff;
+	border-radius: .4em;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 35px solid transparent;
+	border-left-color:#fff;
+	border-right: 0;
+	margin-top: -35px;
+	margin-right: -35px;
+}
+
+
+
+/* .thought {
   display:flex;
   position: absolute;
   background-color:#fff;
@@ -44,4 +74,4 @@
              -24px 17px 0 -6px #fff,
              -5px 25px 0 -10px #fff;
   
-}
+} */
