@@ -48,7 +48,7 @@ const Search = () => {
     //console.log('Success:', values);
     await dispatch(analizeAC(values));
     setNewSearch((prev)=>prev + 1);
-    
+        
   };
 
   const onFinishFailed = (errorInfo) => {
