@@ -13,12 +13,12 @@ const AddUserSkills = () => {
   const [input, setInput] = useState("");
   const [radio, setRadio] = useState("skills");
   const store = useSelector((store) => store.users);
-  // const checkSkill = useSelector((store) =>
-  //   store.userSkills?.map((el) => el.skill.toLowerCase())
-  // );
-  // const checkSkillLearn = useSelector((store) =>
-  //   store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
-  // );
+  const checkSkill = useSelector((store) =>
+    store.userSkills?.map((el) => el.skill.toLowerCase())
+  );
+  const checkSkillLearn = useSelector((store) =>
+    store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
+  );
   // console.log(checkSkill, checkSkillLearn);
   const { id } = store;
   const [form] = Form.useForm();
@@ -35,7 +35,7 @@ const AddUserSkills = () => {
 
   const submitHandler = async (e) => {
     if (radio === "skills") {
-      if (input === undefined || input === "") {
+      if (input === undefined || input === "" || checkSkill?.includes(input.toLowerCase())) {
         //  || checkSkill.includes(input.toLowerCase())
         return alert("Вы не ввели навык или такой навык уже добавлен");
       } else {
@@ -47,7 +47,7 @@ const AddUserSkills = () => {
         form.resetFields();
       }
     } else if (radio === "learn") {
-      if (input === undefined || input === "") {
+      if (input === undefined || input === "" || checkSkillLearn?.includes(input.toLowerCase())) {
         //  || checkSkillLearn.includes(input.toLowerCase())
         return alert("Вы не ввели навык или такой навык уже добавлен");
       } else {
