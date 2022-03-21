@@ -4,7 +4,7 @@ import './profile.css';
 import Avatarka from './Avatar';
 import { useSelector } from 'react-redux'; 
 // import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllResultUserAT } from '../../redux/thunk/resultAT';
@@ -17,7 +17,8 @@ const { Title } = Typography;
 
 const Profile = () => {
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.users);
@@ -28,7 +29,7 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(getAllResultUserAT(user.id));
-  }, [])
+  }, []);
   // console.log('user', user)
 
   const editHandler = (data) => {
@@ -63,7 +64,8 @@ const Profile = () => {
         <Button 
           type="primary"
           // danger
-          size='large'>
+          size="large"
+        >
           <Link to="/users/profile/skills">Добавь навыки</Link>
         </Button>
       </div>
@@ -90,11 +92,9 @@ const Profile = () => {
 
         </div>
       </div>
-      <div>
-
-      </div>
-  </div>
+      <div></div>
+    </div>
   );
-}
- 
+};
+
 export default Profile;
