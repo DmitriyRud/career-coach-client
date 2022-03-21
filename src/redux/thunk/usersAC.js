@@ -1,11 +1,8 @@
 import { editProfile, loginUser } from '../actions/usersAction';
-import { useNavigate } from "react-router-dom";
-
-const axios = require("axios");
+import axios from 'axios';
 
 export const loginUserAC = (data) => {
   return async (dispatch) => {
-    //console.log('beforeFetch');
     try {
       const response = await fetch("/auth/signin", {
         method: "POST",
@@ -13,7 +10,6 @@ export const loginUserAC = (data) => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        //console.log(response);
         const result = await response.json();
         dispatch(loginUser(result));
         if (result.name) {
@@ -38,7 +34,6 @@ export const registerUserAC = (data) => {
     const response = await fetch('/auth/signup', { method:'POST', headers:{'Content-type': 'application/json'}, body: JSON.stringify(data)});
     if (response.ok) {
       const result = await response.json();
-      //console.log(result);
       dispatch(loginUser(result));
     }
   };
@@ -46,7 +41,7 @@ export const registerUserAC = (data) => {
 
 export const editProfileAC = (data) => {
   return async (dispatch) => {
-    const response = await fetch(`http://localhost:3001/users/profile`, { 
+    const response = await fetch(`/users/profile`, { 
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -65,7 +60,7 @@ export const uploadAvatarAC = (file, id) => {
     const data = new FormData();
     data.append('file', file);
     data.append('id', id)
-   const response = await axios.put('http://localhost:3001/users/profile', data)
+   const response = await axios.put('/users/profile', data)
    console.log('response', response)
       dispatch(editProfile(response.data));
     
@@ -77,7 +72,7 @@ export const checkUserAC = () => {
     const response = await fetch('/auth/checkiflogged', { method:'GET'});
     if (response.ok) {
       const result = await response.json();
-      console.log('Already logged: ',result);
+      // console.log('Already logged: ',result);
       dispatch(loginUser(result));
     }    
   }

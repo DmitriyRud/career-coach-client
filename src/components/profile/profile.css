@@ -1,8 +1,11 @@
 .profile-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   gap: 3%;
+  min-width: 25em;
+
 }
 
 .list-container {
@@ -14,14 +17,14 @@
 .card-avatar {
   display: flex;
   flex-direction: column;
-  border-radius: 5px;
   align-items: center;
-  background-color: #f6f6f6;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 0.3em; 
-  width: 20rem;
-  height: 20rem;
+  width: 30%;
+  height: 30%;
+  min-width: 20em;
+  padding: 20px 0 0;
 }
 
 .card-avatar:hover {
@@ -30,21 +33,22 @@
 
 .avatar-container {
   padding: 10%;
+  
 }
 
-.img-avatar {
-  height: 160px;
-  width: 160px;
-  border-radius: 50%;
-  border: 2px solid #222745;
-  margin-top: 20px;
+img {
+  border-radius: 5px 5px 0 0;
+  width: 90%;
+  border: 1px solid #d6d6d6;
 }
 
 .profile-settings {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  width: 90%;
+  margin-top: 1em;
+  /* width: 90%; */
+  width: 30%;
+  min-width: 20em;
 }
 
 .profile-settings li {
@@ -54,4 +58,24 @@
   padding: 12px;
   display: flex;
   justify-content: space-between;
+}
+
+.content-profile {
+  width: 100%;
+  height: 100%;  
+  background: none;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  padding: 2em;
+}
+
+.column-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* justify-content: space-around; */
+}
+
+.one-column-params {
+  max-width: 40vw;
 }

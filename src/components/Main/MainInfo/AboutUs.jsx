@@ -32,39 +32,6 @@ const AboutUs = () => {
     </div>
   </div>
     </div>
-    
-      {/* <div className="site-card-wrapper">
-    <Row gutter={16}>
-      <Col span={8}>
-        <Card title="Card title" bordered={false}>
-          Card content
-        </Card>
-      </Col>
-      <Col span={8}>
-        <Card title="Card title" bordered={false}>
-          Card content
-        </Card>
-      </Col>
-      <Col span={8}>
-        <Card title="Card title" bordered={false}>
-          Card content
-        </Card>
-      </Col>
-    </Row>
-  </div> */}
-      {/* <div className="about-us">
-        <div className="about-container">
-          <div className="wrapper-about">
-            <article className="about1">
-              <div className="about-card">
-                <div className="about-text">
-                  dgedgege
-                  </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div> */}
     </section>
     </div>
   );

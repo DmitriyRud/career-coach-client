@@ -23,7 +23,6 @@ const ContactForm = () => {
       <div className="back-form">
       <div className="img-back">
         <p style={{color: "white"}}>Если у Вас возникли технические проблемы или появились пожелания по работе сайта, отравьте нам сообщение!</p>
-        <img src="/img/bg-env-deepblue.jpg" alt="картинки не найдена" style={{height:"15vw", padding:"3%"}}/>
       </div>  
       <form onSubmit={sendEmail}>
       <label for="name">Имя</label>

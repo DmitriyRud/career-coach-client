@@ -1,0 +1,38 @@
+@import '~antd/dist/antd.css';
+
+.result-column-left {
+  width: 100%;
+}
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  /* background-color: brown; */
+  padding-top: 2em;
+  font-size: 1.5em;
+}
+
+.column {
+  padding: 10px;
+  border-bottom: 2px solid black;
+  height: 4em;
+  text-align: center;
+}
+.column-middle {
+  padding: 10px;
+  /* border-bottom: 2px solid black; */
+}
+
+.col {
+  background-color: aliceblue;
+  min-width: 20em;
+}
+
+.col-left {
+  margin-right: 1em;
+}
+
+.line-style {
+  display: flex;
+  justify-content: space-between;
+}
