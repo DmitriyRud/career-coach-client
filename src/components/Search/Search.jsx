@@ -167,7 +167,7 @@ const Search = () => {
           </div>
 
           <div className="history-page">
-            <div className='profile-container'>
+            <div className='history-container'>
               <ul className='profile-settings'>
                 {allResults.length !== 0 ?
                   allResults.map((el) => {
