@@ -24,3 +24,13 @@
 .card-span {
   margin-left: 1em;
 }
+
+.ant-row > div:last-child .ant-rate {
+  visibility: hidden;
+}
+
+.stars {
+  justify-self: right;
+  margin-left: auto;
+  margin-right: 1em;
+}
