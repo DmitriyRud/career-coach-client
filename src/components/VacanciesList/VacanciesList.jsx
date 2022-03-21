@@ -11,7 +11,7 @@ const VacanciesList = () => {
   const vacancies = useSelector((store) => store.vacancy.vacancies);
   const dispatch = useDispatch();
   console.log('VacanciesList >> ', vacancies);
-  // console.log(user);
+  console.log(user);
   useEffect(() => {
     dispatch(getVacanciesAT(user.id))
   }, [])
@@ -21,7 +21,7 @@ const VacanciesList = () => {
         <h1>
           ТОП вакансий, подходящих по вашему запросу:
         </h1>
-        {vacancies.map((vacancy) => {
+        {vacancies?.map((vacancy) => {
           return (
             <VacanciesItem
               key={vacancy.url}
