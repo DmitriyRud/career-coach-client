@@ -15,12 +15,12 @@ const EditEmail = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(editProfileAC({ id:user.id, email: e.target.email.value }));
-    navigate('/profile');
+    navigate('/users/profile');
   }
 
   return (
     <form onSubmit={submitHandler}>
-    <input className="edit-input" type="text" id="fname" name="email" placeholder={user.email}/>  
+    <input className="edit-input" type="email" id="fname" name="email" placeholder={user.email}/>  
     <input className="edit-submit" type="submit" value="Сохранить"/>
   </form>
   );

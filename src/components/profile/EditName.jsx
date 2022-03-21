@@ -14,7 +14,7 @@ const EditName = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(editProfileAC({ id:user.id, fio: e.target.fio.value }));
-    navigate('/profile');
+    navigate('/users/profile');
   }
 
   return (

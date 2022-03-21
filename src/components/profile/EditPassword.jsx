@@ -15,7 +15,7 @@ const EditPassword = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(editProfileAC({ id:user.id, password: sha256(e.target.password.value)}));
-    navigate('/profile');
+    navigate('/users/profile');
   }
 
   return (
