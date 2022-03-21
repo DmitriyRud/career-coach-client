@@ -36,6 +36,7 @@ const AddUserSkills = () => {
   const submitHandler = async (e) => {
     if (radio === "skills") {
       if (input === undefined || input === "" || checkSkill?.includes(input.toLowerCase())) {
+      // if (input === undefined || input === "" ) {
         return alert("Вы не ввели навык или такой навык уже добавлен");
       } else {
         e.preventDefault();
@@ -47,6 +48,7 @@ const AddUserSkills = () => {
       }
     } else if (radio === "learn") {
       if (input === undefined || input === "" || checkSkillLearn?.includes(input.toLowerCase())) {
+      // if (input === undefined || input === "") {
         return alert("Вы не ввели навык или такой навык уже добавлен");
       } else {
         e.preventDefault();

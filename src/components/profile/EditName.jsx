@@ -1,11 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { editProfileAC } from '../../redux/thunk/usersAC';
+import { setFio} from '../../redux/actions/profileAction';
+
 import './edit.css'
 
 const EditName = () => {
 
   const user = useSelector((store) => store.users);
+  const btnState = useSelector((store) => store.button.fio)
+
 
   const dispatch = useDispatch();
 
@@ -14,7 +18,8 @@ const EditName = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     dispatch(editProfileAC({ id:user.id, fio: e.target.fio.value }));
-    navigate('/users/profile');
+    // navigate('/users/profile');
+    dispatch(setFio(!btnState))
   }
 
   return (
