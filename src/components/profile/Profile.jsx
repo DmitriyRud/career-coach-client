@@ -39,7 +39,7 @@ const Profile = () => {
         <Avatarka/>
       
         <ul className='profile-settings'>
-        <li><span>Имя</span>{user.name}<span /></li>
+        <li><span>Имя пользователя</span>{user.name}<span /></li>
           <li><span>Имя</span>{user.fio || 'Анонимус'}<span><Tooltip title="edit">
           <Button onClick={() => editHandler(user.name)} type="primary" shape="circle" icon={<EditOutlined />} />
         </Tooltip></span></li>

@@ -20,6 +20,7 @@ import Result from './components/Result/Result';
 import Analize from './components/Analize/Analize';
 import Recomendation from './components/Recomendation/Recomendation';
 import VacanciesList from './components/VacanciesList';
+import MainInfo from './components/Main/MainInfo/Main2';
 
 const { Content, Header, Footer } = Layout;
 
@@ -50,6 +51,7 @@ function App() {
           <div className="site-layout-content content">
           <Routes>
             {store.name && <Route path="/" element={<Main />} />}
+            {!store.name && <Route path="/" element={<MainInfo/>} />}
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
 
