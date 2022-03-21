@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+import VacanciesList from '../VacanciesList';
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const Main = () => {
@@ -98,7 +99,7 @@ isSearchMade();
   
       {/* Если навыки добавлены и проводился хотя бы один анализ, нужно выводить в следующем блоке подходящие вакансии : */}
       <div className="vacancies-line">
-
+        <VacanciesList />
       </div>
     </div>
    );

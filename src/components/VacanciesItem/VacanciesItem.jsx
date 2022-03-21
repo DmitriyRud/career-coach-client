@@ -5,7 +5,6 @@ import './VacanciesItem.css'
 const VacanciesItem = ({ title, company, url }) => {
   return ( 
     <div className="vacancy-div">
-      
       <div>
         {title}
       </div>
