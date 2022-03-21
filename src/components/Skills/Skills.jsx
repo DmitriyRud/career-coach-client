@@ -22,7 +22,7 @@ const Skills = ({ skill, category, user_id, skill_id }) => {
 
   return (
     <div className="card">
-      <span>{skill}</span>
+      <span className="card-span">{skill}</span>
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
         className="btn-delete"
