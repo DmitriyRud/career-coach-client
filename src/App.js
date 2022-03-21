@@ -42,7 +42,8 @@ function App() {
             {!store.name && <Menu.Item key='2'><Link to='/signin'>Войти</Link></Menu.Item>}
             {!store.name && <Menu.Item key='3'><Link to='/signup'>Зарегистрироваться</Link></Menu.Item>}
             {store.name && <Menu.Item key='4'><Link to='/users/profile/'>{store.name}</Link></Menu.Item>}
-            {store.name && <Menu.Item key='5'><Link to='/logout'>Выйти</Link></Menu.Item>}
+            {store.name && <Menu.Item key='5'><Link to='/search'>Анализ вакансий</Link></Menu.Item>}
+            {store.name && <Menu.Item key='6'><Link to='/logout'>Выйти</Link></Menu.Item>}
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>

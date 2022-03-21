@@ -5,19 +5,21 @@ import Skills from "../Skills/Skills";
 
 const SkillsStudy = () => {
 
-  const skillsLearn = useSelector((store) => store.userSkillsLearn);
-  const id = useSelector((store) => store.users.id)
+  const skillsLearn = useSelector((store) => store?.userSkillsLearn);
+  // console.log('skillsLearn',skillsLearn);
+  const id = useSelector((store) => store?.users.id)
   const dispatch = useDispatch();
   useEffect(() => {
-   dispatch(allSkillsFromLearn(id))
+    dispatch(allSkillsFromLearn(id))
+    
   },[])
 
   return (
     <div>
       <h1>Выучить:</h1>
       {
-       skillsLearn?.map((skill, i) => (
-        <Skills key={i + 1} skill={skill} />
+       skillsLearn?.map((el, i) => (
+        <Skills key={i + 1} skill_id={el.skill_id} skill={el.skill} user_id={el.user_id} category={el.category} />
       ))}
     </div>
   );

@@ -19,7 +19,7 @@ const Main = () => {
 
   const analizeClickHandler = () => {
     navigate("/search");
-  }
+  };
 
   // состояние для спиннера
   const [isLoading, setIsLoading] = useState(true);

@@ -98,7 +98,7 @@ const Result = () => {
           </Text>
           </div>
           <div style={{padding: '10px'}}>
-          {report.map((el) => {
+          {report.sort((a, b) => b[1] - a[1]).map((el) => {
             return (<div key={el[0]} className='skill-div'>
               <Text  style={{display: 'flex', justifyContent: 'space-between'}} >
                 <div>
@@ -120,11 +120,11 @@ const Result = () => {
                 </Tooltip>
                 &nbsp; 
                 <Tooltip title="add BlackList">
-                  <Button 
+                  <Button
                     type="ghost" 
                     // type="text" 
                     shape="circle" 
-                    icon={<EyeInvisibleTwoTone />} 
+                    icon={<EyeInvisibleTwoTone twoToneColor="red"/>} 
                     size='small'
                     onClick={() => onClickBlack(el[0])} />
                 </Tooltip>
