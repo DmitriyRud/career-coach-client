@@ -9,7 +9,6 @@ import {
 } from "../../redux/actions/userSkills";
 
 const Skills = ({ skill, category, user_id, skill_id }) => {
-  console.log(skill);
   const dispatch = useDispatch();
   const deleteHandler = async (user_id, skill_id, category) => {
     if (category === "skills") {
@@ -19,7 +18,6 @@ const Skills = ({ skill, category, user_id, skill_id }) => {
     if (category === "learn") {
       dispatch(deleteUserLearn(user_id, skill_id));
     }
-    // console.log('error');
   };
 
   return (
