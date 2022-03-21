@@ -6,7 +6,7 @@ import { allSkillsFromSkills } from "../../redux/actions/userSkills";
 
 const MySkillsList = () => {
   const skills = useSelector((store) => store?.userSkills);
-  console.log('<<<<>>>',skills);
+  console.log('UserSkills',skills);
   const users = useSelector((store) => store?.users);
   const id = useSelector((store) => store?.users.id);
   const dispatch = useDispatch();
