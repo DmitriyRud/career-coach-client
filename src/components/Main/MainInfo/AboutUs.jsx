@@ -1,4 +1,4 @@
-import './aboutUs.css';
+//import './aboutUs.css';
 import { Card, Col, Row } from 'antd';
 
 const AboutUs = () => {

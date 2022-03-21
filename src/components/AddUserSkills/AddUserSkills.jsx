@@ -19,7 +19,7 @@ const AddUserSkills = () => {
   const checkSkillLearn = useSelector((store) =>
     store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
   );
-  // console.log(checkSkill, checkSkillLearn);
+  console.log(checkSkill, checkSkillLearn);
   const { id } = store;
   const [form] = Form.useForm();
   const dispatch = useDispatch();

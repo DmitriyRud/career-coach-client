@@ -100,7 +100,7 @@ footer {
   padding: 10px 50px !important;
 }
 
-.picture-container {
+/* .picture-container {
   overflow: hidden;
   min-width: 100%;
   min-height: 100%;
@@ -113,4 +113,37 @@ footer {
 .picture-container img {
   min-width: 100%;
   height: 100%;
+} */
+
+.oval {
+ position: relative;
+ background: none !important;
+ background-color: white !important;
+ border: 1px solid #7d9185;
+ width: 400px;
+ height: 200px;
+}
+.oval:after, p:before {
+ left: 100%;
+ border: solid transparent;
+ content: " ";
+ height: 0;
+ width: 0;
+ position: absolute;
+ pointer-events: none;
+}
+ 
+.oval:after {
+ border-color: rgba(255, 255, 255, 0);
+ border-left-color: #ffffff;
+ border-width: 18px;
+ top: 50%;
+ margin-top: -18px;
+}
+.oval:before {
+ border-color: rgba(125, 145, 133, 0);
+ border-left-color: #7d9185;
+ border-width: 19px;
+ top: 50%;
+ margin-top: -19px;
 }
