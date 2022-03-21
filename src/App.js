@@ -76,7 +76,7 @@ function App() {
           </Routes>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus Hedgehogs</Footer>
+        <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus War-Hedgehogs</Footer>
       </Layout>
     </div>
   );
