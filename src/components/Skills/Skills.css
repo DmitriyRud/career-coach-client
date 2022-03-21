@@ -1,6 +1,9 @@
 .card {
-  background: #fff;
-  border: 1px solid #fff ;
+  position: relative;
+
+  color: #fff;
+  background: rgb(60, 125, 186);
+  border: 1px solid #fff;
   border-radius: 2px;
   margin: 0 5px 0 0;
   -webkit-border-radius: 2px;
@@ -8,4 +11,9 @@
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   margin-bottom: 5px;
+}
+
+.btn-delete {
+  position: absolute;
+  right: 0;
 }

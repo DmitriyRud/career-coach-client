@@ -87,7 +87,7 @@ export const getAllResultUserAT = (user_id) => {
     if(response.ok) {
       const data = await response.json();
       // console.log('getAllResultUserAT response>>>', data);
-      dispatch(getAllResultUser(data))
+      dispatch(getAllResultUser(data));
     }
   }
 }

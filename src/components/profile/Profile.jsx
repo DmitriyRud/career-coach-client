@@ -17,10 +17,10 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.users);
-  const allResults = useSelector((store) => store.result.resultAll)
+  const allResults = useSelector((store) => store.result.resultAll);
   console.log(allResults);
   useEffect(() => {
-    dispatch(getAllResultUserAT(user.id))
+    dispatch(getAllResultUserAT(user.id));
   }, [])
   // console.log('user', user)
 
