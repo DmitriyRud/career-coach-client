@@ -1,7 +1,7 @@
 // import { Card } from "antd";
 import "./Skills.css";
 import React from "react";
-import { Button } from "antd";
+import { Button, Rate } from "antd";
 import { useDispatch } from "react-redux";
 import {
   deleteUserLearn,
@@ -22,7 +22,8 @@ const Skills = ({ skill, category, user_id, skill_id }) => {
 
   return (
     <div className="card">
-      <span className="card-span">{skill}</span>
+      <div><span className="card-span">{skill}</span></div>
+      <div className="stars"><Rate allowHalf defaultValue={2.5} /></div>
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
         className="btn-delete"
