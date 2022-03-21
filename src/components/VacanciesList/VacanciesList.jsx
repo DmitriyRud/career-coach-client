@@ -16,7 +16,6 @@ const VacanciesList = () => {
     dispatch(getVacanciesAT(user.id))
   }, [])
   return ( 
-    <div className="main-page">
       <div className="vacancies-list-container">
         <h1>
           ТОП вакансий, подходящих по вашему запросу:
@@ -31,7 +30,6 @@ const VacanciesList = () => {
           )
         })}
       </div>
-    </div>
    );
 }
  

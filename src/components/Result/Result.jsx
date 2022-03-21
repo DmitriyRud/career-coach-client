@@ -21,8 +21,8 @@ const Result = () => {
 
   const result = useSelector((state) => state.result.result)
   const report = useSelector((state) => state.result.report)
-  console.log('DATA to STATE RESULT>>>>>  ', result);
-  console.log('DATA to STATE REPORT>>>>>  ', report);
+  // console.log('DATA to STATE RESULT>>>>>  ', result);
+  // console.log('DATA to STATE REPORT>>>>>  ', report);
   useEffect(() => {
     dispatch(getResultAT(result_id));
     dispatch(getReportAT(result_id));

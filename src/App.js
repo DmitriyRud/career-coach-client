@@ -70,7 +70,7 @@ function App() {
             <Route path="/recomendation/:result_id" element={<Recomendation/>} />
             {/* конец тестового рута */}
             {/* тестовый рут для vacancies list */}
-            <Route path="/vacancies" element={<VacanciesList />} />
+            <Route path="/vacancies" element={<div className="main-page vacancies-container"><div><VacanciesList /></div></div>} />
             {/* конец тестового рута */}
             <Route path="/api" element={<Analize />} />
           </Routes>
