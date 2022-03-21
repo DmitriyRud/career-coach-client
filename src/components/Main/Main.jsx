@@ -98,9 +98,8 @@ isSearchMade();
       </div>
   
       {/* Если навыки добавлены и проводился хотя бы один анализ, нужно выводить в следующем блоке подходящие вакансии : */}
-      <div className="vacancies-line">
-        <VacanciesList />
-      </div>
+      <VacanciesList />
+      
     </div>
    );
 }

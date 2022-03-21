@@ -3,32 +3,38 @@ import { EditOutlined } from '@ant-design/icons';
 import './profile.css';
 import Avatarka from './Avatar';
 import { useSelector } from 'react-redux'; 
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllResultUserAT } from '../../redux/thunk/resultAT';
+import { setFio, setEmail, setPassword } from '../../redux/actions/profileAction';
+import EditName from './EditName'; 
+import EditEmail from './EditEmail';
+import EditPassword from './EditPassword';
 
 const { Title } = Typography;
 
 const Profile = () => {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.users);
   const allResults = useSelector((store) => store.result.resultAll);
-  console.log(allResults);
+  // console.log(allResults);
+  const btnState = useSelector((store) => store.button)
+  // console.log(btnState);
+
   useEffect(() => {
     dispatch(getAllResultUserAT(user.id));
   }, [])
   // console.log('user', user)
 
   const editHandler = (data) => {
-    if (user.name === data) {
-      navigate(`/profile/edit/${user.name}`)
-    } else if (user.email === data) navigate(`/profile/edit/email`)
-    else navigate(`/profile/edit/password`)
+    if (user.name === data) dispatch(setFio(!btnState.fio));
+    else if (user.email === data) dispatch(setEmail(!btnState.email));
+    else dispatch(setPassword(!btnState.password));
   }
  
   return (
@@ -39,16 +45,19 @@ const Profile = () => {
         <Avatarka/>
       
         <ul className='profile-settings'>
-        <li><span>Имя пользователя</span>{user.name}<span /></li>
-          <li><span>Имя</span>{user.fio || 'Анонимус'}<span><Tooltip title="edit">
+        <li><span>Username</span>{user.name}<span /></li>
+          <li  id='fio-edit'><span>Имя</span>{user.fio || 'Анонимус'}<span><Tooltip title="edit">
           <Button onClick={() => editHandler(user.name)} type="primary" shape="circle" icon={<EditOutlined />} />
         </Tooltip></span></li>
+        {btnState.fio && <EditName />}
           <li><span>Почта</span>{user.email}<span><Tooltip title="edit">
           <Button onClick={() => editHandler(user.email)} type="primary" shape="circle" icon={<EditOutlined />} />
         </Tooltip></span></li>
+        {btnState.email && <EditEmail />}
           <li><span>Пароль</span>***<span><Tooltip title="edit">
           <Button onClick={editHandler} type="primary" shape="circle" icon={<EditOutlined />} />
         </Tooltip></span></li>
+        {btnState.password && <EditPassword />}
         </ul>
         </div>    
         <Button 
@@ -67,7 +76,7 @@ const Profile = () => {
               
               <li key={el.createdAt}>
                 <Link to={`/recomendation/${el.id}`}>
-                  {`${el.search_string} - ${el.createdAt.slice(0, 10)}`}
+                  {`${el.search_string} - ${el.createdAt.slice(0, 10)} : ${el.createdAt.slice(11, 19)}`}
                 </Link>
               </li>
               
