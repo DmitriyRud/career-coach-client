@@ -98,3 +98,7 @@
   display: flex;
   justify-content: space-around;
 }
+
+.ant-form-item-label > label {
+  font-size: 1em;
+}

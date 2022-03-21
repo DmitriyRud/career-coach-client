@@ -76,7 +76,7 @@ function App() {
           </Routes>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus Hedgehogs</Footer>
       </Layout>
     </div>
   );

@@ -1,4 +1,3 @@
-import './contact.css';
 import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
