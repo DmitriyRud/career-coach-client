@@ -19,6 +19,8 @@ import UserSkills from './components/UserSkills/UserSkills';
 import Result from './components/Result/Result';
 import Analize from './components/Analize/Analize';
 import Recomendation from './components/Recomendation/Recomendation';
+import VacanciesList from './components/VacanciesList';
+import MainInfo from './components/Main/MainInfo/Main2';
 
 const { Content, Header, Footer } = Layout;
 
@@ -49,6 +51,7 @@ function App() {
           <div className="site-layout-content content">
           <Routes>
             {store.name && <Route path="/" element={<Main />} />}
+            {!store.name && <Route path="/" element={<MainInfo/>} />}
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
 
@@ -66,11 +69,14 @@ function App() {
             {/* тестовый рут для recomendation */}
             <Route path="/recomendation/:result_id" element={<Recomendation/>} />
             {/* конец тестового рута */}
+            {/* тестовый рут для vacancies list */}
+            <Route path="/vacancies" element={<div className="main-page vacancies-container"><div><VacanciesList /></div></div>} />
+            {/* конец тестового рута */}
             <Route path="/api" element={<Analize />} />
           </Routes>
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus War-Hedgehogs</Footer>
       </Layout>
     </div>
   );

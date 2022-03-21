@@ -23,27 +23,32 @@ const { Option } = Select;
 const Search = () => {
   const store = useSelector((store) => store.users);
   const allResults = useSelector((store) => store.result.resultAll);
-  console.log(allResults);
+  //console.log(allResults);
   const user = useSelector((store) => store.users);
   const dispatch = useDispatch();
 
   const cities = ['Москва', 'Санкт-Петербург', 'Краснодар', 'Самара', 'Казань', 'Саратов'];
 
   const [websites, setWebsites] = useState('hh');
+  const [newSearch, setNewSearch] = useState(0);
 
   useEffect(() => {
     dispatch(getAllResultUserAT(user.id));
-  }, [])
+    //console.log('newSearch =========>', newSearch);
+    
+  }, [newSearch]);
 
   function handleChange(value) {
     //console.log(`selected ${value}`);
     setWebsites(value);
   }
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     values.city = cities[values.city];
-    console.log('Success:', values);
-    dispatch(analizeAC(values));
+    //console.log('Success:', values);
+    await dispatch(analizeAC(values));
+    setNewSearch((prev)=>prev + 1);
+    
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -162,7 +167,7 @@ const Search = () => {
           </div>
 
           <div className="history-page">
-            <div className='profile-container'>
+            <div className='history-container'>
               <ul className='profile-settings'>
                 {allResults.length !== 0 ?
                   allResults.map((el) => {

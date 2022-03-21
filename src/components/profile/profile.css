@@ -36,7 +36,7 @@
   
 }
 
-img {
+.card-avatar img {
   border-radius: 5px 5px 0 0;
   width: 90%;
   border: 1px solid #d6d6d6;
