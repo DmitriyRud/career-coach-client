@@ -51,12 +51,9 @@ const Search = () => {
     const resultId = await dispatch(analizeAC(values));
     //console.log('resultId from back ==== > ', ttt);
     setNewSearch((prev)=>prev + 1);
-<<<<<<< HEAD
     setLoading(false)
-=======
     navigate(`/result/${resultId}`);    
 
->>>>>>> searchpage
   };
 
   const onFinishFailed = (errorInfo) => {

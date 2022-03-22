@@ -28,11 +28,13 @@ export const allSkillsFromSkills = (id) => async (dispatch, setState) => {
       `/users/profile/allUserSkillsFromSkills/${id}`
     );
     const allUserSkillFromServer = await response.json();
+    //console.log('allUserSkillFromServer ===== >', allUserSkillFromServer);
     const result = allUserSkillFromServer.map((el) => {
       return {
         skill: el.Skill.skill,
         skill_id: el.skill_id,
         user_id: el.user_id,
+        skill_rate: el.rate,
         category: "skills",
       };
     });
