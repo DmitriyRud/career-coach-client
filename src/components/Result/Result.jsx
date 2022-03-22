@@ -36,22 +36,11 @@ const Result = () => {
 
   const onClickWhite = async (skill) => {
     // console.log(skill);
-<<<<<<< HEAD
-    dispatch(addSkillWhiteList(skill));
-=======
     await dispatch(addSkillWhiteList(skill))
     dispatch(getUserDataAC());
->>>>>>> 07ccf101e9169528a6abd09c9081dbc3ea36b929
   }
   const onClickBlack = async (skill) => {
     // console.log(skill);
-<<<<<<< HEAD
-    dispatch(addSkillBlackList(skill));
-  }
-  const onClickUserSkill = (skill) => {
-    // console.log(skill);
-    dispatch(addUserSkill(skill));
-=======
     await dispatch(addSkillBlackList(skill))
     dispatch(getUserDataAC());
   }
@@ -59,16 +48,11 @@ const Result = () => {
     console.log(skill);
     await dispatch(addUserSkill(skill))
     dispatch(getUserDataAC());
->>>>>>> 07ccf101e9169528a6abd09c9081dbc3ea36b929
   }
   const onClickMyPlans = async (skill) => {
     // console.log(skill);
-<<<<<<< HEAD
-    dispatch(addMyPlans(skill));
-=======
     await dispatch(addMyPlans(skill))
     dispatch(getUserDataAC());
->>>>>>> 07ccf101e9169528a6abd09c9081dbc3ea36b929
   }
 
   return ( 
