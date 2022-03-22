@@ -19,10 +19,10 @@ const ContactForm = () => {
 
   return (
     <div className="contact-form">
-      <span style={{color: "white"}}>Свяжитесь с нами</span>
+      <span style={{color: "white", fontSize:"1.5em"}}>Свяжитесь с нами</span>
       <div className="back-form">
       <div className="img-back">
-        <p style={{color: "white"}}>Если у Вас возникли технические проблемы или появились пожелания по работе сайта, отравьте нам сообщение!</p>
+        <p style={{color: "white", textAlign:"center"}}>Если у Вас возникли технические проблемы или появились пожелания по работе сайта, отравьте нам сообщение!</p>
       </div>  
       <form className="pre-form" onSubmit={sendEmail}>
       <label for="name">Имя</label>

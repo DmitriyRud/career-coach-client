@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .contact-form {
   max-width: 1100px;
   padding: 10px;
@@ -9,6 +11,8 @@
   justify-content: center; */
   background-color: #222745;
   text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
 }
 
 .back-form {
@@ -69,7 +73,7 @@
   outline: none;
   width: 900px;
   color: #e6e3e3;
-  border: 2px solid #ff5823;
+  border: 2px solid #ffa1a2;
   /* font-size: 12px; */
   border-radius: 19px;
   background-color: #222745;

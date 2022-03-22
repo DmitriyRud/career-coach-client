@@ -1,4 +1,4 @@
-import { editProfile, loginUser } from '../actions/usersAction';
+import { editProfile, loginUser, getUserData } from '../actions/usersAction';
 import axios from 'axios';
 
 export const loginUserAC = (data) => {
@@ -60,6 +60,7 @@ export const uploadAvatarAC = (file, id) => {
     const data = new FormData();
     data.append('file', file);
     data.append('id', id)
+    console.log(Object.fromEntries(data));
    const response = await axios.put('/users/profile', data)
    console.log('response', response)
       dispatch(editProfile(response.data));
@@ -84,5 +85,18 @@ export const logoutUserAC = () => {
     if (response.ok) {
       dispatch(loginUser({}));
     }    
+  }
+}
+
+export const getUserDataAC = () => {
+  return async (dispatch) => {
+    // console.log('Санки старт!!!');
+    const response = await fetch('/users/data');
+    // console.log('response >>> ', response);
+    if(response.ok) {
+      const answer = await response.json();
+      // console.log('getUserDataAC >>>> ', answer);
+      dispatch(getUserData(answer))
+    }
   }
 }

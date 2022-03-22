@@ -1,5 +1,8 @@
 .card {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   color: #fff;
   background: rgb(60, 125, 186);
@@ -13,7 +16,21 @@
   margin-bottom: 5px;
 }
 
-.btn-delete {
+/* .btn-delete {
   position: absolute;
   right: 0;
+} */
+
+.card-span {
+  margin-left: 1em;
+}
+
+.ant-row > div:last-child .ant-rate {
+  visibility: hidden;
+}
+
+.stars {
+  justify-self: right;
+  margin-left: auto;
+  margin-right: 1em;
 }

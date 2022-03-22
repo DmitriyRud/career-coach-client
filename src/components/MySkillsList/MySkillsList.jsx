@@ -6,7 +6,7 @@ import { allSkillsFromSkills } from "../../redux/actions/userSkills";
 
 const MySkillsList = () => {
   const skills = useSelector((store) => store?.userSkills);
-  console.log('<<<<>>>',skills);
+  console.log("UserSkills", skills);
   const users = useSelector((store) => store?.users);
   const id = useSelector((store) => store?.users.id);
   const dispatch = useDispatch();
@@ -16,16 +16,18 @@ const MySkillsList = () => {
 
   return (
     <div>
+      {console.log(skills)}
       <h1>Ваши навыки:</h1>
-      {skills && skills.map((el, i) => (
-        <Skills
-          key={i + 1}
-          skill_id={el.skill_id}
-          skill={el.skill}
-          user_id={el.user_id}
-          category={el.category}
-        />
-      ))}
+      {skills &&
+        skills.map((el, i) => (
+          <Skills
+            key={i + 1}
+            skill_id={el.skill_id}
+            skill={el.skill}
+            user_id={el.user_id}
+            category={el.category}
+          />
+        ))}
     </div>
   );
 };

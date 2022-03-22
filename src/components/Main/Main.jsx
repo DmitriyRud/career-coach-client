@@ -1,11 +1,12 @@
-import './Main.css';
+import '../Main/styles.modules.css';
 import { useSelector } from 'react-redux'; 
 import { Button } from 'antd';
-import { DatabaseTwoTone, FundTwoTone } from '@ant-design/icons';
+import { DatabaseTwoTone, FundTwoTone, BookTwoTone } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+import VacanciesList from '../VacanciesList';
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const Main = () => {
@@ -17,6 +18,10 @@ const Main = () => {
     navigate("users/profile/skills");
   };
 
+  const profileClickHandler = () => {
+    navigate("users/profile");
+  };
+
   const analizeClickHandler = () => {
     navigate("/search");
   };
@@ -25,19 +30,23 @@ const Main = () => {
   const [isLoading, setIsLoading] = useState(true);
   // смотрим, добавил ли пользователь скиллы:
   const [skills, setSkills] = useState(false);  
-
+  
   useEffect(() => {
     setIsLoading(true);
     const searchSkills = async() => {
-    const response = await fetch(`/users/profile/allUserSkillsFromSkills/${user.id}`);
-    const res = await response.json()
-    if (response.ok && res.length!==0) {
-      setSkills(true);
-      
+      const response = await fetch(`/users/profile/allUserSkillsFromSkills/${user.id}`);
+      const res = await response.json()
+      if (response.ok && res.length!==0) {
+        setSkills(true);
+        
+      }
+      setIsLoading(false);
     }
-    setIsLoading(false);
-  }
-  searchSkills();
+    searchSkills();
+    let navItems = Array.from(document.querySelectorAll('.ant-menu-item'));
+    navItems.map((el)=>el.classList.remove('ant-menu-item-selected'));
+    document.querySelectorAll('.ant-menu-item')[0].classList.add('ant-menu-item-selected');
+  
   },[])
 
 // проверяем, делал ли пользователь запросы поиска
@@ -61,16 +70,22 @@ isSearchMade();
 
   return ( 
     <div className="main-page">
-      <h2>Привет, {userName}!</h2>
-      <p>Я твой карьерный коуч. Ты сделал(а) правильный выбор! Давай начнем строить твою карьеру!</p>
+      <h1>Привет, {userName}!</h1>
+      <h2>Я твой карьерный коуч. С моей помощью ты быстро построишь головокружительную карьеру!</h2>
       {/* Здесь нужно вставить проверку: если скилы не добавлены, выводить этот блок: */}
+      <div className="profile-line">
+        <p>В своем профиле ты можешь добавить или изменить информацию о себе, а также посмотреть рекомендации по предыдущим запросам:</p>
+        <Button type="primary" shape="round" icon={<BookTwoTone />} size={'large'} onClick={profileClickHandler}>
+        Редактировать свой профиль
+        </Button>
+      </div>
      <div className="skills-line"> 
       {isLoading ? <Spin indicator={antIcon} /> : skills ? 
-        (<><p>Ты уже добавил(а) навыки в свой профиль. Можешь добавить новые или изменить текущие по кнопке:</p>
+        (<><p>В твоем профиле уже есть навыки. Можешь добавить новые или изменить текущие по кнопке:</p>
         <Button type="primary" shape="round" icon={<DatabaseTwoTone />} size={'large'} onClick={skillsClickHandler}>
         Редактировать свои навыки
         </Button></>)
-      : (<><p>Ты еще не добавил(а) в свой профиль навыки. Давай это сделаем, чтобы я смог рекомендовать тебе лучшие вакансии:</p>
+      : (<><p>В твоем профиле еще нет навыков. Нужно их добавить, чтобы я смог рекомендовать тебе лучшие вакансии:</p>
 
         <Button type="primary" shape="round" icon={<DatabaseTwoTone />} size={'large'} onClick={skillsClickHandler}>
           Заполнить таблицу навыков
@@ -97,9 +112,8 @@ isSearchMade();
       </div>
   
       {/* Если навыки добавлены и проводился хотя бы один анализ, нужно выводить в следующем блоке подходящие вакансии : */}
-      <div className="vacancies-line">
-
-      </div>
+      <VacanciesList />
+      
     </div>
    );
 }

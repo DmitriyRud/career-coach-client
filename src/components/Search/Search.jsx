@@ -5,7 +5,6 @@ import {
   Input,
   Button,
   InputNumber,
-  Switch,
   Slider,
   Select,
 } from 'antd';
@@ -17,6 +16,7 @@ import { analizeAC } from '../../redux/thunk/apiAC';
 import { useEffect } from 'react';
 import { getAllResultUserAT } from '../../redux/thunk/resultAT';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 
@@ -26,16 +26,23 @@ const Search = () => {
   //console.log(allResults);
   const user = useSelector((store) => store.users);
   const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const cities = ['Москва', 'Санкт-Петербург', 'Краснодар', 'Самара', 'Казань', 'Саратов'];
 
   const [websites, setWebsites] = useState('hh');
   const [newSearch, setNewSearch] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(getAllResultUserAT(user.id));
+    let navItems = Array.from(document.querySelectorAll('.ant-menu-item'));
+    navItems.map((el)=>el.classList.remove('ant-menu-item-selected'));
+    document.querySelectorAll('.ant-menu-item')[2].classList.add('ant-menu-item-selected');
+  }, []);
+  
+  useEffect(() => {
+   dispatch(getAllResultUserAT(user.id));
     //console.log('newSearch =========>', newSearch);
-    
   }, [newSearch]);
 
   function handleChange(value) {
@@ -44,20 +51,29 @@ const Search = () => {
   }
 
   const onFinish = async (values) => {
+    setLoading(true)
     values.city = cities[values.city];
     //console.log('Success:', values);
-    await dispatch(analizeAC(values));
+    const resultId = await dispatch(analizeAC(values));
+    //console.log('resultId from back ==== > ', ttt);
     setNewSearch((prev)=>prev + 1);
-    
+    setLoading(false)
+    navigate(`/result/${resultId}`);    
+
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
+    setLoading(false)
   };
 
   if (store.name) {
     return (
-      <div className="main-page">
+      <div className="main-page" style={{position: 'relative'}}>
+        {loading 
+          &&
+          <img src='/images/loading.gif' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '7em', borderRadius: '50%'}}/>
+        }
         <div className="headers">
           <h1>Анализ вакансий</h1>
           <h1>Результаты предыдущих запросов</h1>
@@ -162,12 +178,13 @@ const Search = () => {
                     Начать анализ рынка вакансий
                   </Button>
                 </div>
+                  
               </Form.Item>
             </Form>
           </div>
 
           <div className="history-page">
-            <div className='profile-container'>
+            <div className='history-container'>
               <ul className='profile-settings'>
                 {allResults.length !== 0 ?
                   allResults.map((el) => {
@@ -175,7 +192,7 @@ const Search = () => {
 
                       <li key={el.createdAt}>
                         <Link to={`/result/${el.id}`}>
-                          {`${el.search_string} - ${el.createdAt.slice(0, 10)}`}
+                          {`${el.search_string} - ${el.createdAt.slice(0, 10)} / ${el.createdAt.slice(11, 19)} `}
                         </Link>
                       </li>
 

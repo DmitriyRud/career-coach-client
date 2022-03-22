@@ -47,7 +47,7 @@
   padding: 0;
   margin-top: 1em;
   /* width: 90%; */
-  width: 30%;
+  max-width: 25em;
   min-width: 20em;
 }
 

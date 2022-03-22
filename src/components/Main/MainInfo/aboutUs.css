@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .section-main-info {
   display: flex;
   justify-content: center;
@@ -29,21 +31,15 @@
   object-fit: cover;
 }
 
-/* .card .card_image img {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
-  object-fit: cover;
-} */
-
 .about-card .about-card_title {
   text-align: center;
   border-radius: 0px 0px 40px 40px;
-  font-family: sans-serif;
-  font-weight: bold;
   /* font-size: 30px; */
-  margin-top: -300px;
+  margin-top: -310px;
   height: 40px;
+  font-family: 'Roboto', sans-serif;
+  padding: 2px;
+  font-size: 30px;
 }
 
 .about-card:hover {
