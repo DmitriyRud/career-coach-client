@@ -31,11 +31,11 @@ const Search = () => {
 
   const [websites, setWebsites] = useState('hh');
   const [newSearch, setNewSearch] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     dispatch(getAllResultUserAT(user.id));
     //console.log('newSearch =========>', newSearch);
-    
   }, [newSearch]);
 
   function handleChange(value) {
@@ -44,20 +44,26 @@ const Search = () => {
   }
 
   const onFinish = async (values) => {
+    setLoading(true)
     values.city = cities[values.city];
     //console.log('Success:', values);
     await dispatch(analizeAC(values));
     setNewSearch((prev)=>prev + 1);
-    
+    setLoading(false)
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
+    setLoading(false)
   };
 
   if (store.name) {
     return (
-      <div className="main-page">
+      <div className="main-page" style={{position: 'relative'}}>
+        {loading 
+          &&
+          <img src='/images/loading.gif' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '7em', borderRadius: '50%'}}/>
+        }
         <div className="headers">
           <h1>Анализ вакансий</h1>
           <h1>Результаты предыдущих запросов</h1>
@@ -162,6 +168,7 @@ const Search = () => {
                     Начать анализ рынка вакансий
                   </Button>
                 </div>
+                  
               </Form.Item>
             </Form>
           </div>
@@ -175,7 +182,7 @@ const Search = () => {
 
                       <li key={el.createdAt}>
                         <Link to={`/result/${el.id}`}>
-                          {`${el.search_string} - ${el.createdAt.slice(0, 10)}`}
+                          {`${el.search_string} - ${el.createdAt.slice(0, 10)} / ${el.createdAt.slice(11, 19)} `}
                         </Link>
                       </li>
 

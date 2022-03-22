@@ -60,6 +60,7 @@ export const uploadAvatarAC = (file, id) => {
     const data = new FormData();
     data.append('file', file);
     data.append('id', id)
+    console.log(Object.fromEntries(data));
    const response = await axios.put('/users/profile', data)
    console.log('response', response)
       dispatch(editProfile(response.data));
