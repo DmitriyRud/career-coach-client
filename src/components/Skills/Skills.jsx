@@ -2,6 +2,7 @@
 import "./Skills.css";
 import React from "react";
 import { Button, Rate } from "antd";
+import { DeleteTwoTone} from '@ant-design/icons';
 import { useDispatch } from "react-redux";
 import {
   deleteUserLearn,
@@ -32,9 +33,11 @@ const Skills = ({ skill, category, user_id, skill_id }) => {
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
         className="btn-delete"
-      >
-        🗑
-      </Button>
+        icon={<DeleteTwoTone twoToneColor="red" />} 
+        shape="circle" 
+        type="ghost" 
+      />     
+      
     </div>
   );
 };
