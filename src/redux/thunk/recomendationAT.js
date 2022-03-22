@@ -12,6 +12,7 @@ function contains(arr, elem) {
 
 export const getRecomendationAT = (result_id, user_id, skills, allResults) => {
   return async (dispatch) => {
+
     console.log('START  !!!!!   !!!!!   START');
     //console.log('getRecomendationAT =====>>>>', result_id );
     //const response = await fetch(`/helper/recomendation/${result_id}`)
@@ -23,6 +24,7 @@ export const getRecomendationAT = (result_id, user_id, skills, allResults) => {
     for (let i = 0; (i < reportSkillsDESC.length && i < 5); i++) {
       //console.log(`reportSkillsDESC[${i}][0] = `, reportSkillsDESC[i][0]);
       if ( !contains(skills, reportSkillsDESC[i][0]) ) toLearn.push(reportSkillsDESC[i][0]);
+
     }
     //console.log('toLearn = ', toLearn);
     let skillsASC = skills.sort((a, b) => a.skill_rate - b.skill_rate);
