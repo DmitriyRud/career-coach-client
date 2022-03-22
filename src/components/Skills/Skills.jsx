@@ -11,6 +11,7 @@ import {
 const Skills = ({ skill, category, user_id, skill_id }) => {
   const dispatch = useDispatch();
   const deleteHandler = async (user_id, skill_id, category) => {
+    console.log("in delete", skill, category, user_id, skill_id);
     if (category === "skills") {
       dispatch(deleteUserSkill(user_id, skill_id));
     }
@@ -22,8 +23,12 @@ const Skills = ({ skill, category, user_id, skill_id }) => {
 
   return (
     <div className="card">
-      <div><span className="card-span">{skill}</span></div>
-      <div className="stars"><Rate allowHalf defaultValue={2.5} /></div>
+      <div>
+        <span className="card-span">{skill}</span>
+      </div>
+      <div className="stars">
+        <Rate allowHalf defaultValue={2.5} />
+      </div>
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
         className="btn-delete"

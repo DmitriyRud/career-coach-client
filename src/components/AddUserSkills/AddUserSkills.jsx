@@ -18,9 +18,8 @@ const AddUserSkills = () => {
   const skills = useSelector((store) => store?.userSkills);
   const store = useSelector((store) => store.users);
   const allSkills = useSelector((store) => store?.allSkilsForSelect);
-  // console.log("allSkills", allSkills);
   const checkSkill = useSelector((store) =>
-    store.userSkills?.map((el) => el.skill.toLowerCase())
+    store.userSkills?.map((el) => el.skill?.toLowerCase())
   );
   const checkSkillLearn = useSelector((store) =>
     store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
@@ -35,7 +34,7 @@ const AddUserSkills = () => {
   }, []);
 
   useEffect(() => {
-   dispatch(allSkillsFromSkills(store.id));
+    dispatch(allSkillsFromSkills(store.id));
   }, []);
   const inputHandler = (e) => {
     setInput(e.target.value);
@@ -46,38 +45,31 @@ const AddUserSkills = () => {
   };
   // console.log(radio);
 
-  const submitHandler = async (e) => {
+  const submitHandler =  (e) => {
     if (radio === "skills") {
-
       if (
         input === undefined ||
         input === "" ||
         checkSkill?.includes(input.toLowerCase())
       ) {
-
-      
         return alert("Вы не ввели навык или такой навык уже добавлен");
       } else {
         e.preventDefault();
-        await dispatch(addSkillinSkill({ input, id }));
-        await dispatch(allSkillsFromSkills(id));
+        dispatch(addSkillinSkill({ input, id }));
 
         setInput("");
         form.resetFields();
       }
     } else if (radio === "learn") {
-
       if (
         input === undefined ||
         input === "" ||
         checkSkillLearn?.includes(input.toLowerCase())
       ) {
-
         return alert("Вы не ввели навык или такой навык уже добавлен");
       } else {
         e.preventDefault();
-        await dispatch(addSkillinLearn({ input, id }));
-        await dispatch(allSkillsFromLearn(id));
+        dispatch(addSkillinLearn({ input, id }));
 
         setInput("");
         form.resetFields();
