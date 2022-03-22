@@ -9,7 +9,15 @@
   padding: 2em;
 }
 
+.profile-line,
 .skills-line,
-.analize-line {
-  margin: 3em auto;
+.analize-line,
+.vacancies-list-container {
+  margin: 4em auto;
+  width: 90%;
+}
+
+h2 {
+  color: red;
+  font-size: 1.5em;
 }
