@@ -12,6 +12,7 @@ function contains(arr, elem) {
 
 export const getRecomendationAT = (result_id, user_id, skills, allResults) => {
   return async (dispatch) => {
+    console.log('START  !!!!!   !!!!!   START');
     //console.log('getRecomendationAT =====>>>>', result_id );
     //const response = await fetch(`/helper/recomendation/${result_id}`)
     //console.log('userId = ', user_id);
