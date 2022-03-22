@@ -11,38 +11,48 @@ import { Button, Tooltip } from 'antd';
 import { DatabaseTwoTone, CalendarTwoTone, EyeTwoTone, EyeInvisibleTwoTone } from '@ant-design/icons';
 import { addSkillWhiteList, addSkillBlackList, addUserSkill, addMyPlans } from "../../redux/thunk/resultAT";
 import { useParams } from "react-router-dom";
+import { getUserDataAC } from "../../redux/thunk/usersAC";
 
 const { Text } = Typography; // Link для ссылки добавить
 
 const Result = () => {
   const dispatch = useDispatch();
   const {result_id} = useParams();
-  console.log('DATA to STATE RESULT_ID>>>>>  ', result_id);
+  // console.log('DATA to STATE RESULT_ID>>>>>  ', result_id);
 
   const result = useSelector((state) => state.result.result)
   const report = useSelector((state) => state.result.report)
   // console.log('DATA to STATE RESULT>>>>>  ', result);
+
+  const userData = useSelector((state) => state.userData)
+  // console.log('DATA to userData>>>>>  ', userData);
+
   // console.log('DATA to STATE REPORT>>>>>  ', report);
   useEffect(() => {
     dispatch(getResultAT(result_id));
     dispatch(getReportAT(result_id));
+    dispatch(getUserDataAC());
   }, [])
 
-  const onClickWhite = (skill) => {
+  const onClickWhite = async (skill) => {
     // console.log(skill);
-    dispatch(addSkillWhiteList(skill))
+    await dispatch(addSkillWhiteList(skill))
+    dispatch(getUserDataAC());
   }
-  const onClickBlack = (skill) => {
+  const onClickBlack = async (skill) => {
     // console.log(skill);
-    dispatch(addSkillBlackList(skill))
+    await dispatch(addSkillBlackList(skill))
+    dispatch(getUserDataAC());
   }
-  const onClickUserSkill = (skill) => {
-    // console.log(skill);
-    dispatch(addUserSkill(skill))
+  const onClickUserSkill = async (skill) => {
+    console.log(skill);
+    await dispatch(addUserSkill(skill))
+    dispatch(getUserDataAC());
   }
-  const onClickMyPlans = (skill) => {
+  const onClickMyPlans = async (skill) => {
     // console.log(skill);
-    dispatch(addMyPlans(skill))
+    await dispatch(addMyPlans(skill))
+    dispatch(getUserDataAC());
   }
 
   return ( 
@@ -98,60 +108,87 @@ const Result = () => {
           </Text>
           </div>
           <div style={{padding: '10px'}}>
-          {report.sort((a, b) => b[1] - a[1]).map((el) => {
-            return (<div key={el[0]} className='skill-div'>
-              <Text  style={{display: 'flex', justifyContent: 'space-between'}} >
-                <div>
-                  <Text strong>
-                    {`${el[0]}: `}
-                  </Text>
-                  {el[1]}
-                  &nbsp; &nbsp; 
-                </div>
-                <div className="div-btn">
-                <Tooltip title="add WhiteList">
-                  <Button 
-                    type="ghost" 
-                    // type="text" 
-                    shape="circle" 
-                    icon={<EyeTwoTone />} 
-                    size='small'
-                    onClick={() => onClickWhite(el[0])} />
-                </Tooltip>
-                &nbsp; 
-                <Tooltip title="add BlackList">
-                  <Button
-                    type="ghost" 
-                    // type="text" 
-                    shape="circle" 
-                    icon={<EyeInvisibleTwoTone twoToneColor="red"/>} 
-                    size='small'
-                    onClick={() => onClickBlack(el[0])} />
-                </Tooltip>
-                &nbsp; 
-                <Tooltip title="add MySkills">
-                  <Button 
-                    type="ghost" 
-                    // type="text"
-                    shape="circle" 
-                    icon={<DatabaseTwoTone />} 
-                    size='small'
-                    onClick={() => onClickUserSkill(el[0])} />
-                </Tooltip>
-                &nbsp; 
-                <Tooltip title="add MyPlans">
-                  <Button 
-                    type="ghost" 
-                    // type="text" 
-                    shape="circle" 
-                    icon={<CalendarTwoTone />} 
-                    size='small'
-                    onClick={() => onClickMyPlans(el[0])} />
-                </Tooltip>
-                </div>
-                {/* <br /> */}
-              </Text>
-            </div>
+          {report
+            .sort((a, b) => b[1] - a[1])
+            .map((el) => {
+              let flagWhiteList = false;
+              let flagBlackList = false;
+              let flagUserSkills = false;
+              let flagMyPlans = false;
+              // флаг для кнопки addWhiteList
+              // console.log('ELEMENT WORD', el[0]);
+              const indW = userData.whiteList.findIndex((item) => el[0] === item.word)
+              const indB = userData.blackList.findIndex((item) => el[0] === item.word)
+              if(indW > -1 || indB > -1) {
+                flagWhiteList = true;
+                flagBlackList = true;
+              }
+              
+              const indS = userData.userSkills.findIndex((item) => el[0] === item['Skill.skill'])
+              const indP = userData.myPlans.findIndex((item) => el[0] === item['Skill.skill'])
+              if(indS > -1 || indP > -1) {
+                flagUserSkills = true;
+                flagMyPlans = true;
+              }
+
+              return (<div key={el[0]} className='skill-div'>
+                <Text  style={{display: 'flex', justifyContent: 'space-between'}} >
+                  <div>
+                    <Text strong>
+                      {`${el[0]}: `}
+                    </Text>
+                    {el[1]}
+                    &nbsp; &nbsp; 
+                  </div>
+                  <div className="div-btn">
+
+                  <Tooltip title="add WhiteList">
+                    <Button 
+                      disabled={flagWhiteList}
+                      type="ghost" 
+                      // type="text" 
+                      shape="circle" 
+                      icon={<EyeTwoTone />} 
+                      size='small'
+                      onClick={() => onClickWhite(el[0])} />
+                  </Tooltip>
+                  &nbsp; 
+                  <Tooltip title="add BlackList">
+                    <Button
+                      disabled={flagBlackList}
+                      type="ghost" 
+                      // type="text" 
+                      shape="circle" 
+                      icon={<EyeInvisibleTwoTone twoToneColor="red"/>} 
+                      size='small'
+                      onClick={() => onClickBlack(el[0])} />
+                  </Tooltip>
+                  &nbsp; 
+                  <Tooltip title="add MySkills">
+                    <Button 
+                      disabled={flagUserSkills}
+                      type="ghost" 
+                      // type="text"
+                      shape="circle" 
+                      icon={<DatabaseTwoTone />} 
+                      size='small'
+                      onClick={() => onClickUserSkill(el[0])} />
+                  </Tooltip>
+                  &nbsp; 
+                  <Tooltip title="add MyPlans">
+                    <Button 
+                      disabled={flagMyPlans}
+                      type="ghost" 
+                      // type="text" 
+                      shape="circle" 
+                      icon={<CalendarTwoTone />} 
+                      size='small'
+                      onClick={() => onClickMyPlans(el[0])} />
+                  </Tooltip>
+                  </div>
+                  {/* <br /> */}
+                </Text>
+              </div>
           )})}
           </div>
         </div>
