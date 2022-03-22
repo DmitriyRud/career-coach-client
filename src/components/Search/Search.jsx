@@ -5,7 +5,6 @@ import {
   Input,
   Button,
   InputNumber,
-  Switch,
   Slider,
   Select,
 } from 'antd';
@@ -17,6 +16,7 @@ import { analizeAC } from '../../redux/thunk/apiAC';
 import { useEffect } from 'react';
 import { getAllResultUserAT } from '../../redux/thunk/resultAT';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 
@@ -26,6 +26,7 @@ const Search = () => {
   //console.log(allResults);
   const user = useSelector((store) => store.users);
   const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const cities = ['Москва', 'Санкт-Петербург', 'Краснодар', 'Самара', 'Казань', 'Саратов'];
 
@@ -34,7 +35,7 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    dispatch(getAllResultUserAT(user.id));
+   dispatch(getAllResultUserAT(user.id));
     //console.log('newSearch =========>', newSearch);
   }, [newSearch]);
 
@@ -47,9 +48,15 @@ const Search = () => {
     setLoading(true)
     values.city = cities[values.city];
     //console.log('Success:', values);
-    await dispatch(analizeAC(values));
+    const resultId = await dispatch(analizeAC(values));
+    //console.log('resultId from back ==== > ', ttt);
     setNewSearch((prev)=>prev + 1);
+<<<<<<< HEAD
     setLoading(false)
+=======
+    navigate(`/result/${resultId}`);    
+
+>>>>>>> searchpage
   };
 
   const onFinishFailed = (errorInfo) => {

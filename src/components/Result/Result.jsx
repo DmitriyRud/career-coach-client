@@ -19,8 +19,8 @@ const Result = () => {
   const {result_id} = useParams();
   console.log('DATA to STATE RESULT_ID>>>>>  ', result_id);
 
-  const result = useSelector((state) => state.result.result)
-  const report = useSelector((state) => state.result.report)
+  const result = useSelector((state) => state.result.result);
+  const report = useSelector((state) => state.result.report);
   // console.log('DATA to STATE RESULT>>>>>  ', result);
   // console.log('DATA to STATE REPORT>>>>>  ', report);
   useEffect(() => {
@@ -30,19 +30,19 @@ const Result = () => {
 
   const onClickWhite = (skill) => {
     // console.log(skill);
-    dispatch(addSkillWhiteList(skill))
+    dispatch(addSkillWhiteList(skill));
   }
   const onClickBlack = (skill) => {
     // console.log(skill);
-    dispatch(addSkillBlackList(skill))
+    dispatch(addSkillBlackList(skill));
   }
   const onClickUserSkill = (skill) => {
     // console.log(skill);
-    dispatch(addUserSkill(skill))
+    dispatch(addUserSkill(skill));
   }
   const onClickMyPlans = (skill) => {
     // console.log(skill);
-    dispatch(addMyPlans(skill))
+    dispatch(addMyPlans(skill));
   }
 
   return ( 
