@@ -17,17 +17,19 @@ const SelectSkills = ({ input }) => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store.users);
   const userSkills = useSelector((store) => store?.userSkills);
+  
+
 
   const id = useSelector((store) => store?.users.id);
 
-  const addInSkill = async (skills) => {
-    await dispatch(addSkillinSkill(skills));
-    await dispatch(allSkillsFromSkills(id));
+  const addInSkill = (skills) => {
+     dispatch(addSkillinSkill(skills));
+    // await dispatch(allSkillsFromSkills(id));
   };
 
-  const addInLearn = async (skills) => {
-    await dispatch(addSkillinLearn(skills));
-    await dispatch(allSkillsFromLearn(id));
+  const addInLearn =  (skills) => {
+     dispatch(addSkillinLearn(skills));
+    // await dispatch(allSkillsFromLearn(id));
   };
   // useEffect(() => {
   //   dispatch(allSkillsFromSkills(id))

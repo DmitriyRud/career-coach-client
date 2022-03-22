@@ -12,7 +12,7 @@ export const allSkillsFromSelect = () => async (dispatch, setState) => {
   try {
     const response = await fetch("/users/profile/allskillsforskillsselect");
     const allSkills = await response.json();
-    console.log('+++++',allSkills);
+    console.log("+++++", allSkills);
     dispatch({
       type: ALL_SKILL_FOR_SELECT,
       payload: allSkills,
@@ -33,6 +33,7 @@ export const allSkillsFromSkills = (id) => async (dispatch, setState) => {
         skill: el.Skill.skill,
         skill_id: el.skill_id,
         user_id: el.user_id,
+        skill_rate: el.rate,
         category: "skills",
       };
     });
@@ -100,7 +101,7 @@ export const addSkillinLearn = (skill) => async (dispatch, setState) => {
     });
 
     const newSkillFromServer = await response.json();
-   console.log('newSkillFromServer-2',newSkillFromServer);
+    console.log("newSkillFromServer-2", newSkillFromServer);
 
     dispatch({
       type: ADD_SKILL_IN_LEARN,

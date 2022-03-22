@@ -7,6 +7,7 @@ import {
   deleteUserLearn,
   deleteUserSkill,
 } from "../../redux/actions/userSkills";
+import { DeleteTwoTone } from "@ant-design/icons";
 
 const Skills = ({ skill, category, user_id, skill_id }) => {
   const dispatch = useDispatch();
@@ -32,9 +33,11 @@ const Skills = ({ skill, category, user_id, skill_id }) => {
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
         className="btn-delete"
-      >
-        🗑
-      </Button>
+        icon={<DeleteTwoTone twoToneColor="red" />}
+        shape="circle"
+        type="ghost"
+      />
+      
     </div>
   );
 };
