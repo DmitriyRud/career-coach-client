@@ -18,7 +18,7 @@ const VacanciesList = () => {
   return ( 
       <div className="vacancies-list-container">
         <h1>
-          ТОП вакансий, подходящих по вашему запросу:
+          Вакансии, лучше всего подходящие тебе по требуемым навыкам:
         </h1>
         {vacancies?.map((vacancy) => {
           return (

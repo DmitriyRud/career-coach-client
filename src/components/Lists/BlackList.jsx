@@ -5,7 +5,7 @@ import { Typography, Space } from 'antd';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { allFromLists } from '../../redux/actions/listsActions'
-import { deleteFromBlackList } from '../../redux/thunk/deleteFromList';
+import { deleteFromBlackList, deleteAllBlackList } from '../../redux/thunk/deleteFromList';
 
 const { Text } = Typography; 
 
@@ -30,14 +30,12 @@ const BlackList = () => {
   }, [])
 
   const deleteHandler = (id, userId) => {
-    console.log('deleteId', id, userId)
-
     dispatch(deleteFromBlackList(id, userId));
   }
 
-  const deleteAllHandler = async () => {
-    await fetch (`/helper/blacklist/delete`);
-    
+  const deleteAllHandler = (userId) => {
+    console.log('userId', userId)
+    dispatch(deleteAllBlackList(userId));
   }
 
 
@@ -71,7 +69,7 @@ const BlackList = () => {
           ))}           
         </div>
         </Space>
-        <div style={{display:"flex", justifyContent:"center"}}><Button onClick={deleteAllHandler} style={{marginBottom:"5px"}} danger>Очистить все</Button></div>
+        <div style={{display:"flex", justifyContent:"center"}}><Button onClick={()=>deleteAllHandler(user.id)} style={{marginBottom:"5px"}} danger>Очистить все</Button></div>
       </div>
     </Col>
     </Row>

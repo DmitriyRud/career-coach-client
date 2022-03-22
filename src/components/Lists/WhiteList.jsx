@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { allFromLists } from '../../redux/actions/listsActions'
 import { DeleteTwoTone } from '@ant-design/icons';
-import { deleteFromList } from '../../redux/thunk/deleteFromList';
+import { deleteFromList, deleteAllWhiteList } from '../../redux/thunk/deleteFromList';
 
 const { Text } = Typography; 
 
@@ -35,9 +35,12 @@ const WhiteList = () => {
     dispatch(deleteFromList(id, userId));
   }
 
-  const deleteAllHandler = (e) => {
-
+  const deleteAllHandler = (userId) => {
+    console.log('userId', userId)
+    dispatch(deleteAllWhiteList(userId));
   }
+
+
   return (
     <div className="main-page">
     <Row className="result-container">
@@ -68,7 +71,7 @@ const WhiteList = () => {
           ))}
         </div>
         </Space>
-        <div style={{display:"flex", justifyContent:"center"}}><Button onClick={deleteAllHandler} style={{marginBottom:"5px"}} danger>Очистить все</Button></div>
+        <div style={{display:"flex", justifyContent:"center"}}><Button onClick={()=> deleteAllHandler(user.id)} style={{marginBottom:"5px"}} danger>Очистить все</Button></div>
       </div>
     </Col>
     </Row>
