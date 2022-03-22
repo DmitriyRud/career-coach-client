@@ -4,3 +4,10 @@ export const getRecomendation = (data) => {
     payload: data,
   }
 }
+
+export const addRecomendation = (data) => {
+  return {
+    type: 'ADD_RECOM',
+    payload: data,
+  }
+}

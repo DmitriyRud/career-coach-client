@@ -1,4 +1,4 @@
-import { editProfile, loginUser } from '../actions/usersAction';
+import { editProfile, loginUser, getUserData } from '../actions/usersAction';
 import axios from 'axios';
 
 export const loginUserAC = (data) => {
@@ -85,5 +85,18 @@ export const logoutUserAC = () => {
     if (response.ok) {
       dispatch(loginUser({}));
     }    
+  }
+}
+
+export const getUserDataAC = () => {
+  return async (dispatch) => {
+    // console.log('Санки старт!!!');
+    const response = await fetch('/users/data');
+    // console.log('response >>> ', response);
+    if(response.ok) {
+      const answer = await response.json();
+      // console.log('getUserDataAC >>>> ', answer);
+      dispatch(getUserData(answer))
+    }
   }
 }

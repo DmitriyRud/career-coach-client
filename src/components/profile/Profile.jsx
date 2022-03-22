@@ -29,6 +29,10 @@ const Profile = () => {
 
   useEffect(() => {
     dispatch(getAllResultUserAT(user.id));
+
+    let navItems = Array.from(document.querySelectorAll('.ant-menu-item'));
+    navItems.map((el)=>el.classList.remove('ant-menu-item-selected'));
+    document.querySelectorAll('.ant-menu-item')[1].classList.add('ant-menu-item-selected');
   }, []);
   // console.log('user', user)
 
