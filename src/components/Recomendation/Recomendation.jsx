@@ -12,11 +12,12 @@ const Recomendation = () => {
   const userId = useSelector((store) => store.users).id;
   const skills = useSelector((store) => store?.userSkills);
   const allResults = useSelector((store) => store.result.report);
-  //console.log('recomData', recomData);
+  console.log('recomData', recomData);
   const {result_id} = useParams();
   const dispatch = useDispatch();
   // console.log(result_id);
   useEffect(() => {
+    console.log('СТАРТУЕМ ЮЗ ЭФФЕКТ');
     dispatch(getRecomendationAT(result_id, userId, skills, allResults));
   }, [])
   return ( 
@@ -25,7 +26,7 @@ const Recomendation = () => {
       <Row className="recomendation-container" >
         <Col span={10} className='col-recom col-recom-left'>
           <h2>Необходимо изучить:</h2>
-          {recomData.toLearn.map((el, i) => {
+          {recomData?.toLearn?.map((el, i) => {
             return (
               <div key={i} className="skill-div li" ><span>{el}</span></div>
             )
@@ -33,7 +34,7 @@ const Recomendation = () => {
         </Col>
         <Col span={10} className='col-recom'>
           <h2>...перечислить в резюме и добавить в портфолио проекты с:</h2>
-          {recomData.skillsDESC5.map((el, i) => {
+          {recomData?.skillsDESC5?.map((el, i) => {
             return (
               <div key={i} className="skill-div li" ><span>{el.skill}</span></div>
             )
@@ -43,7 +44,7 @@ const Recomendation = () => {
       <Row className="recomendation-container" >
         <Col span={10} className='col-recom col-recom-left'>
           <h2>... и повысить навыки:</h2>
-          {recomData.toImprove.map((el, i) => {
+          {recomData?.toImprove?.map((el, i) => {
             return (
               <div key={i} className="skill-div li" ><span>{el}</span></div>
             )
@@ -51,7 +52,7 @@ const Recomendation = () => {
         </Col>
         <Col span={10} className='col-recom'>
           <h2>...также желательно указать в резюме и добавить в портфолио проекты с:</h2>
-          {recomData.skillsDESCnext5.map((el, i) => {
+          {recomData?.skillsDESCnext5?.map((el, i) => {
             return (
               <div key={i} className="skill-div li" ><span>{el.skill}</span></div>
             )
