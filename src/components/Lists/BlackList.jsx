@@ -35,6 +35,11 @@ const BlackList = () => {
     dispatch(deleteFromBlackList(id, userId));
   }
 
+  const deleteAllHandler = async () => {
+    await fetch (`/helper/blacklist/delete`);
+    
+  }
+
 
   return (
     <div className="main-page">
@@ -66,7 +71,7 @@ const BlackList = () => {
           ))}           
         </div>
         </Space>
-        <div style={{display:"flex", justifyContent:"center"}}><Button style={{marginBottom:"5px"}} danger>Очистить все</Button></div>
+        <div style={{display:"flex", justifyContent:"center"}}><Button onClick={deleteAllHandler} style={{marginBottom:"5px"}} danger>Очистить все</Button></div>
       </div>
     </Col>
     </Row>
