@@ -5,29 +5,35 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { allFromLists } from '../../redux/actions/listsActions'
 import { DeleteTwoTone } from '@ant-design/icons';
-import { deleteFromList, deleteAllWhiteList } from '../../redux/thunk/deleteFromList';
+import { deleteFromList, allFromWhiteList, deleteAllWhiteList } from '../../redux/thunk/deleteFromList';
 
 const { Text } = Typography; 
 
 const WhiteList = () => {
 
+  const user = useSelector((store) => store.users);
+
   const listItems = useSelector(store => store.list);
 
-  const user = useSelector((store) => store.users);
+  
+  console.log('user.id', user)
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch (`/helper/whitelist/${user.id}`);
-      if (response.ok) {
-        const whiteList = await response.json();
-        console.log('whitelist', whiteList);
-        dispatch(allFromLists(whiteList))
-      }
-    }
-    fetchData(); 
-  }, [])
+
+   dispatch(allFromWhiteList(user.id));
+    // async function fetchData() {
+    //   const response = await fetch (`/helper/whitelist/${user.id}`);
+    //   console.log('response,', response)
+    //   if (response.ok) {
+    //     const whiteList = await response.json();
+    //     console.log('whitelist', whiteList);
+    //     await dispatch(allFromLists(whiteList))
+    //   }
+    // }
+    // fetchData(); 
+  }, [user.id])
 
   const deleteHandler = (id, userId) => {
     console.log('deleteId', id, userId)
@@ -35,11 +41,10 @@ const WhiteList = () => {
     dispatch(deleteFromList(id, userId));
   }
 
-  const deleteAllHandler = (userId) => {
-    console.log('userId', userId)
-    dispatch(deleteAllWhiteList(userId));
-  }
-
+  // const deleteAllHandler = (userId) => {
+  //   console.log('userId', userId)
+  //   dispatch(deleteAllWhiteList(userId));
+  // }
 
   return (
     <div className="main-page">
@@ -54,7 +59,7 @@ const WhiteList = () => {
           </div>   
         <div style={{padding: '10px'}}>
           {listItems.map(el => (
-            <div className='skill-div' style={{display:"flex", justifyContent:"space-between"}}>
+            <div className='skill-div' key={el.createdAt} style={{display:"flex", justifyContent:"space-between"}}>
               <Text>{el.word}</Text>
             <div className="div-btn">
             <Tooltip title="delete">
@@ -71,7 +76,7 @@ const WhiteList = () => {
           ))}
         </div>
         </Space>
-        <div style={{display:"flex", justifyContent:"center"}}><Button onClick={()=> deleteAllHandler(user.id)} style={{marginBottom:"5px"}} danger>Очистить все</Button></div>
+        {/* <div style={{display:"flex", justifyContent:"center"}}><Button onClick={()=> deleteAllHandler(user.id)} style={{marginBottom:"5px"}} danger>Очистить все</Button></div> */}
       </div>
     </Col>
     </Row>

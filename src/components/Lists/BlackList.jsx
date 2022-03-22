@@ -27,16 +27,16 @@ const BlackList = () => {
       }
     }
     fetchData(); 
-  }, [])
+  }, [user.id])
 
   const deleteHandler = (id, userId) => {
     dispatch(deleteFromBlackList(id, userId));
   }
 
-  const deleteAllHandler = (userId) => {
-    console.log('userId', userId)
-    dispatch(deleteAllBlackList(userId));
-  }
+  // const deleteAllHandler = (userId) => {
+  //   console.log('userId', userId)
+  //   dispatch(deleteAllBlackList(userId));
+  // }
 
 
   return (
@@ -69,7 +69,7 @@ const BlackList = () => {
           ))}           
         </div>
         </Space>
-        <div style={{display:"flex", justifyContent:"center"}}><Button onClick={()=>deleteAllHandler(user.id)} style={{marginBottom:"5px"}} danger>Очистить все</Button></div>
+        {/* <div style={{display:"flex", justifyContent:"center"}}><Button onClick={()=>deleteAllHandler(user.id)} style={{marginBottom:"5px"}} danger>Очистить все</Button></div> */}
       </div>
     </Col>
     </Row>

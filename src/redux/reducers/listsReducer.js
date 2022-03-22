@@ -2,7 +2,6 @@ const initialState = [];
 
 const listsReducer = (state = initialState, action) => {
   const { type, payload } = action;
-  console.log('tyt', payload, typeof payload, state)
   switch (type) {
     case 'ALL_ITEMS_LIST':
       return payload;
