@@ -3,6 +3,8 @@ import { DownloadOutlined} from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { uploadAvatarAC } from '../../redux/thunk/usersAC';
 import { useState } from 'react';
+import React from 'react';
+
 
 const Avatarka = () => {
 

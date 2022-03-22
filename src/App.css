@@ -81,7 +81,7 @@ body {
   min-width: 100%;
   min-height: 85vh;
   /* background: url('../public/img/job_effect_1522699664.jpg') no-repeat; */
-  background: url('../public/img/searchJob.jpeg') no-repeat;
+  background: url('/images/searchJob.jpeg') no-repeat;
   background-position: top;
   background-size: cover;
   margin-top: 1em;
