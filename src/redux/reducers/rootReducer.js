@@ -7,6 +7,7 @@ import resultReducer from "./resultReducer";
 import recomendationReducer from "./recomendationReducer";
 import vacancyReducer from "./vacancyReducer";
 import profileReducer from "./profileReducer";
+import userData from "./userDataReducer";
 
 const rootReducer = combineReducers({
   allSkilsForSelect: allSkillsFromBdReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   recom: recomendationReducer,
   vacancy: vacancyReducer, 
   button: profileReducer,
+  userData,
 });
 
 export default rootReducer;
