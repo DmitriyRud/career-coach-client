@@ -78,7 +78,7 @@ export const addSkillinSkill = (skill) => async (dispatch, setState) => {
     });
 
     const newSkillFromServer = await response.json();
-    console.log('newSkillFromServer',newSkillFromServer);
+    // console.log('newSkillFromServer',newSkillFromServer);
 
     dispatch({
       type: ADD_SKILL_IN_SKILL,
@@ -100,7 +100,8 @@ export const addSkillinLearn = (skill) => async (dispatch, setState) => {
     });
 
     const newSkillFromServer = await response.json();
-    console.log(newSkillFromServer);
+   console.log('newSkillFromServer-2',newSkillFromServer);
+
     dispatch({
       type: ADD_SKILL_IN_LEARN,
       payload: newSkillFromServer,
