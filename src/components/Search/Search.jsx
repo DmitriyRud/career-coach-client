@@ -35,6 +35,12 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    let navItems = Array.from(document.querySelectorAll('.ant-menu-item'));
+    navItems.map((el)=>el.classList.remove('ant-menu-item-selected'));
+    document.querySelectorAll('.ant-menu-item')[2].classList.add('ant-menu-item-selected');
+  }, []);
+  
+  useEffect(() => {
    dispatch(getAllResultUserAT(user.id));
     //console.log('newSearch =========>', newSearch);
   }, [newSearch]);

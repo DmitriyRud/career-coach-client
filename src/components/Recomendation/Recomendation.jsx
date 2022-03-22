@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.modules.css';
+import '../Recomendation/styles.modules.css';
 import { useParams } from 'react-router-dom';
 import { Row, Col } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
