@@ -49,7 +49,7 @@ useEffect(() => {
   const isSearchMade = async() => {
   const response = await fetch(`/helper/result/user/${user.id}`);
   const res = await response.json()
-  console.log('search > ', res)
+  // console.log('search > ', res)
   if (response.ok && res.length!==0) {
     setIsSearch(true);
     
