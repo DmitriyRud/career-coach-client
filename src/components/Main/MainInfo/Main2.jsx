@@ -7,7 +7,7 @@ const MainInfo = () => {
     <>
   <div className="picture-container">
     {/* <img src="/img/searchJob.jpeg" alt="Картинка не найдена"/> */}
-   <div className="speech-bubble">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>     
+   {/* <div className="thought">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>      */}
   </div> 
   <AboutUs/>
   <ContactForm/>

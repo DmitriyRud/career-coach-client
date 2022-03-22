@@ -35,7 +35,7 @@
 
 
 
-/* .thought {
+.thought {
   display:flex;
   position: absolute;
   background-color:#fff;
@@ -74,4 +74,4 @@
              -24px 17px 0 -6px #fff,
              -5px 25px 0 -10px #fff;
   
-} */
+}
