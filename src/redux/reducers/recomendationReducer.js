@@ -8,7 +8,9 @@ const recomendationReducer = (state = initState, action) => {
     case 'GET_RECOM':
       return {recom: payload};
     case 'ADD_RECOM':
-      return payload;
+      // return payload;
+      return {recom: payload};
+
     default:
       return state;
   }
