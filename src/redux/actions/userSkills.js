@@ -11,7 +11,7 @@ import {
 import { disableSpinner, enableSpinner } from "./spinnerAction";
 
 export const updateRate = (rate) => async (dispatch, setState) => {
-  console.log("data", rate);
+  // console.log("data", rate);
   try {
     const response = await fetch("/users/profile/changerate", {
       method: "PUT",
