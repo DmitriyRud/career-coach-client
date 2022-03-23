@@ -19,7 +19,12 @@ export const updateRate = (data) => async (dispatch, setState) => {
       },
       body: JSON.stringify(data),
     });
-    
+    // const data = response.json();
+    //  console.log('data',data);
+    // dispatch({
+    //   type: UPDATE_RATE_SKILL,
+    //   payload: data ,
+    // });
   } catch (error) {
     return error.message;
   }

@@ -28,7 +28,7 @@ const SelectSkills = ({ input, checkSkillLearn, checkSkill }) => {
   //   store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
   // );
   const ultraAllSkills = [...checkSkill, ...checkSkillLearn];
-  console.log(checkSkillLearn.includes(input.toLowerCase()));
+  // console.log(checkSkillLearn.includes(input.toLowerCase()));
 
   const id = useSelector((store) => store?.users.id);
 
