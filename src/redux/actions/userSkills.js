@@ -7,18 +7,33 @@ import {
   DELETE_USER_SKILL,
   DELETE_USER_LEARN,
 } from "../types/userSkills";
+import { disableSpinner, enableSpinner } from "./spinnerAction";
+
+export const updateRate = () => async (dispatch, setState) => {
+  try {
+    const response = await fetch("/users/profile/changerate", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ skill }),
+    });
+    
+  } catch (error) {
+    return error.message;
+  }
+}
 
 export const allSkillsFromSelect = () => async (dispatch, setState) => {
   try {
     const response = await fetch("/users/profile/allskillsforskillsselect");
     const allSkills = await response.json();
-    console.log("+++++", allSkills);
     dispatch({
       type: ALL_SKILL_FOR_SELECT,
       payload: allSkills,
     });
   } catch (error) {
-    console.log(error.message);
+    return error.message;
   }
 };
 
@@ -35,16 +50,20 @@ export const allSkillsFromSkills = (id) => async (dispatch, setState) => {
         skill_id: el.skill_id,
         user_id: el.user_id,
         skill_rate: el.rate,
+        rate: el.rate,
         category: "skills",
       };
     });
-    // console.log("====", result);
-    dispatch({
-      type: ALL_SKILL_FROM_SKILL,
-      payload: result,
-    });
+    // return ("====", result);
+    
+      dispatch({
+        type: ALL_SKILL_FROM_SKILL,
+        payload: result,
+      });
+      
+    
   } catch (error) {
-    console.log(error.message);
+    return error.message;
   }
 };
 
@@ -65,7 +84,7 @@ export const allSkillsFromLearn = (id) => async (dispatch, setState) => {
       payload: result,
     });
   } catch (error) {
-    console.log(error.message);
+    return error.message;
   }
 };
 
@@ -80,14 +99,13 @@ export const addSkillinSkill = (skill) => async (dispatch, setState) => {
     });
 
     const newSkillFromServer = await response.json();
-    // console.log('newSkillFromServer',newSkillFromServer);
 
     dispatch({
       type: ADD_SKILL_IN_SKILL,
       payload: newSkillFromServer,
     });
   } catch (error) {
-    console.log(error.message);
+    return error.message;
   }
 };
 
@@ -102,14 +120,13 @@ export const addSkillinLearn = (skill) => async (dispatch, setState) => {
     });
 
     const newSkillFromServer = await response.json();
-    console.log("newSkillFromServer-2", newSkillFromServer);
 
     dispatch({
       type: ADD_SKILL_IN_LEARN,
       payload: newSkillFromServer,
     });
   } catch (error) {
-    console.log(error.message);
+    return error.message;
   }
 };
 
@@ -130,7 +147,7 @@ export const deleteUserSkill =
         payload: skillId,
       });
     } catch (error) {
-      console.log(error.message);
+      return error.message;
     }
   };
 
@@ -151,6 +168,6 @@ export const deleteUserLearn =
         payload: skillId,
       });
     } catch (error) {
-      console.log(error.message);
+      return error.message;
     }
   };

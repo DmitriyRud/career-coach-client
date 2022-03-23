@@ -8,7 +8,8 @@ import {
   allSkillsFromSkills,
   allSkillsFromSelect,
 } from "../../redux/actions/userSkills";
-import { Radio } from "antd";
+import { Radio, Spin } from "antd";
+
 import SelectSkills from "../SelectSkills";
 import allSkillsFromDB from "../../redux/reducers/allSkillsFromBdReducer";
 
@@ -27,22 +28,16 @@ const AddUserSkills = () => {
   const checkSkillLearn = useSelector((store) =>
     store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
   );
-  // console.log('skills',checkSkill);
-  // console.log('skillsLEARN',checkSkillLearn);
-
+  // console.log(checkSkill.includes('react'));
   const { id } = store;
   const [form] = Form.useForm();
   const dispatch = useDispatch();
-  let flagSkill = false;
-  let flagLearn = false;
-
+  console.log(store.id);
   useEffect(() => {
     dispatch(allSkillsFromSelect());
   }, []);
 
-  useEffect(() => {
-    dispatch(allSkillsFromSkills(store.id));
-  }, []);
+  
   const inputHandler = (e) => {
     setInput(e.target.value);
   };
@@ -112,8 +107,9 @@ const AddUserSkills = () => {
             Submit
           </Button>
           <hr />
+
           {allSkills?.map((el) => (
-            <SelectSkills key={el.id} id={el.id} input={el.skill} />
+            <SelectSkills key={el.id} checkSkill={checkSkill} checkSkillLearn={checkSkillLearn} id={el.id} input={el.skill} />
           ))}
         </Form.Item>
       </Form>
