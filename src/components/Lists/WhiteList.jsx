@@ -23,16 +23,6 @@ const WhiteList = () => {
   useEffect(() => {
 
    dispatch(allFromWhiteList(user.id));
-    // async function fetchData() {
-    //   const response = await fetch (`/helper/whitelist/${user.id}`);
-    //   console.log('response,', response)
-    //   if (response.ok) {
-    //     const whiteList = await response.json();
-    //     console.log('whitelist', whiteList);
-    //     await dispatch(allFromLists(whiteList))
-    //   }
-    // }
-    // fetchData(); 
   }, [user.id])
 
   const deleteHandler = (id, userId) => {
