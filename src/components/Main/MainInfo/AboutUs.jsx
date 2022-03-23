@@ -4,6 +4,7 @@ import { Card, Col, Row } from 'antd';
 const AboutUs = () => {
   return (
     <div>
+      <h1 className='help-text'>Чем наш сайт может помочь?</h1> 
     <section className='section-main-info'>
            <div class="about-cards-list">
   

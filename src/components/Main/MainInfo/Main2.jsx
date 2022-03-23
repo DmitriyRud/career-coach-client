@@ -12,9 +12,9 @@ const MainInfo = () => {
    <div className="speech-bubble3">Эх было бы приложение, которое помогло бы мне разобраться во всем 🙂</div>     
     {/* <div className="oval">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>     */}
   </div> 
-  <h1 className='help-text'>Чем наш сайт может помочь?</h1>
-  <AboutUs/>
-  <ContactForm/>
+  {/* <h1 className='help-text'>Чем наш сайт может помочь?</h1> 
+   <AboutUs/> */}
+  {/* <ContactForm/> */}
     </>);
 }
  

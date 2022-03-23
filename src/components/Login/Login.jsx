@@ -37,7 +37,8 @@ const Login = () => {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
-        >
+        > 
+        <div className='login-input'>
           <Form.Item
             label="Username"
             name="name"
@@ -51,7 +52,7 @@ const Login = () => {
             <Input />
           </Form.Item>
 
-          <Form.Item
+          <Form.Item className='login-input' style={{color: 'whitesmoke'}}
             label="Password"
             name="password"
             rules={[
@@ -63,16 +64,19 @@ const Login = () => {
           >
             <Input.Password />
           </Form.Item>
-
+        </div>
           <Form.Item
             wrapperCol={{
               offset: 4,
               span: 16,
             }}
           >
-            <Button type="primary" htmlType="submit">
+          
+          <div className="login-button">
+            <Button  type="primary" htmlType="submit">
               Submit
             </Button>
+          </div>
           </Form.Item>
         </Form>
       </div>
