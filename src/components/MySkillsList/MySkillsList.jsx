@@ -23,9 +23,13 @@ const MySkillsList = () => {
       .finally(() => {
         dispatch(disableSpinner());
       });
-    
+
 
   }, []);
+  
+  if (spinner) return <div className="spin-center"><Spin /></div>
+
+
   
   if (spinner) return <div className="spin-center"><Spin /></div>
 
@@ -39,6 +43,7 @@ const MySkillsList = () => {
             skill_id={el.skill_id}
             skill={el.skill}
             user_id={el.user_id}
+            rate={el.rate}
             category={el.category}
           />
         ))}

@@ -6,8 +6,25 @@ import {
   ALL_SKILL_FOR_SELECT,
   DELETE_USER_SKILL,
   DELETE_USER_LEARN,
+  UPDATE_RATE_SKILL
 } from "../types/userSkills";
 import { disableSpinner, enableSpinner } from "./spinnerAction";
+
+export const updateRate = (data) => async (dispatch, setState) => {
+  try {
+    const response = await fetch("/users/profile/changerate", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    
+  } catch (error) {
+    return error.message;
+  }
+}
+
 
 export const allSkillsFromSelect = () => async (dispatch, setState) => {
   try {
@@ -35,6 +52,7 @@ export const allSkillsFromSkills = (id) => async (dispatch, setState) => {
         skill_id: el.skill_id,
         user_id: el.user_id,
         skill_rate: el.rate,
+        rate: el.rate,
         category: "skills",
       };
     });
