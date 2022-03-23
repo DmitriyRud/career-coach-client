@@ -2,18 +2,25 @@ import React from "react";
 // import { Button } from 'antd';
 import './VacanciesItem.css'
 
-const VacanciesItem = ({ title, company, url }) => {
+const VacanciesItem = ({ title, company, url, salary }) => {
   return ( 
-    <div className="vacancy-div">
       <a type="link" href={url} target='_blank' rel="noreferrer">
+    <div className="vacancy-div">
         <div>
           {title}
         </div>
+        &nbsp;
+        &nbsp;
         <div>
           {`Компания: ${company}`}
         </div>
-      </a>
+        &nbsp;
+        &nbsp;
+        <div>
+          {salary}
+        </div>
     </div>
+      </a>
    );
 }
  

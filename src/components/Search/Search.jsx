@@ -72,7 +72,12 @@ const Search = () => {
       <div className="main-page" style={{position: 'relative'}}>
         {loading 
           &&
-          <img src='/images/loading.gif' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '7em', borderRadius: '50%'}}/>
+          // <img src='/images/loading.gif' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '7em', borderRadius: '50%'}}/>
+          <div className="loader">
+            <div className="inner one"></div>
+            <div className="inner two"></div>
+            <div className="inner three"></div>
+          </div>
         }
         <div className="headers">
           <h1>Анализ вакансий</h1>
