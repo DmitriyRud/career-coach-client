@@ -11,7 +11,8 @@
   min-width: 60em;
   max-width: 80em;
   padding: 20px;
-  background-color: aliceblue;
+  background-color: rgb(28, 125, 209);
+  /* background-color: aliceblue; */
   /* margin-left: auto;
   margin-right: auto; */
 }
