@@ -40,7 +40,7 @@ const Avatarka = () => {
           style={{marginTop: '0.5em'}}
           type="primary"
           size='middle'>
-          Применить
+          Обновить фото
         </Button>
       </div>
     </div>
