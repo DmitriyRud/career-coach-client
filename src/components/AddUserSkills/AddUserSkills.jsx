@@ -1,44 +1,119 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input, Button, Form } from "antd";
-import { useDispatch } from "react-redux";
-import { addSkill } from '../../redux/actions/addUserSkills';
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addSkillinLearn,
+  addSkillinSkill,
+  allSkillsFromLearn,
+  allSkillsFromSkills,
+  allSkillsFromSelect,
+} from "../../redux/actions/userSkills";
+import { Radio, Spin } from "antd";
+
+import SelectSkills from "../SelectSkills";
+import allSkillsFromDB from "../../redux/reducers/allSkillsFromBdReducer";
 
 const AddUserSkills = () => {
-  const [input, setInput] = useState();
+  const [input, setInput] = useState("");
+  const [radio, setRadio] = useState("skills");
+  // const skills = useSelector((store) => store?.userSkills);
+  // const skillsLearn = useSelector((store) => store?.userSkillsLearn);
+  // console.log('skills',skills);
+  // console.log('skillsLEARN',skillsLearn);
+  const store = useSelector((store) => store.users);
+  const allSkills = useSelector((store) => store?.allSkilsForSelect);
+  const checkSkill = useSelector((store) =>
+    store.userSkills?.map((el) => el.skill?.toLowerCase())
+  );
+  const checkSkillLearn = useSelector((store) =>
+    store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
+  );
+  // console.log(checkSkill.includes('react'));
+  const { id } = store;
+  const [form] = Form.useForm();
   const dispatch = useDispatch();
+  console.log(store.id);
+  useEffect(() => {
+    dispatch(allSkillsFromSelect());
+  }, []);
 
+  
   const inputHandler = (e) => {
-    // console.log(e.target.value);
-    setInput(e.target.value)
-  }
+    setInput(e.target.value);
+  };
+
+  const radioHandler = (e) => {
+    setRadio(e.target.value);
+  };
+  // console.log(radio);
 
   const submitHandler = (e) => {
-    // console.log(e.target);
-    e.preventDefault();
-    dispatch(addSkill(input))
-    setInput('')
+    if (radio === "skills") {
+      if (
+        input === undefined ||
+        input === "" ||
+        checkSkill?.includes(input.toLowerCase())
+      ) {
+        setInput("");
+        form.resetFields();
+      } else {
+        e.preventDefault();
+        dispatch(addSkillinSkill({ input, id }));
+        setInput("");
+        form.resetFields();
+      }
+    } else if (radio === "learn") {
+      if (
+        input === undefined ||
+        input === "" ||
+        checkSkillLearn?.includes(input.toLowerCase())
+      ) {
+        setInput("");
+        form.resetFields();
+      } else {
+        e.preventDefault();
+        dispatch(addSkillinLearn({ input, id }));
+        setInput("");
+        form.resetFields();
+      }
+    }
   };
-  
+
   return (
     <>
-    <h1>Введите навыки:</h1>
-    <Form
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      initialValues={{ remember: true }}
-      autoComplete="off"
-    >
-      <Form.Item wrapperCol={{ offset: 5, span: 15 }} name="skills">
-        <Input value={input} onChange={inputHandler} />
-      </Form.Item>
-      <Form.Item wrapperCol={{ offset: 5, span: 15 }}>
-        <Button onClick={submitHandler} type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
-      </>
+      <h1>Введите или выберите навыки:</h1>
+      <Form
+        form={form}
+        name="basic"
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        initialValues={{ remember: true }}
+        autoComplete="off"
+        onSubmit={submitHandler}
+      >
+        <Form.Item wrapperCol={{ offset: 5, span: 15 }} name="skills">
+          <Input value={input} onChange={inputHandler} />
+        </Form.Item>
+        <Form.Item wrapperCol={{ offset: 5, span: 15 }}>
+          <Radio.Group defaultValue="skills" buttonStyle="solid">
+            <Radio onChange={radioHandler} value="skills">
+              Навыки
+            </Radio>
+            <Radio onChange={radioHandler} value="learn">
+              Выучить
+            </Radio>
+          </Radio.Group>
+          <Button onClick={submitHandler} type="primary" htmlType="submit">
+            Submit
+          </Button>
+          <hr />
+
+          {allSkills?.map((el) => (
+            <SelectSkills key={el.id} checkSkill={checkSkill} checkSkillLearn={checkSkillLearn} id={el.id} input={el.skill} />
+          ))}
+        </Form.Item>
+      </Form>
+    </>
   );
 };
 

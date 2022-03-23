@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './Login.css';
 import { Form, Input, Button } from 'antd';
 import sha256 from 'sha256';
@@ -11,7 +13,6 @@ const Login = () => {
 
   const onFinish = (values) => {
     values.password = sha256(values.password);
-    //console.log('Success:', values);
     dispatch(loginUserAC(values));
     navigate("/");
   };
@@ -38,9 +39,9 @@ const Login = () => {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
-        >
-          <Form.Item
-            label="Username"
+        > 
+          <Form.Item className='login-input'
+            label="Имя пользователя"
             name="name"
             rules={[
               {
@@ -52,8 +53,8 @@ const Login = () => {
             <Input />
           </Form.Item>
 
-          <Form.Item
-            label="Password"
+          <Form.Item className='login-input'
+            label="Пароль"
             name="password"
             rules={[
               {
@@ -64,16 +65,18 @@ const Login = () => {
           >
             <Input.Password />
           </Form.Item>
-
           <Form.Item
             wrapperCol={{
               offset: 4,
               span: 16,
             }}
           >
-            <Button type="primary" htmlType="submit">
+          
+          <div className="login-button">
+            <Button  type="primary" htmlType="submit" size={'large'}>
               Submit
             </Button>
+          </div>
           </Form.Item>
         </Form>
       </div>

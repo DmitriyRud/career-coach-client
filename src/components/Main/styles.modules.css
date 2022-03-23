@@ -1,0 +1,28 @@
+.main-page {
+  min-width: 100%;
+  min-height: 85vh;  
+  /* min-height: 80vh;
+  min-width: 50em; */
+  background: none;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  padding: 2em;
+}
+
+.profile-line,
+.skills-line,
+.analize-line,
+.vacancies-list-container {
+  margin: 4em auto;
+  width: 90%;
+}
+
+h2 {
+  color: black;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+p {
+  font-size: 1.3em;
+}

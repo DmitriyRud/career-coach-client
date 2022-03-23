@@ -29,7 +29,6 @@ const Register = () => {
     const onFinish = (values) => {
     values.password = sha256(values.password);
     values.confirm = values.password;
-    //console.log('Success:', values);
     dispatch(registerUserAC(values));
     navigate("/");
   };
@@ -44,9 +43,9 @@ const Register = () => {
  <div className="register-window">
       <div className="register-display">
          <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-      <Form.Item
+      <Form.Item className='register-input'
         name="name"
-        label="Username"
+        label="Имя пользователя"
         rules={[
           {
             required: true,
@@ -55,7 +54,7 @@ const Register = () => {
       >
         <Input />
       </Form.Item>
-      <Form.Item
+      <Form.Item className='register-input'
         name="email"
         label="Email"
         rules={[
@@ -66,8 +65,8 @@ const Register = () => {
         ]}
       >
         <Input />
-      </Form.Item>
-          <Form.Item
+      </Form.Item> 
+          <Form.Item className='register-input'
             label="Пароль"
             name="password"
             rules={[
@@ -80,7 +79,7 @@ const Register = () => {
             <Input.Password />
           </Form.Item>
 
-        <Form.Item
+        <Form.Item className='register-input'
         name="confirm"
         label="Пароль еще раз"
         dependencies={[ref]}
@@ -104,9 +103,11 @@ const Register = () => {
       </Form.Item>
 
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 4 }}>
-        <Button type="primary" htmlType="submit">
+      <div className="register-button">
+        <Button type="primary" htmlType="submit"  size={'large'}>
           Submit
         </Button>
+      </div>  
       </Form.Item>
     </Form>
       </div>

@@ -5,8 +5,25 @@
 }
 
 .register-display {
-  background-color: white;
-  border: 1px solid grey;
+  /* background-color: white;
+  border: 1px solid grey; */
   padding: 3em 2em 1em;
-  width: 60%;
+  /* width: 60%; */
+  background: rgba( 34, 39, 69,.6);
+  border-radius: 10px;
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  height: 350px;
+  width: 1000px;
+}
+
+.register-button {
+  display: flex;
+  justify-content: center;
+}
+
+.register-input {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  color:white;
 }

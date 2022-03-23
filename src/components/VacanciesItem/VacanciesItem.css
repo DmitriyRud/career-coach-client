@@ -1,0 +1,32 @@
+.vacancy-div {
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid #fff ;
+  border-radius: 2px;
+  margin: 5px;
+  padding: 0 0.5em;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  min-width: 95%;
+  max-width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vacancy-title {
+  max-width: 40%;
+  min-width: 40%;
+}
+
+.company-title {
+  width: 30%;
+  min-width: 30%;
+}
+
+.salary-title {
+  width: 30%;
+  min-width: 30%%;
+}

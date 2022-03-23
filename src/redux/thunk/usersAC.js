@@ -1,11 +1,8 @@
-import { loginUser } from "../actions/usersAction";
-import { useNavigate } from "react-router-dom";
-
-const axios = require("axios");
+import { editProfile, loginUser, getUserData } from '../actions/usersAction';
+import axios from 'axios';
 
 export const loginUserAC = (data) => {
   return async (dispatch) => {
-    //console.log('beforeFetch');
     try {
       const response = await fetch("/auth/signin", {
         method: "POST",
@@ -13,11 +10,15 @@ export const loginUserAC = (data) => {
         body: JSON.stringify(data),
       });
       if (response.ok) {
-        //console.log(response);
         const result = await response.json();
         dispatch(loginUser(result));
         if (result.name) {
           console.log("login successful");
+          const userState = {name: result.name, password: data.password};
+          
+          //console.log('Userstate ======> ', userState);
+
+          localStorage.setItem('userstate', JSON.stringify(userState));
         }
       } else {
         const message = document.querySelector(".message");
@@ -38,18 +39,56 @@ export const registerUserAC = (data) => {
     const response = await fetch('/auth/signup', { method:'POST', headers:{'Content-type': 'application/json'}, body: JSON.stringify(data)});
     if (response.ok) {
       const result = await response.json();
-      //console.log(result);
       dispatch(loginUser(result));
     }
   };
 };
 
-export const checkUserAC = () => {
+export const editProfileAC = (data) => {
   return async (dispatch) => {
+    const response = await fetch(`/users/profile`, { 
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (response.ok) {
+      const result = await response.json();
+      dispatch(editProfile(result));
+    }
+  };
+};
+
+export const uploadAvatarAC = (file, id) => {
+  return async (dispatch) => {
+    const data = new FormData();
+    data.append('file', file);
+    data.append('id', id)
+    // console.log(Object.fromEntries(data));
+   const response = await axios.put('/users/profile', data)
+  //  console.log('response', response)
+      dispatch(editProfile(response.data));
+    
+  };
+};
+
+export const checkUserAC = () => {
+  
+  
+  return async (dispatch) => {
+    const userState = localStorage.getItem("userstate") ? JSON.parse(localStorage.getItem("userstate")) : {};
+    //console.log('Userstate in checkUserAC ======> ', userState);
+    
+    const values = {};
+    values.name = userState.name;
+    values.password = userState.password;
+    dispatch(loginUserAC(values));
+
     const response = await fetch('/auth/checkiflogged', { method:'GET'});
     if (response.ok) {
       const result = await response.json();
-      console.log('Already logged: ',result);
+      // console.log('Already logged: ',result);
       dispatch(loginUser(result));
     }    
   }
@@ -57,9 +96,23 @@ export const checkUserAC = () => {
 
 export const logoutUserAC = () => {
   return async (dispatch) => {
+    localStorage.removeItem('userstate')
     const response = await fetch('/auth/signout', { method:'GET'});
     if (response.ok) {
       dispatch(loginUser({}));
     }    
+  }
+}
+
+export const getUserDataAC = () => {
+  return async (dispatch) => {
+    // console.log('Санки старт!!!');
+    const response = await fetch('/users/data');
+    // console.log('response >>> ', response);
+    if(response.ok) {
+      const answer = await response.json();
+      // console.log('getUserDataAC >>>> ', answer);
+      dispatch(getUserData(answer))
+    }
   }
 }
