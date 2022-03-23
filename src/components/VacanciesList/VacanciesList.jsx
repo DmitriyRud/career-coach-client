@@ -11,7 +11,7 @@ const VacanciesList = () => {
   const vacancies = useSelector((store) => store.vacancy.vacancies);
   const dispatch = useDispatch();
   console.log('VacanciesList >> ', vacancies);
-  console.log(user);
+  // console.log(user);
   useEffect(() => {
     dispatch(getVacanciesAT(user.id))
   }, [])
@@ -26,7 +26,8 @@ const VacanciesList = () => {
               key={vacancy.url}
               title={vacancy.job_title}
               company={vacancy.company}
-              url={vacancy.url} />
+              url={vacancy.url}
+              salary={vacancy.salary} />
           )
         })}
       </div>

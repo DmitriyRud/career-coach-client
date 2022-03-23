@@ -46,8 +46,8 @@
   list-style-type: none;
   padding: 0;
   margin-top: 1em;
-  /* width: 90%; */
-  max-width: 25em;
+  max-width: 100%;
+  /* max-width: 25em; */
   min-width: 20em;
 }
 
