@@ -12,6 +12,7 @@
 .col-recom {
   background-color: aliceblue;
   min-width: 20em;
+  border-radius: 5px;
 }
 
 .col-recom-left {
@@ -28,13 +29,14 @@
   background: #fff;
   border: 1px solid #fff ;
   border-radius: 2px;
-  margin: 5px;
+  margin: 7px 10px;
   padding: 0 0.5em;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 h1 {

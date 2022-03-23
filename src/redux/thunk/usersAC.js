@@ -95,6 +95,7 @@ export const checkUserAC = () => {
 }
 
 export const logoutUserAC = () => {
+  localStorage.removeItem('userstate');
   return async (dispatch) => {
     const response = await fetch('/auth/signout', { method:'GET'});
     if (response.ok) {
