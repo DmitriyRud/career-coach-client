@@ -52,18 +52,19 @@ const Profile = () => {
         <Avatarka/>
       
         <ul className='profile-settings'>
-        <li><span>Username</span>{user.name}<span /></li>
-          <li  id='fio-edit'><span>Имя</span>{user.fio || 'Анонимус'}<span><Tooltip title="edit">
+        <li><div style={{width: '30%'}}>Username</div><div style={{width: '60%'}}>{user.name}</div><div style={{width: '10%'}}/></li>
+        <li  id='fio-edit'><div style={{width: '30%'}}>Имя</div><div style={{width: '60%'}}>{user.fio || 'Анонимус'}</div><div style={{width: '10%'}}>
+        <Tooltip title="edit">
           <Button onClick={() => editHandler(user.name)} type="primary" shape="circle" icon={<EditOutlined />} />
-        </Tooltip></span></li>
+        </Tooltip></div></li>
         {btnState.fio && <EditName />}
-          <li><span>Почта</span>{user.email}<span><Tooltip title="edit">
+          <li><div style={{width: '30%'}}>Почта</div><div style={{width: '60%'}}>{user.email}</div><div style={{width: '10%'}}><Tooltip title="edit">
           <Button onClick={() => editHandler(user.email)} type="primary" shape="circle" icon={<EditOutlined />} />
-        </Tooltip></span></li>
+        </Tooltip></div></li>
         {btnState.email && <EditEmail />}
-          <li><span>Пароль</span>***<span><Tooltip title="edit">
+          <li><div style={{width: '30%'}}>Пароль</div><div style={{width: '60%'}}>***</div><div style={{width: '10%'}}><Tooltip title="edit">
           <Button onClick={editHandler} type="primary" shape="circle" icon={<EditOutlined />} />
-        </Tooltip></span></li>
+        </Tooltip></div></li>
         {btnState.password && <EditPassword />}
         </ul>
         </div>    
