@@ -11,10 +11,12 @@ import {
   deleteUserSkill,
 } from "../../redux/actions/userSkills";
 
+
 const Skills = ({ skill, category, user_id, skill_id, rate }) => {
   const [stars, setStars] = useState(rate);
   console.log("-------", stars);
   console.log(category, user_id, skill_id, rate);
+
   const dispatch = useDispatch();
   const deleteHandler = async (user_id, skill_id, category) => {
     console.log("in delete", skill, category, user_id, skill_id);
@@ -43,10 +45,12 @@ const Skills = ({ skill, category, user_id, skill_id, rate }) => {
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
         className="btn-delete"
+
         icon={<DeleteTwoTone twoToneColor="red" />}
         shape="circle"
         type="ghost"
       />
+
     </div>
   );
 };

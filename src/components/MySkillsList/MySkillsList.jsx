@@ -24,7 +24,10 @@ const MySkillsList = () => {
         dispatch(disableSpinner());
       });
 
+
   }, []);
+  
+  if (spinner) return <div className="spin-center"><Spin /></div>
 
 
   

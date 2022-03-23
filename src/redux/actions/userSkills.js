@@ -25,6 +25,7 @@ export const updateRate = (data) => async (dispatch, setState) => {
   }
 }
 
+
 export const allSkillsFromSelect = () => async (dispatch, setState) => {
   try {
     const response = await fetch("/users/profile/allskillsforskillsselect");
