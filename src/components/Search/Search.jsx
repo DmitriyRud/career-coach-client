@@ -23,7 +23,7 @@ import { useNavigate } from "react-router-dom";
 const { Option } = Select;
 
 const Search = () => {
-  const store = useSelector((store) => store.users);
+  //const store = useSelector((store) => store.users);
   const allResults = useSelector((store) => store.result.resultAll);
   //console.log(allResults);
   const user = useSelector((store) => store.users);
@@ -55,6 +55,7 @@ const Search = () => {
   const onFinish = async (values) => {
     setLoading(true)
     values.city = cities[values.city];
+    values.userId = user.id;
     //console.log('Success:', values);
     const resultId = await dispatch(analizeAC(values));
     //console.log('resultId from back ==== > ', ttt);
@@ -69,12 +70,36 @@ const Search = () => {
     setLoading(false)
   };
 
-  if (store.name) {
+  if (user.name) {
     return (
       <div className="main-page" style={{position: 'relative'}}>
         {loading 
           &&
-          <img src='/images/loading.gif' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '7em', borderRadius: '50%'}}/>
+          // <img src='/images/loading.gif' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '7em', borderRadius: '50%'}}/>
+        //   spiner version 1
+          // <div className="loader">
+          //   <div className="inner one"></div>
+          //   <div className="inner two"></div>
+          //   <div className="inner three"></div>
+          // </div>
+        // spiner version 2
+          // <div class="sk-chase" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          // </div>
+        // spiner version 2
+          <div class="loader" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+            <div class="face">
+              <div class="circle"></div>
+            </div>
+            <div class="face">
+              <div class="circle"></div>
+            </div>
+          </div>
         }
         <div className="headers">
           <h1>Анализ вакансий</h1>
