@@ -12,11 +12,12 @@ const Recomendation = () => {
   const userId = useSelector((store) => store.users).id;
   const skills = useSelector((store) => store?.userSkills);
   const allResults = useSelector((store) => store.result.report);
-  console.log('recomData', recomData);
+  // console.log('recomData', recomData);
   const {result_id} = useParams();
   const dispatch = useDispatch();
   // console.log(result_id);
   useEffect(() => {
+    console.log('СТАРТУЕМ ЮЗ ЭФФЕКТ');
     dispatch(getRecomendationAT(result_id, userId, skills, allResults));
   }, [])
   return ( 
