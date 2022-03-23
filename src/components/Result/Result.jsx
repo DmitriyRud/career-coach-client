@@ -141,10 +141,19 @@ const Result = () => {
                     &nbsp; &nbsp; 
                   </div>
                   <div className="div-btn">
-
-                  <Tooltip title="add WhiteList">
+                  {
+                    flagWhiteList ? 
                     <Button 
-                      disabled={flagWhiteList}
+                      style={{visibility: 'hidden'}}
+                      disabled
+                      type="ghost" 
+                      shape="circle" 
+                      icon={<EyeTwoTone />} 
+                      size='small'
+                      onClick={() => onClickWhite(el[0])} />
+                    :
+                    <Tooltip title="add WhiteList" >
+                    <Button 
                       type="ghost" 
                       // type="text" 
                       shape="circle" 
@@ -152,39 +161,75 @@ const Result = () => {
                       size='small'
                       onClick={() => onClickWhite(el[0])} />
                   </Tooltip>
-                  &nbsp; 
-                  <Tooltip title="add BlackList">
+                  }
+                  &nbsp;
+                  {
+                    flagBlackList ? 
                     <Button
-                      disabled={flagBlackList}
+                      style={{visibility: 'hidden'}}
+                      disabled
                       type="ghost" 
                       // type="text" 
                       shape="circle" 
                       icon={<EyeInvisibleTwoTone twoToneColor="red"/>} 
                       size='small'
                       onClick={() => onClickBlack(el[0])} />
-                  </Tooltip>
+                    :
+                    <Tooltip title="add BlackList">
+                      <Button
+                        type="ghost" 
+                        // type="text" 
+                        shape="circle" 
+                        icon={<EyeInvisibleTwoTone twoToneColor="red"/>} 
+                        size='small'
+                        onClick={() => onClickBlack(el[0])} />
+                    </Tooltip>
+
+                  } 
                   &nbsp; 
-                  <Tooltip title="add MySkills">
+                  {
+                    flagUserSkills ? 
                     <Button 
-                      disabled={flagUserSkills}
+                      style={{visibility: 'hidden'}}
+                      disabled
                       type="ghost" 
-                      // type="text"
                       shape="circle" 
                       icon={<DatabaseTwoTone />} 
                       size='small'
                       onClick={() => onClickUserSkill(el[0])} />
-                  </Tooltip>
+                    :
+                    <Tooltip title="add MySkills">
+                      <Button 
+                        type="ghost" 
+                        shape="circle" 
+                        icon={<DatabaseTwoTone />} 
+                        size='small'
+                        onClick={() => onClickUserSkill(el[0])} />
+                    </Tooltip>
+
+                  }
                   &nbsp; 
-                  <Tooltip title="add MyPlans">
+                  {
+                    flagMyPlans ?
                     <Button 
-                      disabled={flagMyPlans}
+                      style={{visibility: 'hidden'}}
+                      disabled
                       type="ghost" 
-                      // type="text" 
                       shape="circle" 
                       icon={<CalendarTwoTone />} 
                       size='small'
                       onClick={() => onClickMyPlans(el[0])} />
-                  </Tooltip>
+                    :
+                    <Tooltip title="add MyPlans">
+                      <Button 
+                        type="ghost" 
+                        shape="circle" 
+                        icon={<CalendarTwoTone />} 
+                        size='small'
+                        onClick={() => onClickMyPlans(el[0])} />
+                    </Tooltip>
+
+                  }
                   </div>
                   {/* <br /> */}
                 </Text>

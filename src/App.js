@@ -21,6 +21,8 @@ import Analize from './components/Analize/Analize';
 import Recomendation from './components/Recomendation/Recomendation';
 import VacanciesList from './components/VacanciesList';
 import MainInfo from './components/Main/MainInfo/Main2';
+import { allSkillsFromSkills } from './redux/actions/userSkills';
+import { useEffect } from 'react';
 
 const { Content, Header, Footer } = Layout;
 
@@ -28,6 +30,9 @@ function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
 
+    useEffect(() => {
+      dispatch(allSkillsFromSkills(store.id));
+    }, []);
     
     if (!store.name){
       dispatch(checkUserAC());
