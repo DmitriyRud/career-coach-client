@@ -30,7 +30,7 @@ export const getReportAT = (data) => {
 
 export const addSkillWhiteList = (skill) => {
   return async (dispatch) => {
-    console.log('SKILL WhList >>', skill);
+    // console.log('SKILL WhList >>', skill);
     const response = await fetch(`/helper/whitelist`, {
       method: 'POST',
       headers: {
@@ -43,7 +43,7 @@ export const addSkillWhiteList = (skill) => {
 
 export const addSkillBlackList = (skill) => {
   return async (dispatch) => {
-    console.log('SKILL BlList >>', skill);
+    // console.log('SKILL BlList >>', skill);
     const response = await fetch(`/helper/blacklist`, {
       method: 'POST',
       headers: {
@@ -56,7 +56,7 @@ export const addSkillBlackList = (skill) => {
 
 export const addUserSkill = (skill) => {
   return async (dispatch) => {
-    console.log('SKILL addUserSkill >>', skill);
+    // console.log('SKILL addUserSkill >>', skill);
     const response = await fetch(`/helper/userskill`, {
       method: 'POST',
       headers: {
@@ -69,7 +69,7 @@ export const addUserSkill = (skill) => {
 
 export const addMyPlans = (skill) => {
   return async (dispatch) => {
-    console.log('SKILL addMyPlans >>', skill);
+    // console.log('SKILL addMyPlans >>', skill);
     const response = await fetch(`/helper/userplans`, {
       method: 'POST',
       headers: {

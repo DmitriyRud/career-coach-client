@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 const { Option } = Select;
 
 const Search = () => {
-  const store = useSelector((store) => store.users);
+  //const store = useSelector((store) => store.users);
   const allResults = useSelector((store) => store.result.resultAll);
   //console.log(allResults);
   const user = useSelector((store) => store.users);
@@ -53,6 +53,7 @@ const Search = () => {
   const onFinish = async (values) => {
     setLoading(true)
     values.city = cities[values.city];
+    values.userId = user.id;
     //console.log('Success:', values);
     const resultId = await dispatch(analizeAC(values));
     //console.log('resultId from back ==== > ', ttt);
@@ -67,7 +68,7 @@ const Search = () => {
     setLoading(false)
   };
 
-  if (store.name) {
+  if (user.name) {
     return (
       <div className="main-page" style={{position: 'relative'}}>
         {loading 

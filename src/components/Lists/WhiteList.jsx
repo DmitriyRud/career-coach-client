@@ -16,7 +16,7 @@ const WhiteList = () => {
   const listItems = useSelector(store => store.list);
 
   
-  console.log('user.id', user)
+  console.log('user.id', user.id)
 
   const dispatch = useDispatch();
 

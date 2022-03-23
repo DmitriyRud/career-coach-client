@@ -23,6 +23,8 @@ import VacanciesList from './components/VacanciesList';
 import MainInfo from './components/Main/MainInfo/Main2';
 import WhiteList from './components/Lists/WhiteList';
 import BlackList from './components/Lists/BlackList';
+import { allSkillsFromSkills } from './redux/actions/userSkills';
+import { useEffect } from 'react';
 
 const { Content, Header, Footer } = Layout;
 
@@ -30,10 +32,12 @@ function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
 
-    
-    if (!store.name){
-      dispatch(checkUserAC());
-    }
+    useEffect (()=>{
+      if (!store.name){
+        dispatch(checkUserAC());
+      }
+      dispatch(allSkillsFromSkills(store.id));
+    }, []);
 
   return (
     <div className="App">
