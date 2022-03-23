@@ -4,7 +4,7 @@ import React from "react";
 import { Button, Rate } from "antd";
 import { DeleteTwoTone} from '@ant-design/icons';
 import { useDispatch } from "react-redux";
-import { DeleteTwoTone } from '@ant-design/icons';
+// import { DeleteTwoTone } from '@ant-design/icons';
 import {
   deleteUserLearn,
   deleteUserSkill,

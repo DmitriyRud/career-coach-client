@@ -74,18 +74,29 @@ const Search = () => {
         {loading 
           &&
           // <img src='/images/loading.gif' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '7em', borderRadius: '50%'}}/>
+        //   spiner version 1
           // <div className="loader">
           //   <div className="inner one"></div>
           //   <div className="inner two"></div>
           //   <div className="inner three"></div>
           // </div>
-          <div class="sk-chase" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
-            <div class="sk-chase-dot"></div>
+        // spiner version 2
+          // <div class="sk-chase" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          //   <div class="sk-chase-dot"></div>
+          // </div>
+        // spiner version 2
+          <div class="loader" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+            <div class="face">
+              <div class="circle"></div>
+            </div>
+            <div class="face">
+              <div class="circle"></div>
+            </div>
           </div>
         }
         <div className="headers">
