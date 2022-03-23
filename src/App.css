@@ -89,7 +89,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  opacity: 1;
+  opacity: 1; 
+  position: relative;
 }
 
 footer {
