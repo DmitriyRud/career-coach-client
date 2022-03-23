@@ -6,17 +6,18 @@ import {
   ALL_SKILL_FOR_SELECT,
   DELETE_USER_SKILL,
   DELETE_USER_LEARN,
+  UPDATE_RATE_SKILL
 } from "../types/userSkills";
 import { disableSpinner, enableSpinner } from "./spinnerAction";
 
-export const updateRate = () => async (dispatch, setState) => {
+export const updateRate = (data) => async (dispatch, setState) => {
   try {
     const response = await fetch("/users/profile/changerate", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ skill }),
+      body: JSON.stringify(data),
     });
     
   } catch (error) {
