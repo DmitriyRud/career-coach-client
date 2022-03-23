@@ -1,22 +1,40 @@
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Skills from "../Skills/Skills";
 import AddUserSkills from "../AddUserSkills/";
 import { allSkillsFromSkills } from "../../redux/actions/userSkills";
+import { Spin } from 'antd';
+import { disableSpinner, enableSpinner } from "../../redux/actions/spinnerAction";
 
 const MySkillsList = () => {
   const skills = useSelector((store) => store?.userSkills);
-  console.log("UserSkills", skills);
+  // console.log("UserSkills", skills);
+  const spinner = useSelector(store => store?.spinner)
   const users = useSelector((store) => store?.users);
-  const id = useSelector((store) => store?.users.id);
+  // const id = useSelector((store) => store?.users.id);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(allSkillsFromSkills(id));
+    dispatch(enableSpinner());
+    fetch('/users/profile/checkuserid')
+    .then(response => response.json())
+    .then(id => dispatch(allSkillsFromSkills(id)))
+    .catch((e) => console.error('>>>>>>>>>', e))
+      .finally(() => {
+        dispatch(disableSpinner());
+      });
+
+
   }, []);
+  
+  if (spinner) return <div className="spin-center"><Spin /></div>
+
+
+  
+  if (spinner) return <div className="spin-center"><Spin /></div>
 
   return (
     <div>
-      {console.log(skills)}
       <h1>Ваши навыки:</h1>
       {skills &&
         skills.map((el, i) => (
@@ -25,6 +43,7 @@ const MySkillsList = () => {
             skill_id={el.skill_id}
             skill={el.skill}
             user_id={el.user_id}
+            rate={el.rate}
             category={el.category}
           />
         ))}

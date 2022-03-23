@@ -1,6 +1,7 @@
 import './mainInfo.css';
 import AboutUs from "./AboutUs";
 import ContactForm from "./ContactForm";
+import React from 'react';
 
 const MainInfo = () => {
   return (

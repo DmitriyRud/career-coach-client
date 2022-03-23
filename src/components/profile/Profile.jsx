@@ -12,6 +12,8 @@ import { setFio, setEmail, setPassword } from '../../redux/actions/profileAction
 import EditName from './EditName'; 
 import EditEmail from './EditEmail';
 import EditPassword from './EditPassword';
+import React from 'react';
+
 
 const { Title } = Typography;
 

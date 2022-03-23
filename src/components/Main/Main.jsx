@@ -1,5 +1,6 @@
+import React from 'react';
 import '../Main/styles.modules.css';
-import { useSelector } from 'react-redux'; 
+import { useDispatch, useSelector } from 'react-redux'; 
 import { Button } from 'antd';
 import { DatabaseTwoTone, FundTwoTone, BookTwoTone } from '@ant-design/icons';
 import { useNavigate } from "react-router-dom";
@@ -7,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import VacanciesList from '../VacanciesList';
+import { getVacanciesAT } from '../../redux/thunk/vacancyAT';
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const Main = () => {
@@ -29,7 +31,15 @@ const Main = () => {
   // состояние для спиннера
   const [isLoading, setIsLoading] = useState(true);
   // смотрим, добавил ли пользователь скиллы:
-  const [skills, setSkills] = useState(false);  
+  const [skills, setSkills] = useState(false); 
+
+  const vacancies = useSelector((store) => store.vacancy.vacancies);
+  const dispatch = useDispatch();
+  console.log('VacanciesList >> ', vacancies);
+  // console.log(user);
+  useEffect(() => {
+    dispatch(getVacanciesAT(user.id))
+  }, [])
   
   useEffect(() => {
     setIsLoading(true);
@@ -57,7 +67,7 @@ useEffect(() => {
   const isSearchMade = async() => {
   const response = await fetch(`/helper/result/user/${user.id}`);
   const res = await response.json()
-  console.log('search > ', res)
+  // console.log('search > ', res)
   if (response.ok && res.length!==0) {
     setIsSearch(true);
     
@@ -112,7 +122,7 @@ isSearchMade();
       </div>
   
       {/* Если навыки добавлены и проводился хотя бы один анализ, нужно выводить в следующем блоке подходящие вакансии : */}
-      <VacanciesList />
+      {vacancies.length > 0 && <VacanciesList />}
       
     </div>
    );

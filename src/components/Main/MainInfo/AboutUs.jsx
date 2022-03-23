@@ -1,5 +1,7 @@
 import './aboutUs.css';
 import { Card, Col, Row } from 'antd';
+import React from 'react';
+
 
 const AboutUs = () => {
   return (

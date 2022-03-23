@@ -1,4 +1,6 @@
 import './App.css';
+import React from 'react';
+
 import { Layout, Menu } from 'antd';
 import 'antd/dist/antd.css'; 
 import { Routes, Route, Link } from 'react-router-dom';
@@ -23,6 +25,10 @@ import VacanciesList from './components/VacanciesList';
 import MainInfo from './components/Main/MainInfo/Main2';
 import AboutUs from './components/Main/MainInfo/AboutUs';
 import ContactForm from './components/Main/MainInfo/ContactForm';
+import WhiteList from './components/Lists/WhiteList';
+import BlackList from './components/Lists/BlackList';
+import { allSkillsFromSkills } from './redux/actions/userSkills';
+import { useEffect } from 'react';
 
 const { Content, Header, Footer } = Layout;
 
@@ -30,6 +36,9 @@ function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
 
+    useEffect(() => {
+      dispatch(allSkillsFromSkills(store.id));
+    }, []);
     
     if (!store.name){
       dispatch(checkUserAC());
@@ -75,6 +84,8 @@ function App() {
             <Route path="/vacancies" element={<div className="main-page vacancies-container"><div><VacanciesList /></div></div>} />
             {/* конец тестового рута */}
             <Route path="/api" element={<Analize />} />
+            <Route path="/whitelist" element={<WhiteList/>} />
+            <Route path="/blacklist" element={<BlackList/>} />
           </Routes>
           </div>
         </Content>

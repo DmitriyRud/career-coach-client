@@ -1,5 +1,7 @@
 import emailjs from '@emailjs/browser';
 import './contact.css';
+import React from 'react';
+
 
 const ContactForm = () => {
 

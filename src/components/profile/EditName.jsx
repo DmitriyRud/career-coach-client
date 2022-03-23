@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom'
 import { editProfileAC } from '../../redux/thunk/usersAC';
 import { setFio} from '../../redux/actions/profileAction';
+import React from 'react';
+
 
 import './edit.css'
 
