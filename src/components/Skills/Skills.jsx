@@ -46,7 +46,7 @@ const Skills = ({ skill, category, user_id, skill_id, rate }) => {
         <span className="card-span">{skill}</span>
       </div>
       <div className="stars">
-        <Rate onChange={changeHandler} value={rate} allowHalf />
+        <Rate onChange={changeHandler} value={rate / 2} allowHalf />
       </div>
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
