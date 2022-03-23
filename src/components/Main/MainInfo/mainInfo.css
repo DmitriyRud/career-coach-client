@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prosto+One&display=swap');
+
+/* .picture-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  background: url(../../../../public/img/searchJob.jpeg) no-repeat;
+  background-position: center;
+  min-width: 100%;
+  background-position-y: -5vw;
+  min-height: 80vh;
+} */
+
+.speech-bubble {
+	position: relative;
+	background: rgb(34, 39, 69);
+	border-radius: .4em;
+  width: 200px;
+  height: 130px;
+  padding: 10px;
+  color:#fff;
+  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
+  top: -30px;
+  left: 32%;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 31px solid transparent;
+	border-left-color: rgb(34, 39, 69);
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -15.5px;
+	margin-right: -31px;
+}
+
+.speech-bubble2 {
+	position: relative;
+	background: rgb(34, 39, 69);
+	border-radius: .4em;
+  width: 230px;
+  height: 150px;
+  left: 70%;
+  top: -150px;
+  padding: 10px;
+  color:#fff;
+  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.speech-bubble2:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: rgb(34, 39, 69);
+	border-left: 0;
+	margin-top: -20px;
+	margin-left: -20px;
+}
+
+.speech-bubble3 {
+	position: relative;
+	background: rgb(34, 39, 69);
+	border-radius: .4em;
+  width: 200px;
+  height: 100px;
+  top: -60px;
+  left: 30%;
+  padding: 10px;
+  color:#fff;
+  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.speech-bubble3:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 28px solid transparent;
+	border-left-color: rgb(34, 39, 69);
+	border-right: 0;
+	border-top: 0;
+	margin-top: -14px;
+	margin-right: -28px;
+}
+
+.help-text {
+  font-family: 'Prosto One', cursive;
+  font-size: 40px;
+  margin-top: 5px;
+
+}

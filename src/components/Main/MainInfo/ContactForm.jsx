@@ -1,4 +1,5 @@
 import emailjs from '@emailjs/browser';
+import './contact.css';
 import React from 'react';
 
 
@@ -20,20 +21,20 @@ const ContactForm = () => {
 
   return (
     <div className="contact-form">
-      <span style={{color: "white"}}>Свяжитесь с нами</span>
+      <span style={{color: "white", fontSize:"1.5em"}}>Свяжитесь с нами</span>
       <div className="back-form">
       <div className="img-back">
-        <p style={{color: "white"}}>Если у Вас возникли технические проблемы или появились пожелания по работе сайта, отравьте нам сообщение!</p>
+        <p style={{color: "white", textAlign:"center"}}>Если у Вас возникли технические проблемы или появились пожелания по работе сайта, отравьте нам сообщение!</p>
       </div>  
-      <form onSubmit={sendEmail}>
+      <form className="pre-form" onSubmit={sendEmail}>
       <label for="name">Имя</label>
-      <input name="name" type="text"/>
+      <input className='pre-input' name="name" type="text"/>
       <label for="email">Почта</label>
-      <input name="email" type="email"/>
+      <input className='pre-input' name="email" type="email"/>
       <label for="message">Сообщение</label>
-      <textarea name="message" type="text"></textarea>
+      <textarea className='pre-input' name="message" type="text"></textarea>
       <div class="send-btn">
-        <button type="submit">Отправить<i class="fa fa-paper-plane"></i></button>
+        <button className="contact-btn" type="submit">Отправить<i class="fa fa-paper-plane"></i></button>
       </div>
       </form>
     </div>

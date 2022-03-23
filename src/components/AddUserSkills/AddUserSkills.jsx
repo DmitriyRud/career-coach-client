@@ -16,7 +16,10 @@ import allSkillsFromDB from "../../redux/reducers/allSkillsFromBdReducer";
 const AddUserSkills = () => {
   const [input, setInput] = useState("");
   const [radio, setRadio] = useState("skills");
-  const skills = useSelector((store) => store?.userSkills);
+  // const skills = useSelector((store) => store?.userSkills);
+  // const skillsLearn = useSelector((store) => store?.userSkillsLearn);
+  // console.log('skills',skills);
+  // console.log('skillsLEARN',skillsLearn);
   const store = useSelector((store) => store.users);
   const allSkills = useSelector((store) => store?.allSkilsForSelect);
   const checkSkill = useSelector((store) =>
@@ -51,7 +54,8 @@ const AddUserSkills = () => {
         input === "" ||
         checkSkill?.includes(input.toLowerCase())
       ) {
-        return alert("Вы не ввели навык или такой навык уже добавлен");
+        setInput("");
+        form.resetFields();
       } else {
         e.preventDefault();
         dispatch(addSkillinSkill({ input, id }));
@@ -64,7 +68,8 @@ const AddUserSkills = () => {
         input === "" ||
         checkSkillLearn?.includes(input.toLowerCase())
       ) {
-        return alert("Вы не ввели навык или такой навык уже добавлен");
+        setInput("");
+        form.resetFields();
       } else {
         e.preventDefault();
         dispatch(addSkillinLearn({ input, id }));

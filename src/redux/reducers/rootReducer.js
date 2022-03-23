@@ -7,6 +7,7 @@ import resultReducer from "./resultReducer";
 import recomendationReducer from "./recomendationReducer";
 import vacancyReducer from "./vacancyReducer";
 import profileReducer from "./profileReducer";
+import listsReducer from "./listsReducer";
 import spinnerReducer from "./spinnerReducer";
 import userData from "./userDataReducer";
 
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   recom: recomendationReducer,
   vacancy: vacancyReducer, 
   button: profileReducer,
+  list: listsReducer,
   spinner: spinnerReducer,
   userData,
 });

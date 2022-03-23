@@ -23,6 +23,10 @@ import Analize from './components/Analize/Analize';
 import Recomendation from './components/Recomendation/Recomendation';
 import VacanciesList from './components/VacanciesList';
 import MainInfo from './components/Main/MainInfo/Main2';
+import AboutUs from './components/Main/MainInfo/AboutUs';
+import ContactForm from './components/Main/MainInfo/ContactForm';
+import WhiteList from './components/Lists/WhiteList';
+import BlackList from './components/Lists/BlackList';
 import { allSkillsFromSkills } from './redux/actions/userSkills';
 import { useEffect } from 'react';
 
@@ -32,12 +36,13 @@ function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
 
-    useEffect (()=>{
-      if (!store.name){
-        dispatch(checkUserAC());
-      }
+    useEffect(() => {
       dispatch(allSkillsFromSkills(store.id));
     }, []);
+    
+    if (!store.name){
+      dispatch(checkUserAC());
+    }
 
   return (
     <div className="App">
@@ -55,7 +60,7 @@ function App() {
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <div className="site-layout-content content">
-          <Routes>
+      <Routes>
             {store.name && <Route path="/" element={<Main />} />}
             {!store.name && <Route path="/" element={<MainInfo/>} />}
             <Route path="/signin" element={<Login />} />
@@ -79,9 +84,14 @@ function App() {
             <Route path="/vacancies" element={<div className="main-page vacancies-container"><div><VacanciesList /></div></div>} />
             {/* конец тестового рута */}
             <Route path="/api" element={<Analize />} />
+            <Route path="/whitelist" element={<WhiteList/>} />
+            <Route path="/blacklist" element={<BlackList/>} />
           </Routes>
           </div>
         </Content>
+        <Routes>
+        {!store.name && <Route path="/" element={<><AboutUs/><ContactForm/></>} />}
+        </Routes>
         <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus War-Hedgehogs</Footer>
       </Layout>
     </div>
