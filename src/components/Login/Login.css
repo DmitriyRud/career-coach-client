@@ -16,7 +16,7 @@
   padding: 3em 2em 1em;
   /* width: 60%; */
   height: 300px;
-  width: 600px;
+  width: 900px;
 }
 
 .message {
@@ -30,7 +30,7 @@
 }
 
 .login-input {
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
   color:white;
 }

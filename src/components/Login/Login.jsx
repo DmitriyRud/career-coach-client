@@ -38,9 +38,8 @@ const Login = () => {
           onFinishFailed={onFinishFailed}
           autoComplete="off"
         > 
-        <div className='login-input'>
-          <Form.Item
-            label="Username"
+          <Form.Item className='login-input'
+            label="Имя пользователя"
             name="name"
             rules={[
               {
@@ -52,8 +51,8 @@ const Login = () => {
             <Input />
           </Form.Item>
 
-          <Form.Item className='login-input' style={{color: 'whitesmoke'}}
-            label="Password"
+          <Form.Item className='login-input'
+            label="Пароль"
             name="password"
             rules={[
               {
@@ -64,7 +63,6 @@ const Login = () => {
           >
             <Input.Password />
           </Form.Item>
-        </div>
           <Form.Item
             wrapperCol={{
               offset: 4,
@@ -73,7 +71,7 @@ const Login = () => {
           >
           
           <div className="login-button">
-            <Button  type="primary" htmlType="submit">
+            <Button  type="primary" htmlType="submit" size={'large'}>
               Submit
             </Button>
           </div>
