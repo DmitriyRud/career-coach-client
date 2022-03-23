@@ -1,61 +1,67 @@
-import { getRecomendation } from "../actions/recomendationAction";
+import React from 'react';
+import '../Recomendation/styles.modules.css';
+import { useParams } from 'react-router-dom';
+import { Row, Col } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getRecomendationAT } from '../../redux/thunk/recomendationAT';
 
 
-function contains(arr, elem) {
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i].skill === elem) {
-            return true;
-        }
-    }
-    return false;
+const Recomendation = () => {
+  const recomData = useSelector((store) => store.recom.recom);
+  const userId = useSelector((store) => store.users).id;
+  const skills = useSelector((store) => store?.userSkills);
+  const allResults = useSelector((store) => store.result.report);
+  console.log('recomData', recomData);
+  const {result_id} = useParams();
+  const dispatch = useDispatch();
+  // console.log(result_id);
+  useEffect(() => {
+    console.log('СТАРТУЕМ ЮЗ ЭФФЕКТ');
+    dispatch(getRecomendationAT(result_id, userId, skills, allResults));
+  }, [])
+  return ( 
+    <div className="main-page">
+      <h1>Вот мои рекомендации по навыкам и составлению резюме/портфолио:</h1>
+      <Row className="recomendation-container" >
+        <Col span={10} className='col-recom col-recom-left'>
+          <h2 className='h2-recommend'>Необходимо изучить:</h2>
+          {recomData?.toLearn?.map((el, i) => {
+            return (
+              <div key={i} className="skill-div li" ><span>{el}</span></div>
+            )
+          })}
+        </Col>
+        <Col span={10} className='col-recom'>
+          <h2 className='h2-recommend'>...перечислить в резюме и добавить в портфолио проекты с:</h2>
+          {recomData?.skillsDESC5?.map((el, i) => {
+            return (
+              <div key={i} className="skill-div li" ><span>{el.skill}</span></div>
+            )
+          })}
+        </Col>
+      </Row>
+      <Row className="recomendation-container" >
+        <Col span={10} className='col-recom col-recom-left'>
+          <h2 className='h2-recommend'>... и повысить навыки:</h2>
+          {recomData?.toImprove?.map((el, i) => {
+            return (
+              <div key={i} className="skill-div li" ><span>{el}</span></div>
+            )
+          })}
+        </Col>
+        <Col span={10} className='col-recom'>
+          <h2 className='h2-recommend'>...также желательно указать в резюме и добавить в портфолио проекты с:</h2>
+          {recomData?.skillsDESCnext5?.map((el, i) => {
+            return (
+              <div key={i} className="skill-div li" ><span>{el.skill}</span></div>
+            )
+          })}
+        </Col>
+      </Row>
+      
+    </div>
+   );
 }
-
-export const getRecomendationAT = (result_id, user_id, skills, allResults) => {
-  return async (dispatch) => {
-<<<<<<< select-btn-disabled
-    // console.log('getRecomendationAT >>>>', result_id );
-    const response = await fetch(`/helper/recomendation/${result_id}`)
-    if(response.ok) {
-      const data = await response.json()
-      dispatch(getRecomendation(data))
-=======
-    console.log('START  !!!!!   !!!!!   START');
-    //console.log('getRecomendationAT =====>>>>', result_id );
-    //const response = await fetch(`/helper/recomendation/${result_id}`)
-    //console.log('userId = ', user_id);
-    //console.log('skills:', skills);
-    const reportSkillsDESC = allResults.sort((a, b) => b[1] - a[1]);
-    //console.log('allResultsDESC: ', reportSkillsDESC);
-    const toLearn = [];
-    for (let i = 0; (i < reportSkillsDESC.length && i < 5); i++) {
-      //console.log(`reportSkillsDESC[${i}][0] = `, reportSkillsDESC[i][0]);
-      if ( !contains(skills, reportSkillsDESC[i][0]) ) toLearn.push(reportSkillsDESC[i][0]);
->>>>>>> development
-    }
-    //console.log('toLearn = ', toLearn);
-    let skillsASC = skills.sort((a, b) => a.skill_rate - b.skill_rate);
-    //console.log('skillsASC = ', skillsASC);
-    let skillsASC5 = skillsASC.slice(0, 5);
-    //console.log('skillsASC5 = ', skillsASC5);
-
-    const toImprove = [];
-    for (let i = 0; (i < reportSkillsDESC.length && i < 5); i++) {
-      if ( contains(skillsASC5, reportSkillsDESC[i][0]) ) toImprove.push(reportSkillsDESC[i][0]);
-    }
-    //console.log('toImprove = ', toImprove);
-
-    let skillsDESC = skills.sort((a, b) => b.skill_rate - a.skill_rate);
-    //console.log('skillsASC = ', skillsDESC);
-    let skillsDESC5 = skillsDESC.slice(0, 5);
-    //console.log('skillsDESC5 = ', skillsDESC5);
-    let skillsDESCnext5 = skillsDESC.slice(5, 10);
-    //console.log('skillsDESCnext5 = ', skillsDESCnext5);
-    dispatch(getRecomendation({toLearn, toImprove, skillsDESC5, skillsDESCnext5}));
-
-    //const userSkills = 
-    // if(response.ok) {
-    //   const data = await response.json();
-    // //  dispatch(getRecomendation(data))
-    // }
-  }
-}
+ 
+export default Recomendation;
