@@ -4,13 +4,15 @@ import React from "react";
 import { Button, Rate } from "antd";
 import { DeleteTwoTone } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
-import { useState,useEffect  } from "react";
-import { allSkillsFromSkills, updateRate } from '../../redux/actions/userSkills';
+import { useState, useEffect } from "react";
+import {
+  allSkillsFromSkills,
+  updateRate,
+} from "../../redux/actions/userSkills";
 import {
   deleteUserLearn,
   deleteUserSkill,
 } from "../../redux/actions/userSkills";
-
 
 const Skills = ({ skill, category, user_id, skill_id, rate }) => {
   const [stars, setStars] = useState(0);
@@ -31,12 +33,12 @@ const Skills = ({ skill, category, user_id, skill_id, rate }) => {
 
   const changeHandler = (value) => {
     setStars(value);
-    dispatch(updateRate({user_id, skill_id, value}))
+    dispatch(updateRate({ user_id, skill_id, value }));
   };
 
-  useEffect(()=> {
-   dispatch(allSkillsFromSkills(user_id))
-  },[stars])
+  // useEffect(()=> {
+  //  dispatch(allSkillsFromSkills(user_id))
+  // },[stars])
 
   return (
     <div className="card">
@@ -49,12 +51,10 @@ const Skills = ({ skill, category, user_id, skill_id, rate }) => {
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
         className="btn-delete"
-
         icon={<DeleteTwoTone twoToneColor="red" />}
         shape="circle"
         type="ghost"
       />
-
     </div>
   );
 };
