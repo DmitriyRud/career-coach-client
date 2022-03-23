@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { editProfileAC } from '../../redux/thunk/usersAC';
 import { setEmail } from '../../redux/actions/profileAction';
 import './edit.css'
+import React from 'react';
+
 
 const EditEmail = () => {
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import '../Main/styles.modules.css';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { Button } from 'antd';

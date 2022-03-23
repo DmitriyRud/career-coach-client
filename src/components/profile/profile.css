@@ -33,6 +33,9 @@
 
 .avatar-container {
   padding: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   
 }
 

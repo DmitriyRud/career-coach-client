@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './Login.css';
 import { Form, Input, Button } from 'antd';
 import sha256 from 'sha256';

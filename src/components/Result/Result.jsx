@@ -45,7 +45,7 @@ const Result = () => {
     dispatch(getUserDataAC());
   }
   const onClickUserSkill = async (skill) => {
-    console.log(skill);
+    // console.log(skill);
     await dispatch(addUserSkill(skill))
     dispatch(getUserDataAC());
   }
