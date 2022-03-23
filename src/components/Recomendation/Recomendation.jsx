@@ -17,6 +17,7 @@ const Recomendation = () => {
   const dispatch = useDispatch();
   // console.log(result_id);
   useEffect(() => {
+    console.log('СТАРТУЕМ ЮЗ ЭФФЕКТ');
     dispatch(getRecomendationAT(result_id, userId, skills, allResults));
   }, [])
   return ( 
