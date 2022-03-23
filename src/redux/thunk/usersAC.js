@@ -14,6 +14,11 @@ export const loginUserAC = (data) => {
         dispatch(loginUser(result));
         if (result.name) {
           console.log("login successful");
+          const userState = {name: result.name, password: data.password};
+          
+          //console.log('Userstate ======> ', userState);
+
+          localStorage.setItem('userstate', JSON.stringify(userState));
         }
       } else {
         const message = document.querySelector(".message");
@@ -69,7 +74,17 @@ export const uploadAvatarAC = (file, id) => {
 };
 
 export const checkUserAC = () => {
+  
+  
   return async (dispatch) => {
+    const userState = localStorage.getItem("userstate") ? JSON.parse(localStorage.getItem("userstate")) : {};
+    //console.log('Userstate in checkUserAC ======> ', userState);
+    
+    const values = {};
+    values.name = userState.name;
+    values.password = userState.password;
+    dispatch(loginUserAC(values));
+
     const response = await fetch('/auth/checkiflogged', { method:'GET'});
     if (response.ok) {
       const result = await response.json();

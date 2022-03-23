@@ -21,6 +21,7 @@ import Analize from './components/Analize/Analize';
 import Recomendation from './components/Recomendation/Recomendation';
 import VacanciesList from './components/VacanciesList';
 import MainInfo from './components/Main/MainInfo/Main2';
+import { useEffect } from 'react';
 
 const { Content, Header, Footer } = Layout;
 
@@ -28,10 +29,12 @@ function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
 
-    
-    if (!store.name){
-      dispatch(checkUserAC());
-    }
+    useEffect (()=>{
+      if (!store.name){
+        dispatch(checkUserAC());
+      }
+
+    }, []);
 
   return (
     <div className="App">
