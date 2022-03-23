@@ -23,6 +23,8 @@ import Analize from './components/Analize/Analize';
 import Recomendation from './components/Recomendation/Recomendation';
 import VacanciesList from './components/VacanciesList';
 import MainInfo from './components/Main/MainInfo/Main2';
+import WhiteList from './components/Lists/WhiteList';
+import BlackList from './components/Lists/BlackList';
 import { allSkillsFromSkills } from './redux/actions/userSkills';
 import { useEffect } from 'react';
 
@@ -32,12 +34,13 @@ function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
 
-    useEffect (()=>{
-      if (!store.name){
-        dispatch(checkUserAC());
-      }
+    useEffect(() => {
       dispatch(allSkillsFromSkills(store.id));
     }, []);
+    
+    if (!store.name){
+      dispatch(checkUserAC());
+    }
 
   return (
     <div className="App">
@@ -79,6 +82,8 @@ function App() {
             <Route path="/vacancies" element={<div className="main-page vacancies-container"><div><VacanciesList /></div></div>} />
             {/* конец тестового рута */}
             <Route path="/api" element={<Analize />} />
+            <Route path="/whitelist" element={<WhiteList/>} />
+            <Route path="/blacklist" element={<BlackList/>} />
           </Routes>
           </div>
         </Content>
