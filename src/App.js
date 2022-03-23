@@ -32,12 +32,13 @@ function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
 
-    useEffect (()=>{
-      if (!store.name){
-        dispatch(checkUserAC());
-      }
+    useEffect(() => {
       dispatch(allSkillsFromSkills(store.id));
     }, []);
+    
+    if (!store.name){
+      dispatch(checkUserAC());
+    }
 
   return (
     <div className="App">
