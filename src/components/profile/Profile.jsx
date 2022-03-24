@@ -1,5 +1,5 @@
 import { Typography, Button, Tooltip} from 'antd';
-import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined, DatabaseTwoTone } from '@ant-design/icons';
 import './profile.css';
 import Avatarka from './Avatar';
 import { useSelector } from 'react-redux'; 
@@ -46,7 +46,7 @@ const Profile = () => {
  
   return (
     <div className="main-page column-container">
-      <div className='one-column-params'>
+      <div className='one-column-params padd-1em'>
         <Title level={3} style={{margin: "1em"}}>Мой профиль</Title>
         <div className='profile-container'>
         <Avatarka/>
@@ -70,24 +70,28 @@ const Profile = () => {
         </div>    
         <Button 
           type="primary"
-          // danger
-          size="large"
+          shape="round"
+          icon={<DatabaseTwoTone />}
+          style={{width: '300px', color: 'white', margin: '1em 0'}}
+          size={'large'}
         >
-          <Link to="/users/profile/skills">Добавь навыки</Link>
+          <Link to="/users/profile/skills" style={{color: 'white'}}>Добавь навыки</Link>
         </Button>
       </div>
       <div className='one-column-params history-page'>
       <Title level={3} style={{margin: "1em"}}>Рекомендации</Title>
         <div className='history-container'>
           <div className='profile-container'>
-          <ul className='profile-settings'>
+          <ul className='profile-history'>
             {allResults.length !== 0 ?
               allResults.map((el) => { return (
                 
-                <li key={el.createdAt}>
+                <li key={el.createdAt} className="li-flex-between">
+                  <div className="job-title-div">
                   <Link to={`/recomendation/${el.id}`}>
-                    {`${el.search_string} - ${el.createdAt.slice(0, 10)} / ${el.createdAt.slice(11, 19)}`}
-                  </Link>
+                    {el.search_string}
+                  </Link></div>
+                  <div className="job-time-div">{el.createdAt.slice(0, 10)} / {el.createdAt.slice(11, 19)}</div>
                 </li>
                 
               )})

@@ -1,5 +1,5 @@
 import { Button, Avatar } from 'antd';
-import { DownloadOutlined} from '@ant-design/icons';
+import { IdcardTwoTone } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { uploadAvatarAC } from '../../redux/thunk/usersAC';
 import { useState } from 'react';
@@ -33,15 +33,18 @@ const Avatarka = () => {
         : <img src="/images/avatar.png" alt="avatar"/>
       }
       <div className="avatar-container">
-        <input type="file" onChange={(e => setImage(e.target.files[0]))}/>
+        
+        <input type="file" style={{margin: '1em 0'}} onChange={(e => setImage(e.target.files[0]))}/>
         {/* <Button onClick={uploadHandler}type="primary" shape="round" icon={<DownloadOutlined />} size='middle'>
           Download
         </Button> */}
         <Button
           onClick={uploadHandler}
-          style={{marginTop: '0.5em'}}
+          style={{marginTop: '1em'}}
           type="primary"
-          size='middle'>
+          shape="round"
+          icon={<IdcardTwoTone />}
+          size='large'>
           Обновить фото
         </Button>
       </div>
