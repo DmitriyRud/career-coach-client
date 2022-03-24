@@ -4,13 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { editProfileAC } from '../../redux/thunk/usersAC';
 import { setEmail } from '../../redux/actions/profileAction';
 import './edit.css'
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../Context/Context'
 
 
 const EditEmail = () => {
 
   const user = useSelector((store) => store.users);
   const btnState = useSelector((store) => store.button.email)
+
+  const { setUserEmail, userEmail } = useContext(Context);
 
   const navigate = useNavigate();
 
@@ -25,7 +28,7 @@ const EditEmail = () => {
 
   return (
     <form onSubmit={submitHandler}>
-    <input className="edit-input" type="email" id="fname" name="email" placeholder={user.email}/>  
+    <input className="edit-input" type="email" id="fname" name="email" onChange={(e) => setUserEmail(e.target.value)} value = {userEmail !== "" ? userEmail : user.email} /*placeholder={user.email}*//>  
     <input className="edit-submit" type="submit" value="Сохранить"/>
   </form>
   );

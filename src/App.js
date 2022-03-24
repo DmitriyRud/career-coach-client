@@ -29,6 +29,7 @@ import WhiteList from './components/Lists/WhiteList';
 import BlackList from './components/Lists/BlackList';
 import { allSkillsFromSkills } from './redux/actions/userSkills';
 import { useEffect } from 'react';
+import ContextProvider from './components/Context/Context';
 
 const { Content, Header, Footer } = Layout;
 
@@ -46,6 +47,7 @@ function App() {
 
   return (
     <div className="App">
+      <ContextProvider>
       <Layout className="layout">
         <Header className="header">
           <div className="logo"></div>
@@ -94,6 +96,7 @@ function App() {
         </Routes>
         <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus War-Hedgehogs</Footer>
       </Layout>
+      </ContextProvider>
     </div>
   );
 }
