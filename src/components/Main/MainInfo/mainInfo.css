@@ -17,14 +17,14 @@
 	position: relative;
 	background: rgb(34, 39, 69);
 	border-radius: .4em;
-  width: 200px;
-  height: 130px;
+  width: 10em;
+  height: 7em;
   padding: 10px;
   color:#fff;
-  font-size: 15px;
+  font-size: 2em;
   font-family: 'Ubuntu', sans-serif;
-  top: -30px;
-  left: 32%;
+  top: 2em;
+  left: 27%;
 }
 
 .speech-bubble:after {
@@ -46,13 +46,13 @@
 	position: relative;
 	background: rgb(34, 39, 69);
 	border-radius: .4em;
-  width: 230px;
-  height: 150px;
-  left: 70%;
-  top: -150px;
+  width: 12em;
+  height: 11.5em;
+  left: 73%;
+  top: -2em;
   padding: 10px;
   color:#fff;
-  font-size: 15px;
+  font-size: 2em;
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -74,13 +74,13 @@
 	position: relative;
 	background: rgb(34, 39, 69);
 	border-radius: .4em;
-  width: 200px;
-  height: 100px;
+  width: 11em;
+  height: 9em;
   top: -60px;
-  left: 30%;
+  left: 28%;
   padding: 10px;
   color:#fff;
-  font-size: 15px;
+  font-size: 2em;
   font-family: 'Ubuntu', sans-serif;
 }
 
