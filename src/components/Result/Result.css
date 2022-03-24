@@ -38,3 +38,20 @@
   display: flex;
   justify-content: space-between;
 }
+
+a.center-button {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.marg-top-1em {
+  margin-top: 1em;
+}
+
+.padd-1em {
+  padding: 1em;
+}
+
+.bgcol-white {
+  background-color: white;
+}
