@@ -4,22 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addSkillinLearn,
   addSkillinSkill,
-  allSkillsFromLearn,
-  allSkillsFromSkills,
   allSkillsFromSelect,
 } from "../../redux/actions/userSkills";
 import { Radio, Spin } from "antd";
-
+import { RightSquareTwoTone } from '@ant-design/icons';
 import SelectSkills from "../SelectSkills";
-import allSkillsFromDB from "../../redux/reducers/allSkillsFromBdReducer";
 
 const AddUserSkills = () => {
   const [input, setInput] = useState("");
   const [radio, setRadio] = useState("skills");
-  // const skills = useSelector((store) => store?.userSkills);
-  // const skillsLearn = useSelector((store) => store?.userSkillsLearn);
-  // console.log('skills',skills);
-  // console.log('skillsLEARN',skillsLearn);
+
   const store = useSelector((store) => store.users);
   const allSkills = useSelector((store) => store?.allSkilsForSelect);
   const checkSkill = useSelector((store) =>
@@ -28,7 +22,7 @@ const AddUserSkills = () => {
   const checkSkillLearn = useSelector((store) =>
     store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
   );
-  // console.log(checkSkill.includes('react'));
+
   const { id } = store;
   const [form] = Form.useForm();
   const dispatch = useDispatch();
@@ -98,14 +92,14 @@ const AddUserSkills = () => {
         <Form.Item wrapperCol={{ offset: 5, span: 15 }}>
           <Radio.Group defaultValue="skills" buttonStyle="solid">
             <Radio onChange={radioHandler} value="skills">
-              Навыки
+              В навыки
             </Radio>
             <Radio onChange={radioHandler} value="learn">
-              Выучить
+              В планы
             </Radio>
           </Radio.Group>
-          <Button onClick={submitHandler} type="primary" htmlType="submit">
-            Submit
+          <Button onClick={submitHandler} type="primary" shape="round" icon={<RightSquareTwoTone />} htmlType="submit" style={{ width: 150 }}>
+            Добавить
           </Button>
           <hr />
 
