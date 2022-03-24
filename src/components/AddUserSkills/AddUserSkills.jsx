@@ -31,7 +31,7 @@ const AddUserSkills = () => {
     dispatch(allSkillsFromSelect());
   }, []);
 
-  
+
   const inputHandler = (e) => {
     e.preventDefault();
     setInput(e.target.value);
@@ -103,9 +103,15 @@ const AddUserSkills = () => {
           </Button>
           <hr />
 
-          {allSkills?.map((el) => (
-            <SelectSkills key={el.id} checkSkill={checkSkill} checkSkillLearn={checkSkillLearn} id={el.id} input={el.skill} />
-          ))}
+          
+            <div className='history-container bgcol-white padd-rl-1em'>
+              <div className='profile-history'>
+              {allSkills?.map((el) => (
+                <SelectSkills key={el.id} checkSkill={checkSkill} checkSkillLearn={checkSkillLearn} id={el.id} input={el.skill} />
+              ))}
+            </div>
+          </div>
+
         </Form.Item>
       </Form>
     </>
