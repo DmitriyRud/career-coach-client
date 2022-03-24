@@ -23,7 +23,6 @@ import Analize from './components/Analize/Analize';
 import Recomendation from './components/Recomendation/Recomendation';
 import VacanciesList from './components/VacanciesList';
 import MainInfo from './components/Main/MainInfo/Main2';
-import AboutUs from './components/Main/MainInfo/AboutUs';
 import ContactForm from './components/Main/MainInfo/ContactForm';
 import WhiteList from './components/Lists/WhiteList';
 import BlackList from './components/Lists/BlackList';
@@ -65,6 +64,7 @@ function App() {
             {!store.name && <Route path="/" element={<MainInfo/>} />}
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
+            <Route path="/contact" element={<ContactForm />} />
 
             <Route path="/users/profile/skills" element={<UserSkills />} />
 
@@ -90,9 +90,9 @@ function App() {
           </div>
         </Content>
         <Routes>
-        {!store.name && <Route path="/" element={<><AboutUs/><ContactForm/></>} />}
+        {/* {!store.name && <Route path="/" element={<ContactForm/>} />} */}
         </Routes>
-        <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus War-Hedgehogs</Footer>
+        <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus War-Hedgehogs &nbsp;&nbsp;&nbsp;<Link to={'/contact'}>Форма связи</Link></Footer>
       </Layout>
     </div>
   );
