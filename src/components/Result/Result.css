@@ -52,6 +52,10 @@ a.center-button {
   padding: 1em;
 }
 
+.padd-rl-1em {
+  padding: 0 1em;
+}
+
 .bgcol-white {
   background-color: white;
 }

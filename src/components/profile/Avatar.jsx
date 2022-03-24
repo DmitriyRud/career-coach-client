@@ -34,7 +34,7 @@ const Avatarka = () => {
       }
       <div className="avatar-container">
         
-        <input type="file" style={{margin: '1em 0'}} onChange={(e => setImage(e.target.files[0]))}/>
+        <input type="file" onChange={(e => setImage(e.target.files[0]))}/>
         {/* <Button onClick={uploadHandler}type="primary" shape="round" icon={<DownloadOutlined />} size='middle'>
           Download
         </Button> */}
