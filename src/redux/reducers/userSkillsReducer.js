@@ -17,7 +17,11 @@ const userSkillsReducer = (state = [], { type, payload }) => {
       return state.filter((el) => el.skill_id !== payload);
 
     case UPDATE_RATE_SKILL:
-      return payload;
+      return state.map((el) =>
+        el.user_id === payload.user_id && el.skill_id === payload.skill_id
+          ? { ...el, rate: payload.rate}
+          : el
+      );
 
     default:
       return state;

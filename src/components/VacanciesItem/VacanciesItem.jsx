@@ -3,25 +3,21 @@ import React from "react";
 import './VacanciesItem.css'
 
 const VacanciesItem = ({ title, company, url, salary }) => {
-  return ( 
-      <a type="link" href={url} target='_blank' rel="noreferrer">
+  return (
     <div className="vacancy-div">
-        <div>
+      <div className="vacancy-title">
+        <a type="link" href={url} target='_blank' rel="noreferrer">
           {title}
-        </div>
-        &nbsp;
-        &nbsp;
-        <div>
-          {`Компания: ${company}`}
-        </div>
-        &nbsp;
-        &nbsp;
-        <div>
-          {salary}
-        </div>
+        </a>
+      </div>
+      <div className="company-title">
+        {company}
+      </div>
+      <div className="salary-title">
+        {salary}
+      </div>
     </div>
-      </a>
-   );
+  );
 }
- 
+
 export default VacanciesItem;

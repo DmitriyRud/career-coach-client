@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.contact-form {
+  max-width: 1100px;
+  padding: 10px;
+  /* display: flex; */
+  box-shadow: 0 0 20px -2px #222745;
+  border-radius: 12px;
+  margin: 0 auto;
+  /* flex-direction: column;
+  justify-content: center; */
+  background-color: #222745;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.back-form {
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px auto 0;
+}
+
+.back-form .img-back {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.img-back {
+  flex: 1 1;
+  align-self: center;
+  margin-right: 20px;
+  vertical-align: middle;
+  border-style: none;
+  
+}
+
+.contact-form .pre-form {
+  width: 40%;
+  box-shadow: 0 0 2px 1px #fff;
+  display: flex;
+  color: #111;
+  padding: 15px;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: -52px;
+  opacity: .9;
+  background-color: #fff;
+  box-shadow: 0 0 20px -2px #222745;
+  border-radius: 12px;
+}
+
+.pre-form .pre-input {
+  width: 100%;
+  border: 2px solid transparent;
+  outline: none;
+  background-color: hsla(0,0%,90.2%,.6);
+  padding: 0.5rem 1rem;
+  /* font-size: 1.1rem; */
+  margin-bottom: 22px;
+  transition: .3s;
+  border-radius: 10px;
+}
+
+.contact-btn:not(:disabled) {
+  cursor: pointer;
+}  
+
+.pre-form .contact-btn {
+  margin-top: 15px;
+  padding: 5px;
+  outline: none;
+  width: 900px;
+  color: #e6e3e3;
+  border: 2px solid #ffa1a2;
+  /* font-size: 12px; */
+  border-radius: 19px;
+  background-color: #222745;
+  /* font-size: 18px; */
+  width: 160px;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.pre-input:focus{
+  background-color: rgb(220, 230, 238);
+}
+
+/* textarea:focus{
+  background-color: rgb(220, 230, 238);
+} */
+

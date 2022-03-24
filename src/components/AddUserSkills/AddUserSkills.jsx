@@ -16,10 +16,6 @@ import allSkillsFromDB from "../../redux/reducers/allSkillsFromBdReducer";
 const AddUserSkills = () => {
   const [input, setInput] = useState("");
   const [radio, setRadio] = useState("skills");
-  // const skills = useSelector((store) => store?.userSkills);
-  // const skillsLearn = useSelector((store) => store?.userSkillsLearn);
-  // console.log('skills',skills);
-  // console.log('skillsLEARN',skillsLearn);
   const store = useSelector((store) => store.users);
   const allSkills = useSelector((store) => store?.allSkilsForSelect);
   const checkSkill = useSelector((store) =>
@@ -28,11 +24,9 @@ const AddUserSkills = () => {
   const checkSkillLearn = useSelector((store) =>
     store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
   );
-  // console.log(checkSkill.includes('react'));
   const { id } = store;
   const [form] = Form.useForm();
   const dispatch = useDispatch();
-  console.log(store.id);
   useEffect(() => {
     dispatch(allSkillsFromSelect());
   }, []);
@@ -45,7 +39,6 @@ const AddUserSkills = () => {
   const radioHandler = (e) => {
     setRadio(e.target.value);
   };
-  // console.log(radio);
 
   const submitHandler = (e) => {
     if (radio === "skills") {

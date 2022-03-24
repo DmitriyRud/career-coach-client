@@ -1,3 +1,4 @@
+import React from 'react';
 import '../Main/styles.modules.css';
 import { useDispatch, useSelector } from 'react-redux'; 
 import { Button } from 'antd';
@@ -34,8 +35,6 @@ const Main = () => {
 
   const vacancies = useSelector((store) => store.vacancy.vacancies);
   const dispatch = useDispatch();
-  console.log('VacanciesList >> ', vacancies);
-  // console.log(user);
   useEffect(() => {
     dispatch(getVacanciesAT(user.id))
   }, [])
@@ -66,7 +65,6 @@ useEffect(() => {
   const isSearchMade = async() => {
   const response = await fetch(`/helper/result/user/${user.id}`);
   const res = await response.json()
-  // console.log('search > ', res)
   if (response.ok && res.length!==0) {
     setIsSearch(true);
     

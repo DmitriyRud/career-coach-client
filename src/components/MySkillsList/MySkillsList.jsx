@@ -36,6 +36,10 @@ const MySkillsList = () => {
   
   if (spinner) return <div className="spin-center"><Spin /></div>
 
+
+  
+  if (spinner) return <div className="spin-center"><Spin /></div>
+
   return (
     <div>
       <h1>Ваши навыки:</h1>

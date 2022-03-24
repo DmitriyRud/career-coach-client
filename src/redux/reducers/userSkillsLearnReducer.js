@@ -4,6 +4,8 @@ import {
   ALL_SKILL_FROM_LEARN,
 } from "../types/userSkills";
 
+// const userSkillsLearnReducer = (state = [], action) => {
+  // const {type, payload} = action
 const userSkillsLearnReducer = (state = [], { type, payload }) => {
   switch (type) {
     case ALL_SKILL_FROM_LEARN:

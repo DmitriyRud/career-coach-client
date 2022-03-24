@@ -81,7 +81,7 @@ body {
   min-width: 100%;
   min-height: 85vh;
   /* background: url('../public/img/job_effect_1522699664.jpg') no-repeat; */
-  background: url('../public/img/searchJob.jpeg') no-repeat;
+  background: url('http://localhost:3000/img/searchJob.jpeg') no-repeat;
   background-position: top;
   background-size: cover;
   margin-top: 1em;
@@ -89,7 +89,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  opacity: 1;
+  opacity: 1; 
+  position: relative;
 }
 
 footer {

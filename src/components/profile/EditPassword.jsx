@@ -4,6 +4,8 @@ import sha256 from 'sha256';
 import { editProfileAC } from '../../redux/thunk/usersAC';
 import { setPassword } from '../../redux/actions/profileAction';
 import './edit.css'
+import React from 'react';
+
 
 const EditPassword = () => {
 
