@@ -1,7 +1,6 @@
 import { deleteItemFromList, allFromLists} from '../actions/listsActions';
 
 export const deleteFromList = (id, userId) => {
-  console.log(id, userId)
   return async (dispatch) => {
     await fetch(`/helper/whitelist/${id}`, {
       method: 'DELETE',
@@ -16,7 +15,6 @@ export const deleteFromList = (id, userId) => {
 };
 
 export const deleteFromBlackList = (id, userId) => {
-  console.log(id, userId)
   return async (dispatch) => {
     await fetch(`/helper/blacklist/${id}`, {
       method: 'DELETE',
@@ -33,10 +31,8 @@ export const deleteFromBlackList = (id, userId) => {
 export const allFromWhiteList = (userId) => {
   return async (dispatch) => {
     const response = await fetch (`/helper/whitelist/${userId}`);
-    console.log('response,', response)
     if (response.ok) {
       const whiteList = await response.json();
-      console.log('whitelist', whiteList);
       await dispatch(allFromLists(whiteList))
     }
   }

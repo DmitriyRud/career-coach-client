@@ -21,29 +21,18 @@ const SelectSkills = ({ input, checkSkillLearn, checkSkill }) => {
   const dispatch = useDispatch();
   const store = useSelector((store) => store?.users);
   const userSkills = useSelector((store) => store?.userSkills);
-  // const checkSkill = useSelector((store) =>
-  //   store.userSkills?.map((el) => el.skill?.toLowerCase())
-  // );
-  // const checkSkillLearn = useSelector((store) =>
-  //   store.userSkillsLearn?.map((el) => el.skill.toLowerCase())
-  // );
+
   const ultraAllSkills = [...checkSkill, ...checkSkillLearn];
-  // console.log(checkSkillLearn.includes(input.toLowerCase()));
 
   const id = useSelector((store) => store?.users.id);
 
   const addInSkill = (skills) => {
     dispatch(addSkillinSkill(skills));
-    // await dispatch(allSkillsFromSkills(id));
   };
 
   const addInLearn = (skills) => {
     dispatch(addSkillinLearn(skills));
-    // await dispatch(allSkillsFromLearn(id));
   };
-  // useEffect(() => {
-  //   dispatch(allSkillsFromSkills(id))
-  // },[])
 
   return (
     <div className="select-skills">
@@ -58,7 +47,7 @@ const SelectSkills = ({ input, checkSkillLearn, checkSkill }) => {
                 type="ghost"
                 // type="text"
                 shape="circle"
-                icon={<DatabaseTwoTone twoToneColor="gray"/>}
+                icon={<DatabaseTwoTone twoToneColor="gray" />}
                 size="small"
               />
             </Tooltip>
@@ -71,7 +60,7 @@ const SelectSkills = ({ input, checkSkillLearn, checkSkill }) => {
                 type="ghost"
                 // type="text"
                 shape="circle"
-                icon={<CalendarTwoTone twoToneColor="gray"/>}
+                icon={<CalendarTwoTone twoToneColor="gray" />}
                 size="small"
               />
             </Tooltip>

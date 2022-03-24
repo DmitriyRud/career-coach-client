@@ -18,7 +18,6 @@ const Avatarka = () => {
     // const data = new FormData();
     // data.append('file', image);
     // data.append('id', user.id)
-    // console.log(data)
     //  await axios.put('http://localhost:3001/users/profile', data, {
     //   headers: {'Content-type': 'multipart/form-data'}
     // }).then(res => setAvatar(res.data.path))

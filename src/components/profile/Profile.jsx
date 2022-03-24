@@ -25,9 +25,7 @@ const Profile = () => {
 
   const user = useSelector((store) => store.users);
   const allResults = useSelector((store) => store.result.resultAll);
-  // console.log(allResults);
   const btnState = useSelector((store) => store.button)
-  // console.log(btnState);
 
   useEffect(() => {
     dispatch(getAllResultUserAT(user.id));
@@ -36,7 +34,6 @@ const Profile = () => {
     navItems.map((el)=>el.classList.remove('ant-menu-item-selected'));
     document.querySelectorAll('.ant-menu-item')[1].classList.add('ant-menu-item-selected');
   }, []);
-  // console.log('user', user)
 
   const editHandler = (data) => {
     if (user.name === data) dispatch(setFio(!btnState.fio));

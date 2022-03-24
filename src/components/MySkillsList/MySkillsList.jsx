@@ -9,7 +9,6 @@ import { disableSpinner, enableSpinner } from "../../redux/actions/spinnerAction
 
 const MySkillsList = () => {
   const skills = useSelector((store) => store?.userSkills);
-  // console.log("UserSkills", skills);
   const spinner = useSelector(store => store?.spinner)
   const users = useSelector((store) => store?.users);
   // const id = useSelector((store) => store?.users.id);

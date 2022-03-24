@@ -6,7 +6,6 @@ export const allFromLists = (items) => {
 }
 
 export const deleteItemFromList = (itemId) => {
-  console.log('deleteItem', itemId)
   return {
     type: 'DELETE_ITEM_LIST',
     payload: itemId,

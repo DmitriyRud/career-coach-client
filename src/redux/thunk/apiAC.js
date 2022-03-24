@@ -1,12 +1,8 @@
-
 import { addRecomendation } from "../actions/recomendationAction";
 
 export const analizeAC = (data) => {
   return async (dispatch) => {
-
-    if (data.method === 'api') {
-      console.log('-----======= API selected =======-----');
-      console.log('data in analizeAC : ', data);
+    if (data.method === "api") {
       try {
         const response = await fetch("/api/hh", {
           method: "POST",
@@ -19,14 +15,11 @@ export const analizeAC = (data) => {
           const resultId = result.resultId;
           return resultId;
         } else {
-
         }
       } catch (err) {
         console.log("Error analize: ", err);
       }
-    } else if (data.method === 'scrapping') {
-      console.log('-----======= Scrapping selected =======-----');
-      console.log('data in analizeAC : ', data);
+    } else if (data.method === "scrapping") {
       // amount: 2
       // city: "Москва"
       // method: "api"
@@ -47,12 +40,10 @@ export const analizeAC = (data) => {
           const resultId = result.resultId;
           return resultId;
         } else {
-
         }
       } catch (err) {
         console.log("Error analize: ", err);
-
       }
-    };
+    }
   };
 };

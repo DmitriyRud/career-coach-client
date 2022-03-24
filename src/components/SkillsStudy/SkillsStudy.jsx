@@ -11,7 +11,7 @@ import {
 
 const SkillsStudy = () => {
   const skillsLearn = useSelector((store) => store?.userSkillsLearn);
-  // console.log('skillsLearn',skillsLearn);
+  // ('skillsLearn',skillsLearn);
   const id = useSelector((store) => store?.users.id);
   const dispatch = useDispatch();
   const spinner = useSelector((store) => store?.spinner);

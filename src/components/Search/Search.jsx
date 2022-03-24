@@ -17,7 +17,6 @@ const { Option } = Select;
 const Search = () => {
   //const store = useSelector((store) => store.users);
   const allResults = useSelector((store) => store.result.resultAll);
-  //console.log(allResults);
   const user = useSelector((store) => store.users);
   const dispatch = useDispatch();
   let navigate = useNavigate();
@@ -45,11 +44,9 @@ const Search = () => {
 
   useEffect(() => {
     dispatch(getAllResultUserAT(user.id));
-    //console.log('newSearch =========>', newSearch);
   }, [newSearch]);
 
   function handleChange(value) {
-    //console.log(`selected ${value}`);
     setWebsites(value);
   }
 
@@ -57,9 +54,7 @@ const Search = () => {
     setLoading(true);
     values.city = cities[values.city];
     values.userId = user.id;
-    //console.log('Success:', values);
     const resultId = await dispatch(analizeAC(values));
-    //console.log('resultId from back ==== > ', ttt);
     setNewSearch((prev) => prev + 1);
     setLoading(false);
     navigate(`/result/${resultId}`);

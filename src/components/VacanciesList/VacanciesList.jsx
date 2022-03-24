@@ -10,8 +10,6 @@ const VacanciesList = () => {
   const user = useSelector((store) => store.users);
   const vacancies = useSelector((store) => store.vacancy.vacancies);
   const dispatch = useDispatch();
-  //console.log('VacanciesList >> ', vacancies);
-  //console.log(user);
   useEffect(() => {
     dispatch(getVacanciesAT(user.id))
   }, [])

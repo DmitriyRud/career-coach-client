@@ -18,16 +18,12 @@ const { Text } = Typography; // Link для ссылки добавить
 const Result = () => {
   const dispatch = useDispatch();
   const {result_id} = useParams();
-  // console.log('DATA to STATE RESULT_ID>>>>>  ', result_id);
 
   const result = useSelector((state) => state.result.result);
   const report = useSelector((state) => state.result.report);
-  // console.log('DATA to STATE RESULT>>>>>  ', result);
 
   const userData = useSelector((state) => state.userData)
-  // console.log('DATA to userData>>>>>  ', userData);
 
-  // console.log('DATA to STATE REPORT>>>>>  ', report);
   useEffect(() => {
     dispatch(getResultAT(result_id));
     dispatch(getReportAT(result_id));
@@ -35,22 +31,18 @@ const Result = () => {
   }, [])
 
   const onClickWhite = async (skill) => {
-    // console.log(skill);
     await dispatch(addSkillWhiteList(skill))
     dispatch(getUserDataAC());
   }
   const onClickBlack = async (skill) => {
-    // console.log(skill);
     await dispatch(addSkillBlackList(skill))
     dispatch(getUserDataAC());
   }
   const onClickUserSkill = async (skill) => {
-    // console.log(skill);
     await dispatch(addUserSkill(skill))
     dispatch(getUserDataAC());
   }
   const onClickMyPlans = async (skill) => {
-    // console.log(skill);
     await dispatch(addMyPlans(skill))
     dispatch(getUserDataAC());
   }
@@ -116,7 +108,6 @@ const Result = () => {
               let flagUserSkills = false;
               let flagMyPlans = false;
               // флаг для кнопки addWhiteList
-              // console.log('ELEMENT WORD', el[0]);
               const indW = userData.whiteList.findIndex((item) => el[0] === item.word)
               const indB = userData.blackList.findIndex((item) => el[0] === item.word)
               if(indW > -1 || indB > -1) {
