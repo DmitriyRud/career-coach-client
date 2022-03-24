@@ -31,7 +31,7 @@ const Search = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const cities = citiesArr.map(el=>el.city);
+  const cities = citiesArr.map(el => el.city);
 
   const [websites, setWebsites] = useState('hh');
   const [newSearch, setNewSearch] = useState(0);
@@ -39,12 +39,12 @@ const Search = () => {
 
   useEffect(() => {
     let navItems = Array.from(document.querySelectorAll('.ant-menu-item'));
-    navItems.map((el)=>el.classList.remove('ant-menu-item-selected'));
+    navItems.map((el) => el.classList.remove('ant-menu-item-selected'));
     document.querySelectorAll('.ant-menu-item')[2].classList.add('ant-menu-item-selected');
   }, []);
-  
+
   useEffect(() => {
-   dispatch(getAllResultUserAT(user.id));
+    dispatch(getAllResultUserAT(user.id));
     //console.log('newSearch =========>', newSearch);
   }, [newSearch]);
 
@@ -60,9 +60,9 @@ const Search = () => {
     //console.log('Success:', values);
     const resultId = await dispatch(analizeAC(values));
     //console.log('resultId from back ==== > ', ttt);
-    setNewSearch((prev)=>prev + 1);
+    setNewSearch((prev) => prev + 1);
     setLoading(false)
-    navigate(`/result/${resultId}`);    
+    navigate(`/result/${resultId}`);
 
   };
 
@@ -73,17 +73,17 @@ const Search = () => {
 
   if (user.name) {
     return (
-      <div className="main-page" style={{position: 'relative'}}>
-        {loading 
+      <div className="main-page" style={{ position: 'relative' }}>
+        {loading
           &&
           // <img src='/images/loading.gif' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '7em', borderRadius: '50%'}}/>
-        //   spiner version 1
+          //   spiner version 1
           // <div className="loader">
           //   <div className="inner one"></div>
           //   <div className="inner two"></div>
           //   <div className="inner three"></div>
           // </div>
-        // spiner version 2
+          // spiner version 2
           // <div class="sk-chase" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
           //   <div class="sk-chase-dot"></div>
           //   <div class="sk-chase-dot"></div>
@@ -92,8 +92,8 @@ const Search = () => {
           //   <div class="sk-chase-dot"></div>
           //   <div class="sk-chase-dot"></div>
           // </div>
-        // spiner version 3
-          <div class="loader" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+          // spiner version 3
+          <div class="loader" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
             <div class="face">
               <div class="circle"></div>
             </div>
@@ -206,22 +206,24 @@ const Search = () => {
                     Начать анализ рынка вакансий
                   </Button>
                 </div>
-                  
+
               </Form.Item>
             </Form>
           </div>
 
           <div className="history-page">
             <div className='history-container'>
-              <ul className='profile-settings'>
+              <ul className='profile-history'>
                 {allResults.length !== 0 ?
                   allResults.map((el) => {
                     return (
 
-                      <li key={el.createdAt}>
-                        <Link to={`/result/${el.id}`}>
-                          {`${el.search_string} - ${el.createdAt.slice(0, 10)} / ${el.createdAt.slice(11, 19)} `}
-                        </Link>
+                      <li key={el.createdAt} className="li-flex-between">
+                        <div className="job-title-div">
+                          <Link to={`/result/${el.id}`}>
+                            {el.search_string}
+                          </Link></div>
+                        <div className="job-time-div">{el.createdAt.slice(0, 10)} / {el.createdAt.slice(11, 19)}</div>
                       </li>
 
                     )

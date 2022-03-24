@@ -26,3 +26,8 @@ h2 {
 p {
   font-size: 1.3em;
 }
+
+.full-center {
+  width: 100%;
+  text-align: center;
+}

@@ -85,19 +85,19 @@ isSearchMade();
       {/* Здесь нужно вставить проверку: если скилы не добавлены, выводить этот блок: */}
       <div className="profile-line">
         <p>В своем профиле ты можешь добавить или изменить информацию о себе, а также посмотреть рекомендации по предыдущим запросам:</p>
-        <Button type="primary" shape="round" icon={<BookTwoTone />} size={'large'} onClick={profileClickHandler}>
+        <Button type="primary" shape="round" icon={<BookTwoTone />} size={'large'} style={{ width: 400 }} onClick={profileClickHandler}>
         Редактировать свой профиль
         </Button>
       </div>
      <div className="skills-line"> 
       {isLoading ? <Spin indicator={antIcon} /> : skills ? 
         (<><p>В твоем профиле уже есть навыки. Можешь добавить новые или изменить текущие по кнопке:</p>
-        <Button type="primary" shape="round" icon={<DatabaseTwoTone />} size={'large'} onClick={skillsClickHandler}>
+        <Button type="primary" shape="round" icon={<DatabaseTwoTone />} size={'large'} style={{ width: 400 }} onClick={skillsClickHandler}>
         Редактировать свои навыки
         </Button></>)
       : (<><p>В твоем профиле еще нет навыков. Нужно их добавить, чтобы я смог рекомендовать тебе лучшие вакансии:</p>
 
-        <Button type="primary" shape="round" icon={<DatabaseTwoTone />} size={'large'} onClick={skillsClickHandler}>
+        <Button type="primary" shape="round" icon={<DatabaseTwoTone />} size={'large'} style={{ width: 400 }} onClick={skillsClickHandler}>
           Заполнить таблицу навыков
         </Button></>)
       }
@@ -109,13 +109,13 @@ isSearchMade();
         (<> <p>Попробуй проанализировать рынок вакансий - это самый мощный мой инструмент. Проведя анализ, мы с тобой поймем, какие навыки требуются работодателям,
           какие из них тебе нужно указать в резюме и портфолио, чтобы тебя точно взяли на работу!
         </p>
-        <Button type="primary" shape="round" icon={<FundTwoTone />} size={'large'} onClick={analizeClickHandler}>
+        <Button type="primary" shape="round" icon={<FundTwoTone />} size={'large'} style={{ width: 400 }} onClick={analizeClickHandler}>
           Начать анализ рынка вакансий
         </Button>
         </>)
       : (<><p>Проведи новый анализ рынка вакансий, нажав на кнопку:
         </p>
-        <Button type="primary" shape="round" icon={<FundTwoTone />} size={'large'} onClick={analizeClickHandler}>
+        <Button type="primary" shape="round" icon={<FundTwoTone />} size={'large'} style={{ width: 400 }} onClick={analizeClickHandler}>
         Провести новый анализ рынка вакансий
         </Button></>
         )}      
