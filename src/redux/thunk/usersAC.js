@@ -9,6 +9,7 @@ export const loginUserAC = (data) => {
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(data),
       });
+      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
       if (response.ok) {
         const result = await response.json();
         dispatch(loginUser(result));
@@ -19,8 +20,9 @@ export const loginUserAC = (data) => {
           //console.log('Userstate ======> ', userState);
 
           localStorage.setItem('userstate', JSON.stringify(userState));
-        }
+        } 
       } else {
+        //localStorage.removeItem('userstate');
         const message = document.querySelector(".message");
         message.innerHTML =
           "Неверное имя пользователя или пароль. Попробуйте еще раз";
@@ -83,14 +85,15 @@ export const checkUserAC = () => {
     const values = {};
     values.name = userState.name;
     values.password = userState.password;
-    dispatch(loginUserAC(values));
+    const answer = await dispatch(loginUserAC(values));
+    console.log(answer);
 
     const response = await fetch('/auth/checkiflogged', { method:'GET'});
     if (response.ok) {
       const result = await response.json();
       // console.log('Already logged: ',result);
       dispatch(loginUser(result));
-    }    
+    }  
   }
 }
 
