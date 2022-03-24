@@ -39,15 +39,18 @@ const AddUserSkills = () => {
 
   
   const inputHandler = (e) => {
+    e.preventDefault();
     setInput(e.target.value);
   };
 
   const radioHandler = (e) => {
+    e.preventDefault();
     setRadio(e.target.value);
   };
   // console.log(radio);
 
   const submitHandler = (e) => {
+    e.preventDefault();
     if (radio === "skills") {
       if (
         input === undefined ||
@@ -57,7 +60,6 @@ const AddUserSkills = () => {
         setInput("");
         form.resetFields();
       } else {
-        e.preventDefault();
         dispatch(addSkillinSkill({ input, id }));
         setInput("");
         form.resetFields();
@@ -71,7 +73,6 @@ const AddUserSkills = () => {
         setInput("");
         form.resetFields();
       } else {
-        e.preventDefault();
         dispatch(addSkillinLearn({ input, id }));
         setInput("");
         form.resetFields();

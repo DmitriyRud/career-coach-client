@@ -19,6 +19,7 @@ import { useEffect } from 'react';
 import { getAllResultUserAT } from '../../redux/thunk/resultAT';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { citiesArr } from './cities';
 
 const { Option } = Select;
 
@@ -30,7 +31,7 @@ const Search = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const cities = ['Москва', 'Санкт-Петербург', 'Краснодар', 'Самара', 'Казань', 'Саратов'];
+  const cities = citiesArr.map(el=>el.city);
 
   const [websites, setWebsites] = useState('hh');
   const [newSearch, setNewSearch] = useState(0);
