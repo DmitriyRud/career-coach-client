@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import './Result.css';
 import { Link } from "react-router-dom";
 import { Button, Tooltip } from 'antd';
-import { DatabaseTwoTone, CalendarTwoTone, EyeTwoTone, EyeInvisibleTwoTone } from '@ant-design/icons';
+import { DatabaseTwoTone, CalendarTwoTone, EyeTwoTone, EyeInvisibleTwoTone, MessageTwoTone } from '@ant-design/icons';
 import { addSkillWhiteList, addSkillBlackList, addUserSkill, addMyPlans } from "../../redux/thunk/resultAT";
 import { useParams } from "react-router-dom";
 import { getUserDataAC } from "../../redux/thunk/usersAC";
@@ -92,7 +92,7 @@ const Result = () => {
               </div>
             </Text>
             <Link to={`/recomendation/${result_id}`}>
-              <Button type="primary">
+              <Button type="primary" shape="round" icon={<MessageTwoTone />} size={'large'}>
                 Рекомендации
               </Button>
             </Link>
