@@ -1,3 +1,4 @@
+import React from 'react';
 import { Row, Col } from 'antd';
 import { Button, Tooltip } from 'antd';
 import { DeleteTwoTone } from '@ant-design/icons';
