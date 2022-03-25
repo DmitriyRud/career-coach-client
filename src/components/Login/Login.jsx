@@ -41,7 +41,7 @@ const Login = () => {
           autoComplete="off"
         > 
           <Form.Item className='login-input'
-            label="Имя пользователя"
+            label={<span className='label-color'>Имя пользователя</span>}
             name="name"
             rules={[
               {
@@ -54,7 +54,7 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item className='login-input'
-            label="Пароль"
+            label={<span className='label-color'>Пароль</span>}
             name="password"
             rules={[
               {

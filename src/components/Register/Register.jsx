@@ -45,7 +45,7 @@ const Register = () => {
          <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
       <Form.Item className='register-input'
         name="name"
-        label="Имя пользователя"
+        label={<span className='label-color'>Имя пользователя</span>}
         rules={[
           {
             required: true,
@@ -56,7 +56,7 @@ const Register = () => {
       </Form.Item>
       <Form.Item className='register-input'
         name="email"
-        label="Email"
+        label={<span className='label-color'>email</span>}
         rules={[
           {
             type: 'email',
@@ -67,7 +67,7 @@ const Register = () => {
         <Input />
       </Form.Item> 
           <Form.Item className='register-input'
-            label="Пароль"
+            label={<span className='label-color'>Пароль</span>}
             name="password"
             rules={[
               {
@@ -81,7 +81,7 @@ const Register = () => {
 
         <Form.Item className='register-input'
         name="confirm"
-        label="Пароль еще раз"
+        label={<span className='label-color'>Пароль еще раз</span>}
         dependencies={[ref]}
         hasFeedback
         rules={[
