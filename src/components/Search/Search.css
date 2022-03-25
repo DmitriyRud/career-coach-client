@@ -343,10 +343,13 @@ body {
 }
 
 .btn-group-search {
-  margin-top: 1em;
-  display: flex;
+  margin-top: 3em;
+  
   /* justify-items: center; */
-  justify-content: center;
+  
+  width: 100%;
+  display: flex;
+  justify-content:center;
 }
 
 @keyframes animate {
