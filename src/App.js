@@ -28,6 +28,7 @@ import WhiteList from './components/Lists/WhiteList';
 import BlackList from './components/Lists/BlackList';
 import { allSkillsFromSkills } from './redux/actions/userSkills';
 import { useEffect } from 'react';
+import AllReports from './components/AllReports/AllReports';
 
 const { Content, Header, Footer } = Layout;
 
@@ -54,7 +55,8 @@ function App() {
             {!store.name && <Menu.Item key='3'><Link to='/signup'>Зарегистрироваться</Link></Menu.Item>}
             {store.name && <Menu.Item key='4'><Link to='/users/profile/'>{store.name}</Link></Menu.Item>}
             {store.name && <Menu.Item key='5'><Link to='/search'>Анализ вакансий</Link></Menu.Item>}
-            {store.name && <Menu.Item key='6'><Link to='/logout'>Выйти</Link></Menu.Item>}
+            {store.name && <Menu.Item key='6'><Link to='/reports'>Отчеты</Link></Menu.Item>}
+            {store.name && <Menu.Item key='7'><Link to='/logout'>Выйти</Link></Menu.Item>}
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
@@ -86,6 +88,7 @@ function App() {
             <Route path="/api" element={<Analize />} />
             <Route path="/whitelist" element={<WhiteList/>} />
             <Route path="/blacklist" element={<BlackList/>} />
+            <Route path="/reports" element={<AllReports/>} />
           </Routes>
           </div>
         </Content>
