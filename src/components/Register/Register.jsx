@@ -104,8 +104,8 @@ const Register = () => {
 
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 4 }}>
       <div className="register-button">
-        <Button type="primary" htmlType="submit"  size={'large'}>
-          Submit
+        <Button  type="primary" htmlType="submit" size={'large'} shape="round" style={{ width: 300 }}>
+          Зарегистрироваться
         </Button>
       </div>  
       </Form.Item>

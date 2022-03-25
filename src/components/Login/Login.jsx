@@ -73,8 +73,8 @@ const Login = () => {
           >
           
           <div className="login-button">
-            <Button  type="primary" htmlType="submit" size={'large'}>
-              Submit
+            <Button  type="primary" htmlType="submit" size={'large'} shape="round" style={{ width: 300 }}>
+              Войти
             </Button>
           </div>
           </Form.Item>

@@ -199,24 +199,26 @@ const Search = () => {
                   <Option key="2" value="scrapping">Web-scrapping</Option>
                 </Select>
               </Form.Item>
-
-              <Form.Item label="&nbsp;">
-                <div className="search-button" >
-                  <Button type="primary" htmlType="submit" shape="round" icon={<FundTwoTone />} size={'large'} >
-                    Начать анализ рынка вакансий
-                  </Button>
-                </div>
                 <div className='btn-group-search'>
+                  <div>
                   <Link to={'/whitelist'}>
                     <Button shape="round" icon={<EyeTwoTone />} size={'large'} >
                       WhiteList
                     </Button>
-                  </Link>
+                  </Link></div>
+                  <div>
                   <Link to={'/blacklist'}>
-                    <Button shape="round" icon={<EyeInvisibleTwoTone />} size={'large'} style={{background: 'grey'}} >
+                    <Button shape="round" icon={<EyeInvisibleTwoTone />} size={'large'} style={{background: '#f6f6f6', marginLeft:'2.5em'}} >
                       BlackList
                     </Button>
-                  </Link>
+                  </Link></div>
+                </div>
+
+              <Form.Item style={{display:'flex', justifyContent:'center'}}>
+                <div className="search-button" >
+                  <Button type="primary" htmlType="submit" shape="round" icon={<FundTwoTone />} size={'large'} >
+                    Начать анализ рынка вакансий
+                  </Button>
                 </div>
 
               </Form.Item>
@@ -241,11 +243,7 @@ const Search = () => {
                     )
                   })
                   :
-<<<<<<< HEAD
-                  <h2>Чтобы получить рекомендацию сделайте свой первый запрос</h2>
-=======
                   <h2>Ты еще не сделал анализ рынка вакансий - жду результатов...</h2>
->>>>>>> final-styles
                 }
               </ul>
             </div>
