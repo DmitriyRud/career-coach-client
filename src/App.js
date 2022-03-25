@@ -36,9 +36,9 @@ function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-      dispatch(allSkillsFromSkills(store.id));
-    }, []);
+    // useEffect(() => {
+    //   dispatch(allSkillsFromSkills(store.id));
+    // }, []);
     
     if (!store.name){
       dispatch(checkUserAC());
