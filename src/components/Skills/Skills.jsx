@@ -44,7 +44,7 @@ const Skills = ({ skill, category, user_id, skill_id, rate }) => {
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
         className="btn-delete"
-        icon={<DeleteTwoTone twoToneColor="red" />}
+        icon={<DeleteTwoTone twoToneColor="white" />}
         shape="circle"
         type="ghost"
         style={{marginRight: '1em'}}
