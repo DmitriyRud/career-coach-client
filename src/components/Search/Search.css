@@ -342,6 +342,13 @@ body {
                 0 0 0 0.5em rgba(255, 255, 0, 0.1);
 }
 
+.btn-group-search {
+  margin-top: 1em;
+  display: flex;
+  /* justify-items: center; */
+  justify-content: center;
+}
+
 @keyframes animate {
     to {
         transform: rotate(1turn);

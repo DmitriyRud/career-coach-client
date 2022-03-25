@@ -10,7 +10,7 @@ import {
   Slider,
   Select,
 } from 'antd';
-import { FundTwoTone } from '@ant-design/icons';
+import { FundTwoTone, EyeInvisibleTwoTone, EyeTwoTone } from '@ant-design/icons';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -205,6 +205,18 @@ const Search = () => {
                   <Button type="primary" htmlType="submit" shape="round" icon={<FundTwoTone />} size={'large'} >
                     Начать анализ рынка вакансий
                   </Button>
+                </div>
+                <div className='btn-group-search'>
+                  <Link to={'/whitelist'}>
+                    <Button shape="round" icon={<EyeTwoTone />} size={'large'} >
+                      WhiteList
+                    </Button>
+                  </Link>
+                  <Link to={'/blacklist'}>
+                    <Button shape="round" icon={<EyeInvisibleTwoTone />} size={'large'} style={{background: 'grey'}} >
+                      BlackList
+                    </Button>
+                  </Link>
                 </div>
 
               </Form.Item>
