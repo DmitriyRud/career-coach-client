@@ -93,7 +93,7 @@ const Search = () => {
           //   <div class="sk-chase-dot"></div>
           // </div>
           // spiner version 3
-          <div class="loader" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+          <div class="loader" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
             <div class="face">
               <div class="circle"></div>
             </div>

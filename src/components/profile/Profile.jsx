@@ -67,16 +67,17 @@ const Profile = () => {
         </Tooltip></div></li>
         {btnState.password && <EditPassword />}
         </ul>
-        </div>    
-        <Button 
-          type="primary"
-          shape="round"
-          icon={<DatabaseTwoTone />}
-          style={{width: '300px', color: 'white', margin: '1em 0'}}
-          size={'large'}
-        >
-          <Link to="/users/profile/skills" style={{color: 'white'}}>Добавь навыки</Link>
-        </Button>
+        </div> 
+        <Link to="/users/profile/skills" style={{color: 'white'}}>   
+          <Button 
+            type="primary"
+            shape="round"
+            icon={<DatabaseTwoTone />}
+            style={{width: '300px', color: 'white', margin: '1em 0'}}
+            size={'large'}>
+            Добавь навыки
+          </Button>
+        </Link>
       </div>
       <div className='one-column-params history-page'>
       <Title level={3} style={{margin: "1em"}}>Рекомендации</Title>
