@@ -1,4 +1,4 @@
-.card {
+/* .card {
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -6,6 +6,24 @@
   font-size: larger;
   color: black;
   background: #fff;
+  border: 1px solid rgb(180, 179, 179);
+  border-radius: 2px;
+  margin: 0 5px 0 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  margin-bottom: 5px;
+} */
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: larger;
+  color: white;
+  background: rgb(40, 44, 52);
   border: 1px solid rgb(180, 179, 179);
   border-radius: 2px;
   margin: 0 5px 0 0;
