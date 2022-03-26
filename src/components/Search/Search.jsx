@@ -10,7 +10,7 @@ import {
   Slider,
   Select,
 } from 'antd';
-import { FundTwoTone } from '@ant-design/icons';
+import { FundTwoTone, EyeInvisibleTwoTone, EyeTwoTone } from '@ant-design/icons';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -19,6 +19,7 @@ import { useEffect } from 'react';
 import { getAllResultUserAT } from '../../redux/thunk/resultAT';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
+import { citiesArr } from './cities';
 
 const { Option } = Select;
 
@@ -30,7 +31,7 @@ const Search = () => {
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const cities = ['Москва', 'Санкт-Петербург', 'Краснодар', 'Самара', 'Казань', 'Саратов'];
+  const cities = citiesArr.map(el => el.city);
 
   const [websites, setWebsites] = useState('hh');
   const [newSearch, setNewSearch] = useState(0);
@@ -38,12 +39,12 @@ const Search = () => {
 
   useEffect(() => {
     let navItems = Array.from(document.querySelectorAll('.ant-menu-item'));
-    navItems.map((el)=>el.classList.remove('ant-menu-item-selected'));
+    navItems.map((el) => el.classList.remove('ant-menu-item-selected'));
     document.querySelectorAll('.ant-menu-item')[2].classList.add('ant-menu-item-selected');
   }, []);
-  
+
   useEffect(() => {
-   dispatch(getAllResultUserAT(user.id));
+    dispatch(getAllResultUserAT(user.id));
     //console.log('newSearch =========>', newSearch);
   }, [newSearch]);
 
@@ -59,9 +60,9 @@ const Search = () => {
     //console.log('Success:', values);
     const resultId = await dispatch(analizeAC(values));
     //console.log('resultId from back ==== > ', ttt);
-    setNewSearch((prev)=>prev + 1);
+    setNewSearch((prev) => prev + 1);
     setLoading(false)
-    navigate(`/result/${resultId}`);    
+    navigate(`/result/${resultId}`);
 
   };
 
@@ -72,17 +73,17 @@ const Search = () => {
 
   if (user.name) {
     return (
-      <div className="main-page" style={{position: 'relative'}}>
-        {loading 
+      <div className="main-page" style={{ position: 'relative' }}>
+        {loading
           &&
           // <img src='/images/loading.gif' style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '7em', borderRadius: '50%'}}/>
-        //   spiner version 1
+          //   spiner version 1
           // <div className="loader">
           //   <div className="inner one"></div>
           //   <div className="inner two"></div>
           //   <div className="inner three"></div>
           // </div>
-        // spiner version 2
+          // spiner version 2
           // <div class="sk-chase" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
           //   <div class="sk-chase-dot"></div>
           //   <div class="sk-chase-dot"></div>
@@ -91,8 +92,8 @@ const Search = () => {
           //   <div class="sk-chase-dot"></div>
           //   <div class="sk-chase-dot"></div>
           // </div>
-        // spiner version 3
-          <div class="loader" style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
+          // spiner version 3
+          <div class="loader" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}>
             <div class="face">
               <div class="circle"></div>
             </div>
@@ -198,35 +199,51 @@ const Search = () => {
                   <Option key="2" value="scrapping">Web-scrapping</Option>
                 </Select>
               </Form.Item>
+                <div className='btn-group-search'>
+                  <div>
+                  <Link to={'/whitelist'}>
+                    <Button shape="round" icon={<EyeTwoTone />} size={'large'} >
+                      WhiteList
+                    </Button>
+                  </Link></div>
+                  <div>
+                  <Link to={'/blacklist'}>
+                    <Button shape="round" icon={<EyeInvisibleTwoTone />} size={'large'} style={{background: '#f6f6f6', marginLeft:'2.5em'}} >
+                      BlackList
+                    </Button>
+                  </Link></div>
+                </div>
 
-              <Form.Item label="&nbsp;">
+              <Form.Item style={{display:'flex', justifyContent:'center'}}>
                 <div className="search-button" >
                   <Button type="primary" htmlType="submit" shape="round" icon={<FundTwoTone />} size={'large'} >
                     Начать анализ рынка вакансий
                   </Button>
                 </div>
-                  
+
               </Form.Item>
             </Form>
           </div>
 
           <div className="history-page">
             <div className='history-container'>
-              <ul className='profile-settings'>
+              <ul className='profile-history'>
                 {allResults.length !== 0 ?
                   allResults.map((el) => {
                     return (
 
-                      <li key={el.createdAt}>
-                        <Link to={`/result/${el.id}`}>
-                          {`${el.search_string} - ${el.createdAt.slice(0, 10)} / ${el.createdAt.slice(11, 19)} `}
-                        </Link>
+                      <li key={el.createdAt} className="li-flex-between">
+                        <div className="job-title-div">
+                          <Link to={`/result/${el.id}`}>
+                            {el.search_string}
+                          </Link></div>
+                        <div className="job-time-div">{el.createdAt.slice(0, 10)} / {el.createdAt.slice(11, 19)}</div>
                       </li>
 
                     )
                   })
                   :
-                  <h2>Что бы получить рекомендацию сделайте свой первый запрос</h2>
+                  <h2>Ты еще не сделал анализ рынка вакансий - жду результатов...</h2>
                 }
               </ul>
             </div>

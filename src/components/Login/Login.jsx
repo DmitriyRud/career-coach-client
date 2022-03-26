@@ -41,7 +41,7 @@ const Login = () => {
           autoComplete="off"
         > 
           <Form.Item className='login-input'
-            label="Имя пользователя"
+            label={<span className='label-color'>Имя пользователя</span>}
             name="name"
             rules={[
               {
@@ -54,7 +54,7 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item className='login-input'
-            label="Пароль"
+            label={<span className='label-color'>Пароль</span>}
             name="password"
             rules={[
               {
@@ -73,8 +73,8 @@ const Login = () => {
           >
           
           <div className="login-button">
-            <Button  type="primary" htmlType="submit" size={'large'}>
-              Submit
+            <Button  type="primary" htmlType="submit" size={'large'} shape="round" style={{ width: 300 }}>
+              Войти
             </Button>
           </div>
           </Form.Item>

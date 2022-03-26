@@ -4,9 +4,7 @@ import React from "react";
 import { Button, Rate } from "antd";
 import { DeleteTwoTone } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
 import {
-  allSkillsFromSkills,
   updateRate,
 } from "../../redux/actions/userSkills";
 import {
@@ -41,14 +39,15 @@ const Skills = ({ skill, category, user_id, skill_id, rate }) => {
         <span className="card-span">{skill}</span>
       </div>
       <div className="stars">
-        <Rate onChange={changeHandler} value={rate / 2} allowHalf />
+        <Rate onChange={changeHandler} value={rate / 2} allowHalf style={{ padding: '0 10px', backgroundColor: '#282c34' }}/>
       </div>
       <Button
         onClick={() => deleteHandler(user_id, skill_id, category)}
         className="btn-delete"
-        icon={<DeleteTwoTone twoToneColor="red" />}
+        icon={<DeleteTwoTone twoToneColor="white" />}
         shape="circle"
         type="ghost"
+        style={{marginRight: '1em'}}
       />
     </div>
   );

@@ -10,8 +10,9 @@
 }
 
 .col-recom {
-  background-color: aliceblue;
+  background-color: rgb(209, 233, 255);
   min-width: 20em;
+  border-radius: 5px;
 }
 
 .col-recom-left {
@@ -26,15 +27,16 @@
 
 .skill-div {
   background: #fff;
-  border: 1px solid #fff ;
+  border: 1px solid rgb(180, 179, 179) ;
   border-radius: 2px;
-  margin: 5px;
+  margin: 7px 10px;
   padding: 0 0.5em;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
   margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 h1 {

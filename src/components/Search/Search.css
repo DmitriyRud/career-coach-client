@@ -285,6 +285,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1000;
 }
 
 .loader .face {
@@ -340,6 +341,16 @@ body {
                 0 0 8em,
                 0 0 10em,
                 0 0 0 0.5em rgba(255, 255, 0, 0.1);
+}
+
+.btn-group-search {
+  margin-top: 3em;
+  
+  /* justify-items: center; */
+  
+  width: 100%;
+  display: flex;
+  justify-content:center;
 }
 
 @keyframes animate {

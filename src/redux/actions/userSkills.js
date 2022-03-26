@@ -47,6 +47,8 @@ export const allSkillsFromSelect = () => async (dispatch, setState) => {
 
 export const allSkillsFromSkills = (id) => async (dispatch, setState) => {
   try {
+
+    console.log('id in allSkills ========>>>>>>', id);
     const response = await fetch(
       `/users/profile/allUserSkillsFromSkills/${id}`
     );

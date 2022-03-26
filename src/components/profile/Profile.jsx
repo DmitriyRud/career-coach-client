@@ -1,5 +1,5 @@
 import { Typography, Button, Tooltip} from 'antd';
-import { EditOutlined } from '@ant-design/icons';
+import { EditOutlined, DatabaseTwoTone } from '@ant-design/icons';
 import './profile.css';
 import Avatarka from './Avatar';
 import { useSelector } from 'react-redux'; 
@@ -46,52 +46,58 @@ const Profile = () => {
  
   return (
     <div className="main-page column-container">
-      <div className='one-column-params'>
+      <div className='one-column-params padd-1em'>
         <Title level={3} style={{margin: "1em"}}>Мой профиль</Title>
         <div className='profile-container'>
         <Avatarka/>
       
         <ul className='profile-settings'>
-        <li><span>Username</span>{user.name}<span /></li>
-          <li  id='fio-edit'><span>Имя</span>{user.fio || 'Анонимус'}<span><Tooltip title="edit">
+        <li><div style={{width: '30%'}}>Username</div><div style={{width: '60%'}}>{user.name}</div><div style={{width: '10%'}}/></li>
+        <li  id='fio-edit'><div style={{width: '30%'}}>Имя</div><div style={{width: '60%'}}>{user.fio || 'Анонимус'}</div><div style={{width: '10%'}}>
+        <Tooltip title="edit">
           <Button onClick={() => editHandler(user.name)} type="primary" shape="circle" icon={<EditOutlined />} />
-        </Tooltip></span></li>
+        </Tooltip></div></li>
         {btnState.fio && <EditName />}
-          <li><span>Почта</span>{user.email}<span><Tooltip title="edit">
+          <li><div style={{width: '30%'}}>Почта</div><div style={{width: '60%'}}>{user.email}</div><div style={{width: '10%'}}><Tooltip title="edit">
           <Button onClick={() => editHandler(user.email)} type="primary" shape="circle" icon={<EditOutlined />} />
-        </Tooltip></span></li>
+        </Tooltip></div></li>
         {btnState.email && <EditEmail />}
-          <li><span>Пароль</span>***<span><Tooltip title="edit">
+          <li><div style={{width: '30%'}}>Пароль</div><div style={{width: '60%'}}>***</div><div style={{width: '10%'}}><Tooltip title="edit">
           <Button onClick={editHandler} type="primary" shape="circle" icon={<EditOutlined />} />
-        </Tooltip></span></li>
+        </Tooltip></div></li>
         {btnState.password && <EditPassword />}
         </ul>
-        </div>    
-        <Button 
-          type="primary"
-          // danger
-          size="large"
-        >
-          <Link to="/users/profile/skills">Добавь навыки</Link>
-        </Button>
+        </div> 
+        <Link to="/users/profile/skills" style={{color: 'white'}}>   
+          <Button 
+            type="primary"
+            shape="round"
+            icon={<DatabaseTwoTone />}
+            style={{width: '300px', color: 'white', margin: '1em 0'}}
+            size={'large'}>
+            Добавь навыки
+          </Button>
+        </Link>
       </div>
       <div className='one-column-params history-page'>
       <Title level={3} style={{margin: "1em"}}>Рекомендации</Title>
         <div className='history-container'>
           <div className='profile-container'>
-          <ul className='profile-settings'>
+          <ul className='profile-history'>
             {allResults.length !== 0 ?
               allResults.map((el) => { return (
                 
-                <li key={el.createdAt}>
+                <li key={el.createdAt} className="li-flex-between">
+                  <div className="job-title-div">
                   <Link to={`/recomendation/${el.id}`}>
-                    {`${el.search_string} - ${el.createdAt.slice(0, 10)} / ${el.createdAt.slice(11, 19)}`}
-                  </Link>
+                    {el.search_string}
+                  </Link></div>
+                  <div className="job-time-div">{el.createdAt.slice(0, 10)} / {el.createdAt.slice(11, 19)}</div>
                 </li>
                 
               )})
               :
-              <h2>Что бы получить рекомендацию сделайте свой первый запрос</h2>
+              <h2>Чтобы получить рекомендацию сделайте свой первый запрос</h2>
             }
           </ul>
           </div>

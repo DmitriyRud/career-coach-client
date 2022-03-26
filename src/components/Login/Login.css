@@ -34,3 +34,11 @@
   font-family: 'Roboto', sans-serif;
   color:white;
 }
+
+.label-color {
+  color: white;
+}
+
+/* .ant-form-item-required::before {
+  text-shadow: 3px white;
+} */

@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import './Result.css';
 import { Link } from "react-router-dom";
 import { Button, Tooltip } from 'antd';
-import { DatabaseTwoTone, CalendarTwoTone, EyeTwoTone, EyeInvisibleTwoTone } from '@ant-design/icons';
+import { DatabaseTwoTone, CalendarTwoTone, EyeTwoTone, EyeInvisibleTwoTone, MessageTwoTone } from '@ant-design/icons';
 import { addSkillWhiteList, addSkillBlackList, addUserSkill, addMyPlans } from "../../redux/thunk/resultAT";
 import { useParams } from "react-router-dom";
 import { getUserDataAC } from "../../redux/thunk/usersAC";
@@ -58,7 +58,7 @@ const Result = () => {
   return ( 
     <div className="main-page">
       <Row className="result-container">
-      <Col span={10} className='col col-left'>
+      <Col span={10} className='col col-left padd-1em'>
         <div>
           <Space className="result-column-left" direction="vertical">
             <div className="column" >
@@ -70,7 +70,7 @@ const Result = () => {
               {result.search_string}
             </Text>
             </div>
-            <div className="column-middle">
+            <div className="column-middle padd-1em">
             <Text >
               <div className="line-style skill-div">
               <Text strong>Вакансий:</Text> {result.count_vacancy} <br />
@@ -91,8 +91,8 @@ const Result = () => {
               <Text strong>Дата запроса:</Text> {result.createdAt?.slice(0, 10)} <br />
               </div>
             </Text>
-            <Link to={`/recomendation/${result_id}`}>
-              <Button type="primary">
+            <Link to={`/recomendation/${result_id}`} className="center-button">
+              <Button type="primary" shape="round" icon={<MessageTwoTone />} size={'large'}>
                 Рекомендации
               </Button>
             </Link>
@@ -101,13 +101,14 @@ const Result = () => {
         </div>
       </Col>
       <Col span={10} className='col'>
-        <div>
-        <div  className="column">
+        <div className="padd-1em">
+        <div  className="column ">
           <Text strong>
             Рейтинг навыков: 
           </Text>
           </div>
-          <div style={{padding: '10px'}}>
+          <div style={{padding: '10px'}} className="history-container marg-top-1em ">
+            <div >
           {report
             .sort((a, b) => b[1] - a[1])
             .map((el) => {
@@ -235,6 +236,7 @@ const Result = () => {
                 </Text>
               </div>
           )})}
+          </div>
           </div>
         </div>
       </Col>

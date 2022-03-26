@@ -21,10 +21,12 @@
 .column-middle {
   padding: 10px;
   /* border-bottom: 2px solid black; */
+  display: flex;
+  flex-direction: column;
 }
 
 .col {
-  background-color: aliceblue;
+  background-color: rgb(209, 233, 255);
   min-width: 20em;
 }
 
@@ -35,4 +37,25 @@
 .line-style {
   display: flex;
   justify-content: space-between;
+}
+
+a.center-button {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.marg-top-1em {
+  margin-top: 1em;
+}
+
+.padd-1em {
+  padding: 1em;
+}
+
+.padd-rl-1em {
+  padding: 0 1em;
+}
+
+.bgcol-white {
+  background-color: white;
 }

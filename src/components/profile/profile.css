@@ -49,18 +49,27 @@
   list-style-type: none;
   padding: 0;
   margin-top: 1em;
-  max-width: 100%;
-  /* max-width: 25em; */
+  max-width: 25em;
   min-width: 20em;
 }
 
-.profile-settings li {
+.profile-history {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1em;
+  max-width: 95%;
+  /* max-width: 25em; */
+  min-width: 95%;
+}
+
+.profile-settings li,
+ .profile-history li{
   border: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
   background-color: #f6f6f6;
   padding: 12px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .content-profile {
@@ -82,3 +91,14 @@
 .one-column-params {
   max-width: 40vw;
 }
+
+.li-flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-title-div {
+  font-size: larger;
+}
+
+

@@ -23,12 +23,12 @@ import Analize from './components/Analize/Analize';
 import Recomendation from './components/Recomendation/Recomendation';
 import VacanciesList from './components/VacanciesList';
 import MainInfo from './components/Main/MainInfo/Main2';
-import AboutUs from './components/Main/MainInfo/AboutUs';
 import ContactForm from './components/Main/MainInfo/ContactForm';
 import WhiteList from './components/Lists/WhiteList';
 import BlackList from './components/Lists/BlackList';
 import { allSkillsFromSkills } from './redux/actions/userSkills';
 import { useEffect } from 'react';
+import AllReports from './components/AllReports/AllReports';
 
 const { Content, Header, Footer } = Layout;
 
@@ -36,9 +36,9 @@ function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-      dispatch(allSkillsFromSkills(store.id));
-    }, []);
+    // useEffect(() => {
+    //   dispatch(allSkillsFromSkills(store.id));
+    // }, []);
     
     if (!store.name){
       dispatch(checkUserAC());
@@ -55,7 +55,8 @@ function App() {
             {!store.name && <Menu.Item key='3'><Link to='/signup'>Зарегистрироваться</Link></Menu.Item>}
             {store.name && <Menu.Item key='4'><Link to='/users/profile/'>{store.name}</Link></Menu.Item>}
             {store.name && <Menu.Item key='5'><Link to='/search'>Анализ вакансий</Link></Menu.Item>}
-            {store.name && <Menu.Item key='6'><Link to='/logout'>Выйти</Link></Menu.Item>}
+            {store.name && <Menu.Item key='6'><Link to='/reports'>Отчеты</Link></Menu.Item>}
+            {store.name && <Menu.Item key='7'><Link to='/logout'>Выйти</Link></Menu.Item>}
           </Menu>
         </Header>
         <Content style={{ padding: '0 50px' }}>
@@ -65,6 +66,7 @@ function App() {
             {!store.name && <Route path="/" element={<MainInfo/>} />}
             <Route path="/signin" element={<Login />} />
             <Route path="/signup" element={<Register />} />
+            <Route path="/contact" element={<ContactForm />} />
 
             <Route path="/users/profile/skills" element={<UserSkills />} />
 
@@ -86,13 +88,14 @@ function App() {
             <Route path="/api" element={<Analize />} />
             <Route path="/whitelist" element={<WhiteList/>} />
             <Route path="/blacklist" element={<BlackList/>} />
+            <Route path="/reports" element={<AllReports/>} />
           </Routes>
           </div>
         </Content>
         <Routes>
-        {!store.name && <Route path="/" element={<><AboutUs/><ContactForm/></>} />}
+        {/* {!store.name && <Route path="/" element={<ContactForm/>} />} */}
         </Routes>
-        <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus War-Hedgehogs</Footer>
+        <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus War-Hedgehogs &nbsp;&nbsp;&nbsp;<Link to={'/contact'}>Форма связи</Link></Footer>
       </Layout>
     </div>
   );
