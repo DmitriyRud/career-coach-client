@@ -35,10 +35,6 @@ const { Content, Header, Footer } = Layout;
 function App() {
     const store = useSelector((store) => store.users);
     const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //   dispatch(allSkillsFromSkills(store.id));
-    // }, []);
     
     if (!store.name){
       dispatch(checkUserAC());
@@ -76,15 +72,9 @@ function App() {
             <Route path='/profile/edit/email' element={<EditEmail/>} />
             <Route path='/profile/edit/password' element={<EditPassword/>} /> 
             <Route path="/logout" element={<Logout />} />
-            {/* тестовый рут для result */}
             <Route path="/result/:result_id" element={<Result />} />
-            {/* конец тестового рута */}
-            {/* тестовый рут для recomendation */}
             <Route path="/recomendation/:result_id" element={<Recomendation/>} />
-            {/* конец тестового рута */}
-            {/* тестовый рут для vacancies list */}
             <Route path="/vacancies" element={<div className="main-page vacancies-container"><div><VacanciesList /></div></div>} />
-            {/* конец тестового рута */}
             <Route path="/api" element={<Analize />} />
             <Route path="/whitelist" element={<WhiteList/>} />
             <Route path="/blacklist" element={<BlackList/>} />
@@ -93,9 +83,8 @@ function App() {
           </div>
         </Content>
         <Routes>
-        {/* {!store.name && <Route path="/" element={<ContactForm/>} />} */}
         </Routes>
-        <Footer style={{ textAlign: 'center' }}>Career Coach ©2022 Elbrus War-Hedgehogs &nbsp;&nbsp;&nbsp;<Link to={'/contact'}>Форма связи</Link></Footer>
+        <Footer style={{ textAlign: 'center' }}>Career Coach 2022 OpenSource project &nbsp;&nbsp;&nbsp;<Link to={'/contact'}>Форма связи</Link></Footer>
       </Layout>
     </div>
   );

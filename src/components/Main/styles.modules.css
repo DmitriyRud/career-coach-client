@@ -1,12 +1,30 @@
 .main-page {
-  min-width: 100%;
-  min-height: 85vh;  
+  width: 100%;
+  min-height: 90vh;  
+  /* max-height: 90vh; */
   /* min-height: 80vh;
   min-width: 50em; */
   background: none;
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   padding: 2em;
+  margin-bottom: 1em;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-container-left {
+  width: 50%;
+  margin: auto;
+}
+
+.main-container-right {
+  width: 50%;
+  margin: auto;
 }
 
 .profile-line,
