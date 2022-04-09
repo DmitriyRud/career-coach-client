@@ -36,7 +36,6 @@ const Main = () => {
   const vacancies = useSelector((store) => store.vacancy.vacancies);
   const dispatch = useDispatch();
   console.log('VacanciesList >> ', vacancies);
-  // console.log(user);
   useEffect(() => {
     dispatch(getVacanciesAT(user.id))
   }, [])
@@ -67,7 +66,6 @@ useEffect(() => {
   const isSearchMade = async() => {
   const response = await fetch(`/helper/result/user/${user.id}`);
   const res = await response.json()
-  // console.log('search > ', res)
   if (response.ok && res.length!==0) {
     setIsSearch(true);
     
@@ -82,7 +80,8 @@ isSearchMade();
     <div className="main-page">
       <h1>Привет, {userName}!</h1>
       <h2>Я твой карьерный коуч. С моей помощью ты быстро построишь головокружительную карьеру!</h2>
-      {/* Здесь нужно вставить проверку: если скилы не добавлены, выводить этот блок: */}
+      <div className="main-container">
+        <div className="main-container-left">
       <div className="profile-line">
         <p>В своем профиле ты можешь добавить или изменить информацию о себе, а также посмотреть рекомендации по предыдущим запросам:</p>
         <Button type="primary" shape="round" icon={<BookTwoTone />} size={'large'} style={{ width: 400 }} onClick={profileClickHandler}>
@@ -103,7 +102,6 @@ isSearchMade();
       }
       </div>
 
-      {/* Здесь нужно вставить проверку: если анализ не проводился, выводить этот блок: */}
       <div className="analize-line">
         {isLoading ? <Spin indicator={antIcon} /> : !isSearch ? 
         (<> <p>Попробуй проанализировать рынок вакансий - это самый мощный мой инструмент. Проведя анализ, мы с тобой поймем, какие навыки требуются работодателям,
@@ -119,11 +117,11 @@ isSearchMade();
         Провести новый анализ рынка вакансий
         </Button></>
         )}      
-      </div>
-  
-      {/* Если навыки добавлены и проводился хотя бы один анализ, нужно выводить в следующем блоке подходящие вакансии : */}
+      </div></div>
+      <div className="main-container-right">
       {vacancies.length > 0 && <VacanciesList />}
-      
+      </div>
+      </div>
     </div>
    );
 }
